@@ -4,5 +4,14 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
-insecure
+iron-router
+coffeescript
+sass
+underscore
+bootstrap-3
+accounts-password
+accounts-base
+jquery
+check
+audit-argument-checks
+handlebars-server
