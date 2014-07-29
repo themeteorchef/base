@@ -19,6 +19,18 @@ Template.signup.helpers(
 
 # Events
 Template.signup.events(
-    'click .example': (e,t) ->
-        # Code to run for example event.
+    'submit form': (e) ->
+
+        # Prevent form from submitting.
+        e.preventDefault()
+
+        # Grab the user's details.
+        user =
+            email: $('[name="emailAddress"]').val()
+            password: $('[name="password"]').val()
+
+        # Create the user's account.
+        Accounts.createUser(user, (error)->
+            alert error.reason if error
+        )
 )

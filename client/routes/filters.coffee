@@ -11,7 +11,7 @@
     re-route them to the login screen.
 ###
 checkUserLoggedIn = ->
-    if not Meteor.loggingIn() or Meteor.user()
+    if not Meteor.loggingIn() and not Meteor.user()
         Router.go '/login'
         @pause
 
