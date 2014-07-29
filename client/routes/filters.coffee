@@ -11,7 +11,7 @@
 checkUserLoggedIn = ->
     if not Meteor.loggingIn() or Meteor.user()
         Router.go '/login'
-        pause()
+        @pause
 
 # Check if a User Exists
 # If a user is logged in and attempts to go to a public route, re-route
@@ -19,7 +19,6 @@ checkUserLoggedIn = ->
 userAuthenticated = ->
     if not Meteor.loggingIn() and Meteor.user()
         Router.go '/'
-
 
 # Run Filters
 
