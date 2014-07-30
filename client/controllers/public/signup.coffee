@@ -19,18 +19,24 @@ Template.signup.helpers(
 
 # Events
 Template.signup.events(
-    'submit form': (e) ->
+    'submit form': (e,t) ->
 
         # Prevent form from submitting.
         e.preventDefault()
 
         # Grab the user's details.
         user =
-            email: $('[name="emailAddress"]').val()
-            password: $('[name="password"]').val()
+            email: t.find('[name="emailAddress"]').value
+            password: t.find('[name="password"]').value
 
         # Create the user's account.
-        Accounts.createUser(user, (error)->
-            alert error.reason if error
-        )
+        Meteor.call 'createUserAccount', user, (error,response) ->
+
+            # If the account is created successfully, log the user in using the credentials
+            # from above.
+            if response.success
+                Meteor.loginWithPassword(user.email, user.password, (error)->
+                    alert error.reason if error
+                )
+
 )

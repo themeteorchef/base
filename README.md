@@ -63,6 +63,7 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---/public
 ---/server
 ------/admin
+---------accounts.coffee
 ---------startup.coffee
 ------/publications
 ---------example.coffee

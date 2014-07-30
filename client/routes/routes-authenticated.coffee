@@ -1,11 +1,8 @@
 Router.map(->
-    ###
-        @route('exampleAuthenticatedRoute',
-            path: '/example'
-            template: 'example'
-            layoutTemplate: 'customLayoutExample'
-            onBeforeAction: ->
-                # Code to run before route goes here.
-        )
-    ###
+    @route('index',
+        path: '/'
+        template: 'index'
+        onBeforeAction: ->
+            # Code to run before route goes here.
+    )
 )

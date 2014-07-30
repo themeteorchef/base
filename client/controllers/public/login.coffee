@@ -19,17 +19,17 @@ Template.login.helpers(
 
 # Events
 Template.login.events(
-    'submit form': (e) ->
+    'submit form': (e,t) ->
 
         # Prevent form from submitting.
         e.preventDefault()
 
         # Grab the user's details.
         user =
-            email: $('[name="emailAddress"]').val()
-            password: $('[name="password"]').val()
+            email: t.find('[name="emailAddress"]').value
+            password: t.find('[name="password"]').value
 
-        # Create the user's account.
+        # Log the user in.
         Meteor.loginWithPassword(user.email, user.password, (error)->
             alert error.reason if error
         )
