@@ -30,11 +30,13 @@ Template.signup.events(
             password: t.find('[name="password"]').value
 
         # Create the user's account.
-        Meteor.call 'createUserAccount', user, (error,response) ->
+        Meteor.call 'createUserAccount', user, (error) ->
 
             # If the account is created successfully, log the user in using the credentials
             # from above.
-            if response.success
+            if error
+                alert error.reason
+            else
                 Meteor.loginWithPassword(user.email, user.password, (error)->
                     alert error.reason if error
                 )
