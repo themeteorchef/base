@@ -1,0 +1,23 @@
+# EditorConfig – Follow the rules, hippie.
+# Make sure to install the plugin for your editor: http://editorconfig.org/#download (we use SublimeText or Atom).
+# http://editorconfig.org
+
+# Root
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.js]
+indent_size = 2
+
+[*.coffee]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
