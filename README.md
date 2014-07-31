@@ -41,16 +41,16 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---------routes-public.coffee
 ------/stylesheets
 ---------/globals
+------------_extends.scss
 ---------/modules
 ---------/vendor
 ---------/views
 ------------/public
 ---------------_login.scss
----------------_recover-password.scss
----------------_reset-password.scss
----------------_signup.scss
 ---------app.scss
 -------/views
+---------/authenticated
+------------index.html
 ---------/public
 ------------login.html
 ------------recover-password.html
@@ -60,18 +60,16 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------example.coffee
 ---/lib
 ---/packages
+------ (See List Above)
 ---/public
 ---/server
 ------/admin
 ---------accounts.coffee
 ---------startup.coffee
 ------/publications
----------example.coffee
 ------/email
 ---------/send
-------------example.coffee
 ---------/templates
-------------example.handlebars
 ------/data
 ---------/insert
 ---------/update
@@ -83,8 +81,21 @@ There are two considerations when using Base: JavaScript is written in [CoffeeSc
 
 ### Functionality
 
-###### Basic Routing (Not Included Yet, Just Documenting)
-A collection of pre-defined routes and templates for common functionality (see Authenticate below). Also includes a set of common route filters for managing user access.
+###### Basic Routing
+A collection of pre-defined routes and templates for common functionality (see Authenticate below). Also includes a set of common route filters for managing user access. Routes bundled include:
+
+```
+- / (Authenticated)
+- /login (Public)
+- /signup (Public)
+- /recover-password (Public)
+- /reset-password (Public)
+```
 
 ###### Authentication (Not Included Yet, Just Documenting)
-A complete authentication pattern complete with: signup, login, and password recovery. Also includes an automated user creation script in `/server/startup.coffee`.
+A complete authentication pattern complete with: signup, login, and password recovery. Feautres:
+
+- Server-only Account Creation (to prevent client-side signups)
+
+###### Automatic Admin User Creation
+When developing, having a handful of user accounts to test your application with can come in handy. Base comes with an automated account generation script located in `server/admin/startup.coffee` that creates accounts based on an array of specified users. **Note**: by default this creates one Admin user on server startup, so make sure to customize or remove this user so the public can't access your app :)
