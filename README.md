@@ -85,6 +85,9 @@ There are two considerations when using Base: JavaScript is written in [CoffeeSc
 
 ### Functionality
 
+###### Bootstrap (@3.2.0)
+Base makes use of the [Bootstrap](http://getbootstrap.com) Front-End Framework. It may not be your bag of chips and is *definitely not required*. If you want to swap it out, you'll need to unhook the markup in each of the included template files in `/client/views` and uninstall the Bootstrap3 package by running `meteor remove pinglamb:bootstrap3` in your terminal.
+
 ###### Basic Routing
 A collection of pre-defined routes and templates for common functionality (see Authenticate below). Also includes a set of common route filters for managing user access. Routes bundled include:
 
