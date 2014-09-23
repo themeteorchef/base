@@ -19,6 +19,16 @@ Template.recoverPassword.helpers(
 
 # Events
 Template.recoverPassword.events(
-  'click .example': (e,t) ->
-    # Code to run for example event.
+  'submit form': (e,t) ->
+
+    # Prevent form from submitting.
+    e.preventDefault()
+
+    # Grab the user's details.
+    email = t.find('[name="emailAddress"]').value
+
+    # Call the send reset password email method.
+    Accounts.forgotPassword(email: email, (error)->
+      alert error.reason if error
+    )
 )

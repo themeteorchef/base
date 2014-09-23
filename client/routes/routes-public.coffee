@@ -22,9 +22,9 @@ Router.map(->
   )
 
   @route('reset-password',
-    path: '/reset-password'
+    path: '/reset-password/:token'
     template: 'resetPassword'
     onBeforeAction: ->
-      # Code to run before route goes here.
+      Session.set 'resetPasswordToken', @params.token
   )
 )
