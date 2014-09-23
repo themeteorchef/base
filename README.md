@@ -77,6 +77,7 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------/email
 ---------/send
 ---------/templates
+------------reset-password.coffee
 ------/publications
 ```
 
@@ -99,12 +100,15 @@ A collection of pre-defined routes and templates for common functionality (see A
 - /reset-password (Public)
 ```
 
-###### Authentication (Not Included Yet, Just Documenting)
+###### Authentication
 A complete authentication pattern complete with:
 
 - Signup (at /signup)
 - Login (at /login)
 - Password Recovery (at /recover-password and /reset-password)
+
+###### Validation (Not Added Yet)
+Validation via [jQuery Validation](http://jqueryvalidation.org). This applies to all of the public templates: login, signup, recover password, and reset password.
 
 ###### Automatic Admin User Creation
 When developing, having a handful of user accounts to test your application with can come in handy. Base comes with an automated account generation script located in `server/admin/startup.coffee` that creates accounts based on an array of specified users. **Note: by default this creates one Admin user on server startup, so make sure to customize or remove this user so the public can't access your app**.
