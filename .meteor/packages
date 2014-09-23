@@ -4,15 +4,14 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-iron-router
 coffeescript
-sass
 underscore
-bootstrap-3
 accounts-password
 accounts-base
 jquery
 check
 audit-argument-checks
-handlebars-server
-
+iron:router
+pinglamb:bootstrap3
+particle4dev:sass
+cmather:handlebars-server
