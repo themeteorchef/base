@@ -1,4 +1,4 @@
-# The Meteor Chef - Base
+# The Meteor Chef - Base (@0.9.2.2)
 A starting point for Meteor apps.
 
 ### **This project is currently under heavy development and not recommended for use.**
@@ -9,13 +9,13 @@ Base is the lazy person's starter kit for Meteor. It includes some commonly used
 - Accounts (Base) - `meteor add accounts-base`
 - Accounts (Password) - `meteor add accounts-password`
 - Audit Argument Checks - `meteor add audit-argument-checks`
-- Bootstrap 3 - `mrt add bootstrap-3`
+- Bootstrap 3 - `meteor add pinglamb:bootstrap3`
 - Check - `meteor add check`
 - CoffeeScript - `meteor add coffeescript`
-- Handlebars Server - `mrt add handlebars-server`
-- Iron Router - `mrt add iron-router`
+- Handlebars Server - `meteor add cmather:handlebars-server`
+- Iron Router - `meteor add iron:router`
 - jQuery - `meteor add jquery`
-- Sass - `mrt add sass`
+- Sass - `meteor add particle4dev:sass`
 - Underscore - `meteor add underscore`
 
 ### File Structure
@@ -23,6 +23,7 @@ Base comes with a pre-defined file structure common to all projects along with s
 
 ```
 /root
+---/.meteor
 ---/client
 ------/controllers
 ---------/public
@@ -40,19 +41,22 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---------routes-authenticated.coffee
 ---------routes-public.coffee
 ------/stylesheets
----------/globals
-------------_extends.scss
----------/modules
----------/vendor
----------/views
-------------/public
----------------_login.scss
----------app.scss
+---------/sass
+------------/globals
+---------------_extends.scss
+------------/modules
+------------/vendor
+------------/views
+---------------/authenticated
+---------------/public
+------------------_login.scss
+---------application.scss
 -------/views
 ---------/authenticated
 ------------index.html
 ---------/public
 ------------login.html
+------------not-found.html
 ------------recover-password.html
 ------------reset-password.html
 ------------signup.html
@@ -66,14 +70,14 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------/admin
 ---------accounts.coffee
 ---------startup.coffee
-------/publications
-------/email
----------/send
----------/templates
 ------/data
 ---------/insert
 ---------/update
 ---------/remove
+------/email
+---------/send
+---------/templates
+------/publications
 ```
 
 ### Language & Formatting
