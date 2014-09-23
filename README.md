@@ -98,4 +98,4 @@ A complete authentication pattern complete with: signup, login, and password rec
 - Server-only Account Creation (to prevent client-side signups)
 
 ###### Automatic Admin User Creation
-When developing, having a handful of user accounts to test your application with can come in handy. Base comes with an automated account generation script located in `server/admin/startup.coffee` that creates accounts based on an array of specified users. **Note**: by default this creates one Admin user on server startup, so make sure to customize or remove this user so the public can't access your app :)
+When developing, having a handful of user accounts to test your application with can come in handy. Base comes with an automated account generation script located in `server/admin/startup.coffee` that creates accounts based on an array of specified users. **Note: by default this creates one Admin user on server startup, so make sure to customize or remove this user so the public can't access your app**.
