@@ -1,4 +1,4 @@
-# The Meteor Chef - Base (@0.9.2.2)
+# The Meteor Chef - Base (@0.9.3)
 A starting point for Meteor apps.
 
 ### **This project is currently under heavy development and not recommended for use.**
