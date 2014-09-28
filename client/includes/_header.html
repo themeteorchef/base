@@ -20,6 +20,11 @@
 	          </ul>
 	        </li>
 	      </ul>
+	      {{else}}
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="{{pathFor 'login'}}">Login</a></li>
+	        <li><a href="{{pathFor 'signup'}}">Sign Up</a></li>
+	      </ul>
 	      {{/if}}
 	    </div> <!-- end .navbar-collapse -->
 	  </div> <!-- end .container-fluid -->
