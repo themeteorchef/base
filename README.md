@@ -111,6 +111,7 @@ A complete authentication pattern complete with:
 
 - Signup (at /signup)
 - Login (at /login)
+- Logout (no path, implemented as a dropdown item/click event in /client/controllers/header.coffee)
 - Password Recovery (at /recover-password and /reset-password)
 
 ###### Validation (Not Added Yet)
