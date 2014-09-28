@@ -26,6 +26,8 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---/.meteor
 ---/client
 ------/controllers
+---------/authenticated
+------------header.coffee
 ---------/public
 ------------login.coffee
 ------------signup.coffee
@@ -33,6 +35,8 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------------reset-password.coffee
 ------/helpers
 ---------helpers-ui.coffee
+------/includes
+---------_header.html
 ------/layouts
 ---------layout-default.html
 ------/routes
