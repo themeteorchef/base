@@ -15,6 +15,7 @@ Base is the lazy person's starter kit for Meteor. It includes some commonly used
 - Handlebars Server - `meteor add cmather:handlebars-server`
 - Iron Router - `meteor add iron:router`
 - jQuery - `meteor add jquery`
+- jQuery Validation - `meteor add themeteorchef:jquery-validation`
 - Sass - `meteor add particle4dev:sass`
 - Underscore - `meteor add underscore`
 
@@ -114,7 +115,7 @@ A complete authentication pattern complete with:
 - Logout (no path, implemented as a dropdown item/click event in /client/controllers/header.coffee)
 - Password Recovery (at /recover-password and /reset-password)
 
-###### Validation (Not Added Yet)
+###### Validation
 Validation via [jQuery Validation](http://jqueryvalidation.org). This applies to all of the public templates: login, signup, recover password, and reset password.
 
 ###### Automatic Admin User Creation
