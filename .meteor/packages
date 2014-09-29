@@ -15,3 +15,5 @@ iron:router
 pinglamb:bootstrap3
 particle4dev:sass
 cmather:handlebars-server
+themeteorchef:jquery-validation
+

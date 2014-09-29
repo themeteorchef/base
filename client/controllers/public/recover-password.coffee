@@ -9,7 +9,24 @@ Template.recoverPassword.created = ->
 
 # Rendered
 Template.recoverPassword.rendered = ->
-  # Code to run when template is rendered goes here.
+  $('#application-recover-password').validate(
+    rules:
+      emailAddress:
+        required: true
+        email: true
+    messages:
+      emailAddress:
+        required: "Please enter your email address to recover your password."
+        email: "Please enter a valid email address."
+    submitHandler: ->
+      # Grab the user's details.
+      email = $('[name="emailAddress"]').val()
+
+      # Call the send reset password email method.
+      Accounts.forgotPassword(email: email, (error)->
+        alert error.reason if error
+      )
+  )
 
 # Helpers
 Template.recoverPassword.helpers(
@@ -19,16 +36,7 @@ Template.recoverPassword.helpers(
 
 # Events
 Template.recoverPassword.events(
-  'submit form': (e,t) ->
-
+  'submit form': (e) ->
     # Prevent form from submitting.
     e.preventDefault()
-
-    # Grab the user's details.
-    email = t.find('[name="emailAddress"]').value
-
-    # Call the send reset password email method.
-    Accounts.forgotPassword(email: email, (error)->
-      alert error.reason if error
-    )
 )

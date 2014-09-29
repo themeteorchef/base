@@ -9,7 +9,32 @@ Template.signup.created = ->
 
 # Rendered
 Template.signup.rendered = ->
-  # Code to run when template is rendered goes here.
+  $('#application-signup').validate(
+    rules:
+      emailAddress:
+        required: true
+        email: true
+      password:
+        required: true
+        minlength: 6
+    messages:
+      emailAddress:
+        required: "Please enter your email address to sign up."
+        email: "Please enter a valid email address."
+      password:
+        required: "Please enter a password to sign up."
+        minlength: "Please use at least six characters."
+    submitHandler: ->
+      # Grab the user's details.
+      user =
+          email: $('[name="emailAddress"]').val()
+          password: $('[name="password"]').val()
+
+      # Create the user's account.
+      Accounts.createUser({email: user.email, password: user.password}, (error)->
+        alert error.reason if error
+      )
+  )
 
 # Helpers
 Template.signup.helpers(
@@ -19,25 +44,7 @@ Template.signup.helpers(
 
 # Events
 Template.signup.events(
-  'submit form': (e,t) ->
-
+  'submit form': (e) ->
     # Prevent form from submitting.
     e.preventDefault()
-
-    # Grab the user's details.
-    user =
-        email: t.find('[name="emailAddress"]').value
-        password: t.find('[name="password"]').value
-
-    # Create the user's account.
-    Meteor.call 'createUserAccount', user, (error) ->
-
-        # If the account is created successfully, log the user in using the credentials
-        # from above.
-        if error
-            alert error.reason
-        else
-            Meteor.loginWithPassword(user.email, user.password, (error)->
-                alert error.reason if error
-            )
 )

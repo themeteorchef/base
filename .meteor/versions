@@ -60,6 +60,7 @@ spacebars@1.0.2
 srp@1.0.0
 standard-app-packages@1.0.2
 templating@1.0.7
+themeteorchef:jquery-validation@1.0.0
 tracker@1.0.2
 ui@1.0.3
 underscore@1.0.0

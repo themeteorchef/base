@@ -9,7 +9,37 @@ Template.resetPassword.created = ->
 
 # Rendered
 Template.resetPassword.rendered = ->
-  # Code to run when template is rendered goes here.
+  $('#application-reset-password').validate(
+    rules:
+      newPassword:
+        required: true
+        minlength: 6
+      repeatNewPassword:
+        required: true
+        minlength: 6
+        equalTo: "[name='newPassword']"
+    messages:
+      newPassword:
+        required: "Please enter a new password."
+        minlength: "Please use at least six characters."
+      repeatNewPassword:
+        required: "Please repeat your new password."
+        equalTo: "Your password do not match. Please try again."
+    submitHandler: ->
+      # Grab the user's reset token and new password.
+      token    = Session.get 'resetPasswordToken'
+      password =
+        newPassword: $('[name="newPassword"]').val()
+        repeatPassword: $('[name="repeatNewPassword"]').val()
+
+      # Reset the user's password.
+      Accounts.resetPassword(token, password.newPassword, (error)->
+        if error
+          alert error.reason
+        else
+          Session.set 'resetPasswordToken', null
+      )
+  )
 
 # Helpers
 Template.resetPassword.helpers(
@@ -19,25 +49,7 @@ Template.resetPassword.helpers(
 
 # Events
 Template.resetPassword.events(
-  'submit form': (e,t) ->
-
+  'submit form': (e) ->
     # Prevent form from submitting.
     e.preventDefault()
-
-    # Grab the user's reset token and new password.
-    token    = Session.get 'resetPasswordToken'
-    password =
-      newPassword: t.find('[name="newPassword"]').value
-      repeatPassword: t.find('[name="repeatNewPassword"]').value
-
-    # Call the reset password method if the passwords match.
-    if password.newPassword == password.repeatPassword
-      Accounts.resetPassword(token, password.newPassword, (error)->
-        if error
-          alert error.reason
-        else
-          Session.set 'resetPasswordToken', null
-      )
-    else
-      alert 'Please make sure that your passwords match and try again.'
 )
