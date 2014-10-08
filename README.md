@@ -3,6 +3,8 @@ A starting point for Meteor apps.
 
 Base is the lazy person's starter kit for Meteor. It includes some commonly used packages (biased to The Meteor Chef) and code for common functionality. This is the starter kit for all Meteor Chef recipes.
 
+For more detail on updates, [read the Changelog](https://github.com/themeteorchef/base/wiki/Changelog).
+
 ### Packages Included
 - Accounts (Base) - `meteor add accounts-base`
 - Accounts (Password) - `meteor add accounts-password`
