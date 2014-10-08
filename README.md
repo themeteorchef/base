@@ -107,6 +107,8 @@ A collection of pre-defined routes and templates for common functionality (see A
 - /reset-password (Public)
 ```
 
+This also includes a UI helper called `currentRoute` which allows you to add an `active` class to menu items in your UI to reflect the user's current position.
+
 ###### Authentication
 A complete authentication pattern complete with:
 

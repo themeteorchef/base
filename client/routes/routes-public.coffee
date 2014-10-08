@@ -4,27 +4,28 @@ Router.map(->
     path: '/signup'
     template: 'signup'
     onBeforeAction: ->
-      # Code to run before route goes here.
+      Session.set 'currentRoute', 'signup'
   )
 
   @route('login',
     path: '/login'
     template: 'login'
     onBeforeAction: ->
-      # Code to run before route goes here.
+      Session.set 'currentRoute', 'login'
   )
 
   @route('recover-password',
     path: '/recover-password'
     template: 'recoverPassword'
     onBeforeAction: ->
-      # Code to run before route goes here.
+      Session.set 'currentRoute', 'recover-password'
   )
 
   @route('reset-password',
     path: '/reset-password/:token'
     template: 'resetPassword'
     onBeforeAction: ->
+      Session.set 'currentRoute', 'reset-password'
       Session.set 'resetPasswordToken', @params.token
   )
 )
