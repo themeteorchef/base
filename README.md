@@ -1,4 +1,4 @@
-# The Meteor Chef - Base (@0.9.4)
+# The Meteor Chef - Base (@1.0.0)
 A starting point for Meteor apps.
 
 Base is the lazy person's starter kit for Meteor. It includes some commonly used packages (biased to The Meteor Chef) and code for common functionality. This is the starter kit for all Meteor Chef recipes.
