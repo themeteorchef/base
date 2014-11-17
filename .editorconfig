@@ -1,23 +1,17 @@
-# EditorConfig – Follow the rules, hippie.
-# Make sure to install the plugin for your editor: http://editorconfig.org/#download (we use SublimeText or Atom).
-# http://editorconfig.org
+#.editorconfig
+# Meteor adapted
 
-# Root
 root = true
 
-[*]
+[*.js]
+end_of_line = lf
+insert_final_newline = true
 indent_style = space
 indent_size = 2
-end_of_line = lf
-charset = utf-8
 trim_trailing_whitespace = true
-insert_final_newline = true
-
-[*.js]
-indent_size = 2
-
-[*.coffee]
-indent_size = 2
-
-[*.md]
-trim_trailing_whitespace = false
+charset = utf-8
+max_line_length = 80
+indent_brace_style = 1TBS
+spaces_around_operators = true
+quote_type = auto
+# curly_bracket_next_line = true
