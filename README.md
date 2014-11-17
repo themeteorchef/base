@@ -11,7 +11,6 @@ For more detail on updates, [read the Changelog](https://github.com/themeteorche
 - Audit Argument Checks - `meteor add audit-argument-checks`
 - Bootstrap 3 - `meteor add pinglamb:bootstrap3`
 - Check - `meteor add check`
-- CoffeeScript - `meteor add coffeescript`
 - Handlebars Server - `meteor add cmather:handlebars-server`
 - Iron Router - `meteor add iron:router`
 - jQuery - `meteor add jquery`
@@ -28,23 +27,23 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---/client
 ------/controllers
 ---------/authenticated
-------------header.coffee
+------------header.js
 ---------/public
-------------login.coffee
-------------signup.coffee
-------------recover-password.coffee
-------------reset-password.coffee
+------------login.js
+------------signup.js
+------------recover-password.js
+------------reset-password.js
 ------/helpers
----------helpers-ui.coffee
+---------helpers-ui.js
 ------/includes
 ---------_header.html
 ------/layouts
 ---------layout-default.html
 ------/routes
----------filters.coffee
----------routes-global.coffee
----------routes-authenticated.coffee
----------routes-public.coffee
+---------filters.js
+---------routes-global.js
+---------routes-authenticated.js
+---------routes-public.js
 ------/stylesheets
 ---------/sass
 ------------/globals
@@ -66,15 +65,15 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------------reset-password.html
 ------------signup.html
 ---/collections
-------example.coffee
+------example.js
 ---/lib
 ---/packages
 ------ (See List Above)
 ---/public
 ---/server
 ------/admin
----------accounts.coffee
----------startup.coffee
+---------accounts.js
+---------startup.js
 ------/data
 ---------/insert
 ---------/update
@@ -82,12 +81,12 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------/email
 ---------/send
 ---------/templates
-------------reset-password.coffee
+------------reset-password.js
 ------/publications
 ```
 
 ### Language & Formatting
-There are two considerations when using Base: JavaScript is written in [CoffeeScript](http://coffeescript.org) and CSS is written using [Sass](http://sass-lang.com). I prefer this setup because it allows me to move a little quicker than I do when writing in the native languages. This may not be for everybody, but I recommend giving both a shot because they make it much easier to write code.
+There is one considerations when using Base: the CSS is written using [Sass](http://sass-lang.com). If you want to use coffee use the original base.
 
 ### Functionality
 
