@@ -5,6 +5,8 @@ Base is the lazy person's starter kit for Meteor. It includes some commonly used
 
 For more detail on updates, [read the Changelog](https://github.com/themeteorchef/base/wiki/Changelog).
 
+**NOTE**: the are other, more actively maintained [Meteor boilerplates](https://github.com/themeteorchef/base/issues/1) out there. Since I don't have much time to maintain this project, if nobody steps in to fork it, I plan to discontinue it on January 1st, 2015.
+
 ### Packages Included
 - Accounts (Base) - `meteor add accounts-base`
 - Accounts (Password) - `meteor add accounts-password`
