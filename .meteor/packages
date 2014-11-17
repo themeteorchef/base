@@ -3,17 +3,31 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-standard-app-packages
-coffeescript
+#Base
+meteor-platform
 underscore
 accounts-password
 accounts-base
-jquery
+reactive-var
+
+#Styles
+#lumatijev:semantic-ui-beta
+pinglamb:bootstrap3
+cryptoquick:stylus-multi
+
+
+#Routing
+iron:router
+cmather:handlebars-server
+
+#Validation
+aldeed:collection2
+
+
 check
 audit-argument-checks
-iron:router
-pinglamb:bootstrap3
-cmather:handlebars-server
 themeteorchef:jquery-validation
-particle4dev:sass@0.3.0
+
+#Animation
+#infinitedg:gsap
 

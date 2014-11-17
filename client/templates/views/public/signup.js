@@ -42,11 +42,13 @@ Template.signup.rendered = function() {
     //Grab users detials
       var user;
       user = {
+        username: $('[name="userName"]').val(),
         email: $('[name="emailAddress"]').val(),
         password: $('[name="password"]').val()
       };
       //Create the users account
       return Accounts.createUser({
+        username: user.username,
         email: user.email,
         password: user.password
       }, function(error) {
