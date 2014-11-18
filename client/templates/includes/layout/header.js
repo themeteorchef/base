@@ -18,6 +18,11 @@ Template.header.created = function() {};
 /*******************************/
 Template.header.rendered = function() {};
 
+//Usermenu/dropmenu needs to be on a seprate tmpl otherwise it will
+//not be loaded correctly
+Template.userMenu.rendered = function() {
+  $('.dropdown').dropdown({transition: 'drop'});
+};
 
 /***************************************************************/
 /* Helpers */
