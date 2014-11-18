@@ -39,18 +39,6 @@ Template.login.rendered = function() {
         required: "Please enter your password to login."
       },
     },
-    submitHandler: function() {
-      var user;
-      user = {
-        email: $('[name="emailAddress"]').val(),
-        password: $('[name="password"]').val()
-      };
-      return Meteor.loginWithPassword(user.email, user.password, function(error) {
-        if (error) {
-          return alert(error.reason);
-        }
-      });
-    }
   });
 };
 
@@ -65,7 +53,19 @@ Template.login.helpers({
 /* Events */
 /***************************************************************/
 Template.login.events({
-  'submit form': function(e, t) {
-    return e.preventDefault();
+  'submit #application-login': function(e, tmpl) {
+    e.preventDefault();
+    var user;
+    user = {
+      email: tmpl.find('[name="emailAddress"]').value.trim(),
+      password: tmpl.find('[name="password"]').value
+    };
+    console.log(user)
+    return Meteor.loginWithPassword(user.email, user.password, function(error) {
+      if (error) {
+        console.log(error)
+        ErrorMessage.insert({errormessage: error});
+      }
+    });
   },
 });
