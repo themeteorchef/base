@@ -27,6 +27,9 @@ Template.login.rendered = function() {
         required: true
       }
     },
+    highlight: function(element) {
+      $(element).parent().addClass("error");
+    },
     messages: {
       emailAddress: {
         required: "Please enter your email address to login.",
@@ -34,7 +37,7 @@ Template.login.rendered = function() {
       },
       password: {
         required: "Please enter your password to login."
-      }
+      },
     },
     submitHandler: function() {
       var user;
@@ -64,5 +67,5 @@ Template.login.helpers({
 Template.login.events({
   'submit form': function(e, t) {
     return e.preventDefault();
-  }
+  },
 });
