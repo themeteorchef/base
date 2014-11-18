@@ -1,32 +1,25 @@
 <template name="signup">
-<div class="ui form">
-  <div class="two fields">
-    <div class="field error">
-      <label>First Name</label>
-      <input placeholder="First Name" type="text">
-    </div>
-    <div class="field">
-      <label>Last Name</label>
-      <input placeholder="Last Name" type="text">
-    </div>
-  </div>
-  <div class="field error">
-    <label>Gender</label>
-    <div class="ui selection dropdown">
-      <div class="default text">Select</div>
-      <i class="dropdown icon"></i>
-      <input type="hidden" name="gender">
-      <div class="menu">
-        <div class="item" data-value="male">Male</div>
-        <div class="item" data-value="female">Female</div>
-      </div>
-    </div>
-  </div>
-  <div class="inline error field">
-    <div class="ui checkbox">
-      <input type="checkbox">
-      <label>I agree to the Terms and Conditions</label>
-    </div>
-  </div>
-</div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <h3 class="page-header">Sign Up</h3>
+      <form id="application-signup" class="signup">
+        <div class="form-group">
+          <label for="userName">Username</label>
+          <input type="username" name="userName" class="form-control" placeholder="Username">
+        </div> <!-- end .form-group -->
+        <div class="form-group">
+          <label for="emailAddress">Email Address</label>
+          <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+        </div> <!-- end .form-group -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" class="form-control" placeholder="Password">
+        </div> <!-- end .form-group -->
+        <div class="form-group">
+          <input type="submit" class="btn btn-success" value="Sign Up">
+        </div> <!-- end .form-group -->
+      </form>
+      <p>Already have an account? <a href="{{pathFor 'login'}}">Log In</a>.</p>
+    </div> <!-- end .col-xs-12 -->
+  </div> <!-- end .row -->
 </template>
