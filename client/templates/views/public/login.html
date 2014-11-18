@@ -1,50 +1,61 @@
 <template name="login">
-<div class="loginTitle">
-  <h2 class="ui icon header">
-  <i class="sign in icon"></i>
-  <div class="content">
-    Login To View The Future
-    <div class="sub header">Your mind is about to be blown</div>
-  </div>
-</h2>
-</div>
 
-<div id="login">
-  <div class="ui two column middle aligned relaxed fitted stackable grid">
-  <div class="column">
-  <form id="application-login" >
-    <div class="ui form segment">
-      <div class="field">
-        <label>Email</label>
-        <div class="ui left icon input">
-          <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
-          <i class="user icon"></i>
-        </div>
+<!-- Header Title -->
+  <div class="loginTitle">
+    <h2 class="ui icon header">
+    <i class="sign in icon"></i>
+      <div class="content">
+        Login To View The Future
+        <div class="sub header">Your mind is about to be blown</div>
       </div>
-      <div class="field">
-        <label>Password</label>
-        <div class="ui left icon input">
-          <input type="password" name="password" class="form-control" placeholder="Password">
-          <i class="lock icon"></i>
+    </h2>
+  </div>
+
+<!-- Login/SignUp -->
+  <div id="login">
+    <div class="ui two column middle aligned relaxed fitted stackable grid">
+      <div class="column">
+  <!-- Login Form -->
+      <form id="application-login" >
+        <div class="ui form segment">
+          <div class="field">
+            <label>Email</label>
+            <div class="ui left icon input">
+              <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+              <i class="user icon"></i>
+            </div>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <div class="ui left icon input">
+              <input type="password" name="password" class="form-control" placeholder="Password">
+              <i class="lock icon"></i>
+            </div>
+          </div>
+          <input type="submit" class="ui blue submit button" value="Login">
         </div>
+        </form>
       </div>
-      <input type="submit" class="ui blue submit button" value="Login">
+  <!-- Divider -->
+    <div class="ui vertical divider">
+      Or
     </div>
-    </form>
-  </div>
-  <div class="ui vertical divider">
-    Or
-  </div>
-  <div class="center aligned column">
-  {{#linkTo route="signup.link"}}
-    <div class="huge green ui labeled icon button signupButton">
-      <i class="signup icon"></i>
-        <div class="signupLabel">
-          Sign Up
+  <!-- Sign Up Button -->
+      <div class="center aligned column">
+      {{#linkTo route="signup.link"}}
+        <div class="huge green ui labeled icon button signupButton">
+          <i class="signup icon"></i>
+            <div class="signupLabel">
+              Sign Up
+            </div>
         </div>
+        {{/linkTo}}
+      </div>
     </div>
-    {{/linkTo}}
   </div>
-</div>
-</div>
+
+<!-- Error Handeling -->
+  <div id="ErrorMessage">
+    {{> ErrorMessage}}
+  </div>
 </template>
