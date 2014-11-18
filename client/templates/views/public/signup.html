@@ -1,0 +1,75 @@
+<template name="signup">
+<!-- Header Title -->
+  <div class="signupTitle">
+    <h2 class="ui icon header">
+    <i class="angle double down icon"></i>
+    <div class="content">
+      Signup for the future
+      <div class="sub header">Set your mind free</div>
+    </div>
+  </h2>
+  </div>
+
+<!-- Form -->  
+  <div class="ui segment registerSegment">
+    <form class="registerForm" id="register_Form">
+
+    <!-- Username Input -->
+      <div class="field">
+        <label for="username">Username</label>
+        <div class="ui left icon input">
+           <input type="username" name="username" class="form-control" placeholder="Username">
+          <i class="user icon"></i>
+        </div>
+      </div>
+
+    <!-- Email Input -->
+      <div class="field">
+        <label for="emailAddress">Email Address</label>
+        <div class="ui left icon input">
+          <input type="email" name="emailAddress" class="form-control" placeholder="Email Address">
+          <i class="mail icon"></i>
+        </div>
+      </div>
+
+    <!-- Passowrd Input -->
+      <div class="field">
+        <label>Password</label>
+        <div class="ui left icon input">
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+          <i class="lock icon"></i>
+        </div>
+      </div>
+
+    <!-- Passowrd Verification Input -->
+      <div class="field">
+        <label>Password Verification</label>
+        <div class="ui left icon input">
+          <input type="password" class="form-control" value="" name="cpassword" placeholder="Password Verification">
+          <i class="lock icon"></i>
+        </div>
+      </div>
+
+    <!-- Register Button -->
+      <div class="registerButtonContainer ">
+        <button class="green ui labeled icon button" id="registerButton" type="submit" data-loading-text="Please Wait...">
+          <i class="signup icon"></i>
+            Register
+        </button>
+      </div>
+
+    <!-- Allready a Member Option -->
+      <div class="alreadyMember">
+        <p>Already a member?
+          <span><a href="{{pathFor 'login.link'}}" class="alreadyMember">Click Here</a></span>
+        </p>
+      </div>
+    
+    </form>
+  </div>
+
+<!-- Error Handeling -->
+  <div id="ErrorMessage">
+    {{> ErrorMessage}}
+  </div>
+</template>

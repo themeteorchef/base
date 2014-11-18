@@ -1,0 +1,32 @@
+<template name="header">
+	<div class="ui large menu">
+		<div id="container">
+		<!-- Left Menu -->
+		  <a class="item" href="{{pathFor 'index'}}">
+		    <i class="home icon"></i> Home
+		  </a>
+		<!-- Right Menu -->  
+		  <div class="right menu">
+		  	{{#if currentUser}}
+		  		{{> userMenu}}
+				{{else}}
+			    <a class="item blue {{currentRoute 'login'}}" href="{{pathFor 'login.link'}}">Login</a>
+			    <a class="item green {{currentRoute 'signup'}}" href="{{pathFor 'signup.link'}}">Sign Up</a>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="userMenu">
+  <div class="ui dropdown item">
+    {{currentUser.emails.[0].address}} <i class="icon dropdown"></i>
+    <div class="menu">
+    	<a class="item logout"><i class="power icon"></i>Logout</a>
+      <a class="item"><i class="edit icon"></i> Edit Profile</a>
+      <a class="item"><i class="globe icon"></i> Choose Language</a>
+      <a class="item"><i class="settings icon"></i> Account Settings</a>
+    </div>
+  </div>
+</template>
