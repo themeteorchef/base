@@ -11,8 +11,7 @@ accounts-base
 reactive-var
 
 #Styles
-#lumatijev:semantic-ui-beta
-pinglamb:bootstrap3
+lumatijev:semantic-ui-beta
 cryptoquick:stylus-multi
 
 

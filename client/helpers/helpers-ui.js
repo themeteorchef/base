@@ -9,9 +9,6 @@
 Return an active class if the currentRoute session variable name
 (set in the appropriate file in /client/routes/) is equal to the name passed
 to the helper in the template*/
-
-
-
 UI.registerHelper('currentRoute', function(route) {
   if (Session.equals('currentRoute', route)) {
     return 'active';
