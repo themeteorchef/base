@@ -88,8 +88,8 @@ Template.signup.events({
     //Added user, checked by shcema
     Accounts.createUser(newUser, function (e) {
       if (e) {
-        //Set up your own error messages 
-        console.log(e.message)
+        //Error Handling
+        ErrorMessage.insert({errormessage: e.message});
       }else{
           console.log('User Added');
         }
