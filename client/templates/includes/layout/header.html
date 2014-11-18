@@ -10,8 +10,8 @@
 		  	{{#if currentUser}}
 		  		{{> userMenu}}
 				{{else}}
-			    <a class="item blue {{currentRoute 'login'}}" href="{{pathFor 'login'}}">Login</a>
-			    <a class="item green {{currentRoute 'signup'}}" href="{{pathFor 'signup'}}">Sign Up</a>
+			    <a class="item blue {{currentRoute 'login'}}" href="{{pathFor 'login.link'}}">Login</a>
+			    <a class="item green {{currentRoute 'signup'}}" href="{{pathFor 'signup.link'}}">Sign Up</a>
 				{{/if}}
 			</div>
 		</div>
