@@ -11,7 +11,6 @@ boilerplate-generator@1.0.1
 callback-hook@1.0.1
 check@1.0.2
 cmather:handlebars-server@2.0.0
-coffeescript@1.0.4
 ctl-helper@1.0.4
 ctl@1.0.2
 ddp@1.0.11
