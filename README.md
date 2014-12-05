@@ -15,7 +15,7 @@ For more detail on updates, [read the Changelog](https://github.com/themeteorche
 - Iron Router - `meteor add iron:router`
 - jQuery - `meteor add jquery`
 - jQuery Validation - `meteor add themeteorchef:jquery-validation`
-- Sass - `meteor add particle4dev:sass`
+- Sass - `meteor add particle4dev:sass@0.3.0`
 - Underscore - `meteor add underscore`
 
 ### File Structure
