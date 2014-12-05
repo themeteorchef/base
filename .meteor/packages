@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-coffeescript
 underscore
 accounts-password
 accounts-base
@@ -16,4 +15,3 @@ pinglamb:bootstrap3
 cmather:handlebars-server
 themeteorchef:jquery-validation
 particle4dev:sass@0.3.0
-
