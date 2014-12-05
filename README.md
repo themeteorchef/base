@@ -11,7 +11,6 @@ For more detail on updates, [read the Changelog](https://github.com/themeteorche
 - Audit Argument Checks - `meteor add audit-argument-checks`
 - Bootstrap 3 - `meteor add pinglamb:bootstrap3`
 - Check - `meteor add check`
-- CoffeeScript - `meteor add coffeescript`
 - Handlebars Server - `meteor add cmather:handlebars-server`
 - Iron Router - `meteor add iron:router`
 - jQuery - `meteor add jquery`
@@ -28,23 +27,23 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---/client
 ------/controllers
 ---------/authenticated
-------------header.coffee
+------------header.js
 ---------/public
-------------login.coffee
-------------signup.coffee
-------------recover-password.coffee
-------------reset-password.coffee
+------------login.js
+------------signup.js
+------------recover-password.js
+------------reset-password.js
 ------/helpers
----------helpers-ui.coffee
+---------helpers-ui.js
 ------/includes
 ---------_header.html
 ------/layouts
 ---------layout-default.html
 ------/routes
----------filters.coffee
----------routes-global.coffee
----------routes-authenticated.coffee
----------routes-public.coffee
+---------filters.js
+---------routes-global.js
+---------routes-authenticated.js
+---------routes-public.js
 ------/stylesheets
 ---------/sass
 ------------/globals
@@ -66,15 +65,15 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------------reset-password.html
 ------------signup.html
 ---/collections
-------example.coffee
+------example.js
 ---/lib
 ---/packages
 ------ (See List Above)
 ---/public
 ---/server
 ------/admin
----------accounts.coffee
----------startup.coffee
+---------accounts.js
+---------startup.js
 ------/data
 ---------/insert
 ---------/update
@@ -82,12 +81,14 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------/email
 ---------/send
 ---------/templates
-------------reset-password.coffee
+------------reset-password.js
 ------/publications
 ```
 
-### Language & Formatting
-There are two considerations when using Base: JavaScript is written in [CoffeeScript](http://coffeescript.org) and CSS is written using [Sass](http://sass-lang.com). I prefer this setup because it allows me to move a little quicker than I do when writing in the native languages. This may not be for everybody, but I recommend giving both a shot because they make it much easier to write code.
+### JavaScript & CSS
+Prior to v2.0.0, Base was written in CoffeeScript. At the request of the community, Base was ported _back_ to native JavaScript.
+
+CSS in Base is written using [Sass](http://sass-lang.com).
 
 ### Functionality
 
@@ -114,11 +115,11 @@ A complete authentication pattern complete with:
 
 - Signup (at /signup)
 - Login (at /login)
-- Logout (no path, implemented as a dropdown item/click event in /client/controllers/header.coffee)
+- Logout (no path, implemented as a dropdown item/click event in /client/controllers/header.js)
 - Password Recovery (at /recover-password and /reset-password)
 
 ###### Validation
 Validation via [jQuery Validation](http://jqueryvalidation.org). This applies to all of the public templates: login, signup, recover password, and reset password.
 
 ###### Automatic Admin User Creation
-When developing, having a handful of user accounts to test your application with can come in handy. Base comes with an automated account generation script located in `server/admin/startup.coffee` that creates accounts based on an array of specified users. **Note: by default this creates one Admin user on server startup, so make sure to customize or remove this user so the public can't access your app**.
+When developing, having a handful of user accounts to test your application with can come in handy. Base comes with an automated account generation script located in `server/admin/startup.js` that creates accounts based on an array of specified users. **Note: by default this creates one Admin user on server startup, so make sure to customize or remove this user so the public can't access your app**.
