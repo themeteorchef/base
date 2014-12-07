@@ -11,5 +11,5 @@
 */
 
 UI.registerHelper('currentRoute', function(route){
-  Session.equals('currentRoute', route) ? 'active' : '';
+  return Session.equals('currentRoute', route) ? 'active' : '';
 });
