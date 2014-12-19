@@ -9,7 +9,7 @@ For more detail on updates, [read the Changelog](https://github.com/themeteorche
 - Accounts (Base) - `meteor add accounts-base`
 - Accounts (Password) - `meteor add accounts-password`
 - Audit Argument Checks - `meteor add audit-argument-checks`
-- Bootstrap 3 - `meteor add pinglamb:bootstrap3`
+- Bootstrap 3 - `meteor add twbs:bootstrap`
 - Check - `meteor add check`
 - Handlebars Server - `meteor add cmather:handlebars-server`
 - Iron Router - `meteor add iron:router`

@@ -47,7 +47,6 @@ npm-bcrypt@0.7.7
 observe-sequence@1.0.4
 ordered-dict@1.0.2
 particle4dev:sass@0.3.0
-pinglamb:bootstrap3@3.2.1
 random@1.0.2
 reactive-dict@1.0.5
 reactive-var@1.0.4
@@ -64,6 +63,7 @@ standard-app-packages@1.0.4
 templating@1.0.10
 themeteorchef:jquery-validation@1.13.1
 tracker@1.0.4
+twbs:bootstrap@3.3.1_2
 ui@1.0.5
 underscore@1.0.2
 url@1.0.3
