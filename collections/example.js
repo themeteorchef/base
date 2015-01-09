@@ -5,14 +5,17 @@ Example = new Meteor.Collection('example');
 */
 
 Example.allow({
-  insert: function(userId, doc){
-    // Add your rules here.
+  insert: function(){
+    // Disallow inserts on the client by default.
+    return false;
   },
-  update: function(userId, doc, fields, modifier){
-    // Add your rules here.
+  update: function(){
+    // Disallow updates on the client by default.
+    return false;
   },
-  remove: function(userId, doc){
-    // Add your rules here.
+  remove: function(){
+    // Disallow removes on the client by default.
+    return false;
   }
 });
 
@@ -21,13 +24,16 @@ Example.allow({
 */
 
 Example.deny({
-  insert: function(userId, doc){
-    // Add your rules here.
+  insert: function(){
+    // Deny inserts on the client by default.
+    return true;
   },
-  update: function(userId, doc, fields, modifier){
-    // Add your rules here.
+  update: function(){
+    // Deny updates on the client by default.
+    return true;
   },
-  remove: function(userId, doc){
-    // Add your rules here.
+  remove: function(){
+    // Deny removes on the client by default.
+    return true;
   }
 });
