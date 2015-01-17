@@ -10,13 +10,17 @@ For more detail on updates, [read the Changelog](https://github.com/themeteorche
 - Accounts (Password) - `meteor add accounts-password`
 - Audit Argument Checks - `meteor add audit-argument-checks`
 - Bootstrap 3 - `meteor add twbs:bootstrap`
+- Browser Policy - `meteor add browser-policy`
 - Check - `meteor add check`
 - Handlebars Server - `meteor add cmather:handlebars-server`
 - Iron Router - `meteor add iron:router`
 - jQuery - `meteor add jquery`
 - jQuery Validation - `meteor add themeteorchef:jquery-validation`
+- NPM - `meteor add meteorhacks:npm`
 - Sass - `meteor add particle4dev:sass@0.3.0`
 - Underscore - `meteor add underscore`
+
+**Note:** Base also supports loading NPM packages using the `meteorhacks:npm` package. To load NPM packages, add name and version information to `/packages.json` and inside of your file (server only), load the package with `var package = Meteor.npmRequire('package-name');`. For more information, see the [meteorhacks:npm documentation](https://github.com/meteorhacks/npm/).
 
 ### File Structure
 Base comes with a pre-defined file structure common to all projects along with some skeleton files for getting started quickly. Here's what it looks like:
@@ -40,7 +44,7 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------/layouts
 ---------layout-default.html
 ------/routes
----------filters.js
+---------hooks.js
 ---------routes-authenticated.js
 ---------routes-global.js
 ---------routes-public.js
@@ -56,6 +60,7 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---------/authenticated
 ------------index.html
 ---------/public
+------------loading.html
 ------------login.html
 ------------not-found.html
 ------------recover-password.html
@@ -63,16 +68,21 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------------signup.html
 ---/collections
 ------example.js
+------users.js
 ---/packages
 ------ (See List Above)
 ---/public
 ---/server
 ------/admin
+---------/startup-functions
+------------browser-policies.js
+------------test-accounts.js
 ---------startup.js
 ------/email
 ---------/templates
 ------------reset-password.js
 ------/publications
+---------example.js
 ```
 
 ### JavaScript & CSS
@@ -86,7 +96,7 @@ CSS in Base is written using [Sass](http://sass-lang.com).
 For things like API keys and connection strings, Base supports loading a `settings.json` file (located at `/settings.json`) on startup. By default, `settings.json` includes a `public` and `private` object where you can store client only and server only values respectively. To learn more about making use of `settings.json`, check out [our example in the Meteor Patterns wiki](https://github.com/themeteorchef/base/wiki/Meteor-Patterns#9-configuration).
 
 ###### Bootstrap (@3.2.1)
-Base makes use of the [Bootstrap](http://getbootstrap.com) front-end Framework. It may not be your bag of chips and is *definitely not required*. If you want to swap it out, you'll need to unhook the markup in each of the included template files in `/client/views` and uninstall the `pinglamb:bootstrap3` package by running `meteor remove pinglamb:bootstrap3` in your terminal.
+Base makes use of the [Bootstrap](http://getbootstrap.com) front-end Framework. It may not be your bag of chips and is *definitely not required*. If you want to swap it out, you'll need to unhook the markup in each of the included template files in `/client/views` and uninstall the `twbs:bootstrap` package by running `meteor remove twbs:bootstrap` in your terminal.
 
 In respect to UI, Base uses Bootstrap's `.navbar` element, as well as its `.container` and a few `.row`/`.col-<size>-<columns>` wrappers. You'll also find the `.btn` class and its modifiers (`.success, .warning, etc.`) in use throughout the app. All of these implementations are merely presentational and can be changed (or removed) as you see fit.
 
@@ -103,6 +113,8 @@ Base comes with a collection of pre-defined routes and templates for common func
 
 A UI helper called `currentRoute` has been added to Base which allows you to add an `active` class to menu items in your navigation to reflect the user's current location.
 
+A collection of hooks has also been added to Base to control route access based on different conditions (e.g. whether a user is logged in or not).
+
 ###### Authentication
 Base includes a complete authentication pattern complete with:
 
@@ -111,6 +123,8 @@ Base includes a complete authentication pattern complete with:
 - Password Recovery (at /recover-password and /reset-password)
 - Signup (at /signup)
 
+###### Example Collection/Publication/Subscription
+Base includes a collection called `Example`, along with a publication and subscription pattern to show moving data from the server to the client. Publications are defined in `/server/publications/example.js` and a subscription is demonstrated on the `index` route in `/client/routes/routes-authenticated.js`.
 ###### Validation
 Base includes support for client-side validation via [jQuery Validation](http://jqueryvalidation.org). Validation is provided for all public templates: login, signup, recover password, and reset password.
 
