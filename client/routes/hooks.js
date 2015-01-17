@@ -1,14 +1,14 @@
 /*
-* Route Filters
-* Filters for managing user access to application routes.
+* Route Hooks
+* Hook functions for managing user access to routes.
 */
 
 /*
-* Define Filters
+* Define Hook Functions
 */
 
 /*
-* Filter: Check if a User is Logged In
+* Hook: Check if a User is Logged In
 * If a user is not logged in and attempts to go to an authenticated route,
 * re-route them to the login screen.
 */
@@ -22,9 +22,9 @@ checkUserLoggedIn = function(){
 }
 
 /*
-* Filter: Check if a User Exists
+* Hook: Check if a User Exists
 * If a user is logged in and attempts to go to a public route, re-route
-* them to the main "logged in" screen.
+* them to the index path.
 */
 
 userAuthenticated = function(){
@@ -36,7 +36,7 @@ userAuthenticated = function(){
 }
 
 /*
-* Run Filters
+* Run Hooks
 */
 
 Router.onBeforeAction(checkUserLoggedIn, {
