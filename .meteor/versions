@@ -8,6 +8,10 @@ binary-heap@1.0.2
 blaze@2.0.4
 blaze-tools@1.0.2
 boilerplate-generator@1.0.2
+browser-policy@1.0.3
+browser-policy-common@1.0.2
+browser-policy-content@1.0.3
+browser-policy-framing@1.0.3
 callback-hook@1.0.2
 check@1.0.3
 cmather:handlebars-server@2.0.0
