@@ -1,32 +1,15 @@
 /*
 * Startup
-* Collection of methods and functions to run on server startup.
+* Functions to run on server startup. Note: this file is for calling functions
+* only. Define functions in /server/admin/startup-functions.
 */
 
-/*
-* Generate Test Accounts
-* Creates a collection of test accounts automatically on startup.
-*/
+Meteor.startup(function(){
 
-// Create an array of user accounts.
-var users = [
-  { name: "Admin", email: "admin@admin.com", password: "password" }
-]
+  // Custom Browser Policies
+  customBrowserPolicies();
 
-// Loop through array of user accounts.
-for(i=0; i < users.length; i++){
-  // Check if the user already exists in the DB.
-  var userEmail = users[i].email,
-      checkUser = Meteor.users.findOne({"emails.address": userEmail});
+  // Generate Test Accounts
+  generateTestAccounts();
 
-  // If an existing user is not found, create the account.
-  if( !checkUser ){
-    Accounts.createUser({
-      email: userEmail,
-      password: users[i].password,
-      profile: {
-        name: users[i].name
-      }
-    });
-  }
-}
+});
