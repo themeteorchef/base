@@ -9,6 +9,7 @@ For more detail on updates, [read the Changelog](https://github.com/themeteorche
 - Accounts (Base) - `meteor add accounts-base`
 - Accounts (Password) - `meteor add accounts-password`
 - Audit Argument Checks - `meteor add audit-argument-checks`
+- Bert - `meteor add themeteorchef:bert`
 - Bootstrap 3 - `meteor add twbs:bootstrap`
 - Browser Policy - `meteor add browser-policy`
 - Check - `meteor add check`
@@ -125,8 +126,12 @@ Base includes a complete authentication pattern complete with:
 
 ###### Example Collection/Publication/Subscription
 Base includes a collection called `Example`, along with a publication and subscription pattern to show moving data from the server to the client. Publications are defined in `/server/publications/example.js` and a subscription is demonstrated on the `index` route in `/client/routes/routes-authenticated.js`.
+
 ###### Validation
 Base includes support for client-side validation via [jQuery Validation](http://jqueryvalidation.org). Validation is provided for all public templates: login, signup, recover password, and reset password.
+
+###### Alerts
+Base includes support for fixed bar (top and bottom) and growl-style alerts on the client via [`themeteorchef:bert`](https://atmospherejs.com/themeteorchef/bert).
 
 ###### Automatic Admin User Creation
 When developing, having a handful of user accounts to test your application with can come in handy. Base comes with an automated account generation script located in `server/admin/startup.js` that creates accounts based on an array of specified users. **Note: by default this creates one Admin user on server startup, so make sure to customize or remove this user so the public can't access your app**.
