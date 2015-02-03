@@ -46,8 +46,9 @@ Template.resetPassword.rendered = function(){
       // Reset the user's password.
       Accounts.resetPassword(token, password, function(error){
         if(error){
-          alert(error.reason);
+          Bert.alert(error.reason, 'danger');
         } else {
+          Bert.alert('Password successfully reset!', 'success');
           Session.set('resetPasswordToken', null);
         }
       });

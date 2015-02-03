@@ -37,7 +37,9 @@ Template.recoverPassword.rendered = function(){
       // Call the send reset password email method.
       Accounts.forgotPassword({email: email}, function(error){
         if(error){
-          alert(error.reason);
+          Bert.alert(error.reason, 'danger');
+        } else {
+          Bert.alert('Check your inbox for a reset link!', 'success');
         }
       });
     }
