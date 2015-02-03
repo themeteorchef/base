@@ -47,7 +47,9 @@ Template.signup.rendered = function(){
       // Create the user's account.
       Accounts.createUser({email: user.email, password: user.password}, function(error){
         if(error){
-          alert(error.reason);
+          Bert.alert(error.reason, 'danger');
+        } else {
+          Bert.alert('Welcome!', 'success');
         }
       });
     }

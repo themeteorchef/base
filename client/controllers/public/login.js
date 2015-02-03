@@ -45,7 +45,9 @@ Template.login.rendered = function(){
       // Log the user in.
       Meteor.loginWithPassword(user.email, user.password, function(error){
         if(error){
-          alert(error.reason);
+          Bert.alert(error.reason, 'danger');
+        } else {
+          Bert.alert('Logged in!', 'success');
         }
       });
     }
