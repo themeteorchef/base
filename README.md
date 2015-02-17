@@ -94,7 +94,11 @@ CSS in Base is written using [Sass](http://sass-lang.com).
 ### Functionality
 
 ###### Configuration
-For things like API keys and connection strings, Base supports loading a `settings.json` file (located at `/settings.json`) on startup. By default, `settings.json` includes a `public` and `private` object where you can store client only and server only values respectively. To learn more about making use of `settings.json`, check out [our example in the Meteor Patterns wiki](https://github.com/themeteorchef/base/wiki/Meteor-Patterns#9-configuration).
+For things like API keys and connection strings, Base supports loading a `settings.json` file (located at `/settings.json`) on startup. By default, `settings.json` includes a `public` and `private` object where you can store client only and server only values respectively.
+
+When starting Meteor, **make sure to use the --settings flag**, passing the location of your settings.json file to Meteor, e.g. `meteor --settings settings.json`. This is required in order for `settings.json` to work properly.
+
+To learn more about making use of `settings.json`, check out [our example in the Meteor Patterns wiki](https://github.com/themeteorchef/base/wiki/Meteor-Patterns#9-configuration).
 
 ###### Bootstrap (@3.2.1)
 Base makes use of the [Bootstrap](http://getbootstrap.com) front-end Framework. It may not be your bag of chips and is *definitely not required*. If you want to swap it out, you'll need to unhook the markup in each of the included template files in `/client/views` and uninstall the `twbs:bootstrap` package by running `meteor remove twbs:bootstrap` in your terminal.
