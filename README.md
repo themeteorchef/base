@@ -73,6 +73,7 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---/packages
 ------ (See List Above)
 ---/public
+------/images
 ---/server
 ------/admin
 ---------/startup-functions
@@ -84,6 +85,16 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------------reset-password.js
 ------/publications
 ---------example.js
+---.editorconfig
+---.gitignore
+---application.html
+---package.json
+---packages.json
+---README.MD (this file)
+---settings-development.json
+---settings-production.json
+---smart.json (added by Meteor)
+---smart.lock (added by Meteor)
 ```
 
 ### JavaScript & CSS
@@ -94,11 +105,18 @@ CSS in Base is written using [Sass](http://sass-lang.com).
 ### Functionality
 
 ###### Configuration
-For things like API keys and connection strings, Base supports loading a `settings.json` file (located at `/settings.json`) on startup. By default, `settings.json` includes a `public` and `private` object where you can store client only and server only values respectively.
+Base includes a pattern for managing your API keys, connection strings, and other configuration information using two files: `settings-development.json` and `settings-production.json`. This pattern separates your development and production configuration into two separate files for the sake of security.
 
-When starting Meteor, **make sure to use the --settings flag**, passing the location of your settings.json file to Meteor, e.g. `meteor --settings settings.json`. This is required in order for `settings.json` to work properly.
+Per [Josh Owen's article](http://joshowens.me/environment-settings-and-security-with-meteor-js/), it's considered "bad practice" to check your production keys into your repo (private or otherwise). Base accounts for this by giving you two separate files, but also specifies that your `settings-production.json` file should be ignored by git in `.gitignore`.
 
-To learn more about making use of `settings.json`, check out [our example in the Meteor Patterns wiki](https://github.com/themeteorchef/base/wiki/Meteor-Patterns#9-configuration).
+This means that keys that are only used for testing or development purposes can be placed in `settings-development.json`, while keys used in your production application should be placed in `settings-production.json`. Sharing and management of `settings-production.json` should be done on a person-to-person basis and _not_ made globally accessible.
+
+###### Startup & Deployment
+A tip picked up from [Gerard Sychay at Differential](http://blog.differential.com/use-package-json-in-your-meteor-app-for-fun-profit/), Base makes use of the NPM `package.json` convention to make startup and deployment super easy. Within `package.json`, three scripts have been defined for you:
+
+1. `npm start` - Starts your Meteor server locally with `settings-development.json` in tow. Equivalent to typing out `meteor --settings settings-development.json`.
+2. `npm staging` - Deploys your Meteor app to a [Modulus](http://modulus.io) server defined as your "Staging" environment. This requires you to have a Modulus account set up and a server titled "Staging" set up. You can customize this to match your own naming conventions. This also automatically sets your `METEOR_SETTINGS` environment variable on Modulus equal to the contents of your `settings-development.json` file so you don't have to do it by hand.
+3. `npm production` - Deploys your Meteor app to a [Modulus](http://modulus.io) server defined as your "Production" environment. This requires you to have a Modulus account set up and a server titled "Production" set up. You can customize this to match your own naming conventions. This also automatically sets your `METEOR_SETTINGS` environment variable on Modulus equal to the contents of your `settings-production.json` file so you don't have to do it by hand.
 
 ###### Bootstrap (@3.2.1)
 Base makes use of the [Bootstrap](http://getbootstrap.com) front-end Framework. It may not be your bag of chips and is *definitely not required*. If you want to swap it out, you'll need to unhook the markup in each of the included template files in `/client/views` and uninstall the `twbs:bootstrap` package by running `meteor remove twbs:bootstrap` in your terminal.
