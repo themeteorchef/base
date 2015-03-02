@@ -83,6 +83,17 @@ Base comes with a pre-defined file structure common to all projects along with s
 ------/email
 ---------/templates
 ------------reset-password.js
+------/methods
+---------/insert
+------------example.js
+---------/read
+------------example.js
+---------/remove
+------------example.js
+---------/update
+------------example.js
+---------/utility
+------------example.js
 ------/publications
 ---------example.js
 ---.editorconfig
