@@ -68,10 +68,10 @@ spacebars-compiler@1.0.4
 srp@1.0.2
 standard-app-packages@1.0.4
 templating@1.0.11
-themeteorchef:bert@1.0.1
+themeteorchef:bert@1.0.2
 themeteorchef:jquery-validation@1.13.1
 tracker@1.0.5
-twbs:bootstrap@3.3.1_2
+twbs:bootstrap@3.3.2
 ui@1.0.5
 underscore@1.0.2
 url@1.0.3
