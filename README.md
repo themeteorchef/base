@@ -13,12 +13,12 @@ For more detail on updates, [read the Changelog](https://github.com/themeteorche
 - Bootstrap 3 - `meteor add twbs:bootstrap`
 - Browser Policy - `meteor add browser-policy`
 - Check - `meteor add check`
-- Handlebars Server - `meteor add cmather:handlebars-server`
 - Iron Router - `meteor add iron:router`
 - jQuery - `meteor add jquery`
 - jQuery Validation - `meteor add themeteorchef:jquery-validation`
 - NPM - `meteor add meteorhacks:npm`
 - Sass - `meteor add particle4dev:sass@0.3.0`
+- SSR - `meteor add meteorhacks:ssr`
 - Underscore - `meteor add underscore`
 
 **Note:** Base also supports loading NPM packages using the `meteorhacks:npm` package. To load NPM packages, add name and version information to `/packages.json` and inside of your file (server only), load the package with `var package = Meteor.npmRequire('package-name');`. For more information, see the [meteorhacks:npm documentation](https://github.com/meteorhacks/npm/).
