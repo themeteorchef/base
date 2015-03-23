@@ -7,17 +7,17 @@
 * Created
 */
 
-Template.header.created = function(){
+Template.header.onCreated(function(){
   // Code to run when template is created goes here.
-}
+});
 
 /*
 * Rendered
 */
 
-Template.header.rendered = function() {
+Template.header.onRendered(function() {
   // Code to run when template is rendered goes here.
-}
+});
 
 /*
 * Helpers

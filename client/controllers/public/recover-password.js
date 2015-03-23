@@ -7,16 +7,16 @@
 * Created
 */
 
-Template.recoverPassword.created = function(){
+Template.recoverPassword.onCreated(function(){
   // Code to run when template is created goes here.
-}
+});
 
 /*
 * Rendered
 */
 
 
-Template.recoverPassword.rendered = function(){
+Template.recoverPassword.onRendered(function(){
   $('#application-recover-password').validate({
     rules: {
       emailAddress: {
@@ -44,7 +44,7 @@ Template.recoverPassword.rendered = function(){
       });
     }
   });
-}
+});
 
 /*
 * Helpers

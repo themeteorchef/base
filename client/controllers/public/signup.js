@@ -7,15 +7,15 @@
 * Created
 */
 
-Template.signup.created = function(){
+Template.signup.onCreated(function(){
   // Code to run when template is created goes here.
-}
+});
 
 /*
 * Rendered
 */
 
-Template.signup.rendered = function(){
+Template.signup.onRendered(function(){
   $('#application-signup').validate({
     rules: {
       emailAddress: {
@@ -54,7 +54,7 @@ Template.signup.rendered = function(){
       });
     }
   });
-}
+});
 
 /*
 * Helpers
