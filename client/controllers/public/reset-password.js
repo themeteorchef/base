@@ -7,15 +7,15 @@
 * Created
 */
 
-Template.resetPassword.created = function(){
+Template.resetPassword.onCreated(function(){
   // Code to run when template is created goes here.
-}
+});
 
 /*
 * Rendered
 */
 
-Template.resetPassword.rendered = function(){
+Template.resetPassword.onRendered(function(){
   $('#application-reset-password').validate({
     rules: {
       newPassword: {
@@ -54,7 +54,7 @@ Template.resetPassword.rendered = function(){
       });
     }
   });
-}
+});
 
 /*
 * Helpers

@@ -7,15 +7,15 @@
 * Created
 */
 
-Template.login.created = function(){
+Template.login.onCreated(function(){
   // Code to run when template is created goes here.
-}
+});
 
 /*
 * Rendered
 */
 
-Template.login.rendered = function(){
+Template.login.onRendered(function(){
   $('#application-login').validate({
     rules: {
       emailAddress: {
@@ -52,7 +52,7 @@ Template.login.rendered = function(){
       });
     }
   });
-}
+});
 
 /*
 * Helpers
