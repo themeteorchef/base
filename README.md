@@ -17,7 +17,7 @@ For more detail on updates, [read the Changelog](https://github.com/themeteorche
 - jQuery - `meteor add jquery`
 - jQuery Validation - `meteor add themeteorchef:jquery-validation`
 - NPM - `meteor add meteorhacks:npm`
-- Sass - `meteor add particle4dev:sass@0.3.0`
+- Sass - `meteor add fourseven:scss`
 - SSR - `meteor add meteorhacks:ssr`
 - Underscore - `meteor add underscore`
 
@@ -118,7 +118,7 @@ CSS in Base is written using [Sass](http://sass-lang.com).
 ###### Configuration
 Base includes a pattern for managing your API keys, connection strings, and other configuration information using two files: `settings-development.json` and `settings-production.json`. This pattern separates your development and production configuration into two separate files for the sake of security.
 
-Per [Josh Owen's article](http://joshowens.me/environment-settings-and-security-with-meteor-js/), it's considered "bad practice" to check your production keys into your repo (private or otherwise). Base accounts for this by giving you two separate files, but also specifies that your `settings-production.json` file should be ignored by git in `.gitignore`.
+Per [Josh Owens' article](http://joshowens.me/environment-settings-and-security-with-meteor-js/), it's considered "bad practice" to check your production keys into your repo (private or otherwise). Base accounts for this by giving you two separate files, but also specifies that your `settings-production.json` file should be ignored by git in `.gitignore`.
 
 This means that keys that are only used for testing or development purposes can be placed in `settings-development.json`, while keys used in your production application should be placed in `settings-production.json`. Sharing and management of `settings-production.json` should be done on a person-to-person basis and _not_ made globally accessible.
 
