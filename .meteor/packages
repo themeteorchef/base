@@ -12,7 +12,6 @@ check
 audit-argument-checks
 iron:router
 themeteorchef:jquery-validation
-particle4dev:sass@0.3.0
 twbs:bootstrap
 browser-policy
 meteorhacks:npm
@@ -21,3 +20,4 @@ meteorhacks:npm
 npm-container
 themeteorchef:bert
 meteorhacks:ssr
+fourseven:scss

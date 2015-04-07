@@ -18,6 +18,7 @@ deps@1.0.7
 ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
+fourseven:scss@2.1.1
 geojson-utils@1.0.3
 html-tools@1.0.4
 htmljs@1.0.4
@@ -50,7 +51,6 @@ npm-bcrypt@0.7.8_2
 npm-container@1.0.0
 observe-sequence@1.0.6
 ordered-dict@1.0.3
-particle4dev:sass@0.3.0
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5
