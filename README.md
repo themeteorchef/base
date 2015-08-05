@@ -57,7 +57,7 @@ Base comes with a pre-defined file structure common to all projects along with s
 ---------------/public
 ------------------_login.scss
 ---------application.scss
--------/views
+------/views
 ---------/authenticated
 ------------index.html
 ---------/public
