@@ -1,0 +1,10 @@
+<template name="authenticatedNavigation">
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.emails.[0].address}} <span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+        <li class="logout"><a href="#">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</template>

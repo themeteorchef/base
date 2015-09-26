@@ -1,10 +1,12 @@
-Meteor.users.allow({
+Collection = new Meteor.Collection( 'collection' );
+
+Collection.allow({
   insert: () => false,
   update: () => false,
   remove: () => false
 });
 
-Meteor.users.deny({
+Collection.deny({
   insert: () => true,
   update: () => true,
   remove: () => true
