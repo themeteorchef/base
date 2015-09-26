@@ -24,3 +24,5 @@ standard-minifiers
 
 
 npm-container
+ecmascript
+digilord:faker

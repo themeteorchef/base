@@ -1,1 +1,1 @@
-Meteor.startup( function() { Modules.both.startup(); } );
+Meteor.startup( () => Modules.both.startup() );

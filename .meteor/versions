@@ -17,6 +17,7 @@ caching-compiler@1.0.0
 caching-html-compiler@1.0.1
 callback-hook@1.0.4
 check@1.0.6
+coffeescript@1.0.9
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.1
@@ -24,6 +25,7 @@ ddp-rate-limiter@1.0.0
 ddp-server@1.2.1
 deps@1.0.9
 diff-sequence@1.0.1
+digilord:faker@1.0.7
 ecmascript@0.1.4
 ecmascript-collections@0.1.6
 ejson@1.0.7

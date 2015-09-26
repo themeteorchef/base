@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-default" role="navigation">
 	  <div class="container">
 	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
 	        <span class="sr-only">Toggle navigation</span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
@@ -10,23 +10,13 @@
 	      </button>
 	      <a class="navbar-brand" href="{{pathFor 'index'}}">Application Name</a>
 	    </div>
-	    <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+	    <div id="navbar-collapse" class="collapse navbar-collapse">
 	    	{{#if currentUser}}
-	      <ul class="nav navbar-nav navbar-right">
-	        <li class="dropdown">
-	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.emails.[0].address}} <span class="caret"></span></a>
-	          <ul class="dropdown-menu" role="menu">
-	            <li class="logout"><a href="#">Logout</a></li>
-	          </ul>
-	        </li>
-	      </ul>
+					{{> authenticatedNavigation}}
 	      {{else}}
-	      <ul class="nav navbar-nav navbar-right">
-	        <li class="{{currentRoute 'login'}}"><a href="{{pathFor 'login'}}">Login</a></li>
-	        <li class="{{currentRoute 'signup'}}"><a href="{{pathFor 'signup'}}">Sign Up</a></li>
-	      </ul>
+	      	{{> publicNavigation}}
 	      {{/if}}
-	    </div> <!-- end .navbar-collapse -->
-	  </div> <!-- end .container-fluid -->
+	    </div>
+	  </div>
 	</nav>
 </template>

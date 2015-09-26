@@ -1,3 +1,3 @@
-var startup = function() {};
+let startup = () => {};
 
 Modules.client.startup = startup;
