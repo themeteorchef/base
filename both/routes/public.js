@@ -1,4 +1,4 @@
-let public = FlowRouter.group({
+let publicRoutes = FlowRouter.group({
   triggersEnter: [ () => {
     if ( Meteor.userId() ) {
       FlowRouter.go( 'index' );
@@ -7,7 +7,7 @@ let public = FlowRouter.group({
   }]
 });
 
-public.route( '/signup', {
+publicRoutes.route( '/signup', {
   name: 'signup',
   triggersEnter: [ () => {
     Session.set( 'currentRoute', 'signup' );
@@ -17,7 +17,7 @@ public.route( '/signup', {
   }
 });
 
-public.route( '/login', {
+publicRoutes.route( '/login', {
   name: 'login',
   triggersEnter: [ () => {
     Session.set( 'currentRoute', 'login' );
@@ -27,7 +27,7 @@ public.route( '/login', {
   }
 });
 
-public.route( '/recover-password', {
+publicRoutes.route( '/recover-password', {
   name: 'recover-password',
   triggersEnter: [ () => {
     Session.set( 'currentRoute', 'recover-password' );
@@ -37,7 +37,7 @@ public.route( '/recover-password', {
   }
 });
 
-public.route( '/reset-password/:token', {
+publicRoutes.route( '/reset-password/:token', {
   name: 'reset-password',
   triggersEnter: [ () => {
     Session.set( 'currentRoute', 'reset-password' );

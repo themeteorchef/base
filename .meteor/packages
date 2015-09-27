@@ -3,7 +3,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-standard-app-packages
 underscore
 accounts-password
 accounts-base
@@ -18,7 +17,6 @@ meteorhacks:npm
 
 themeteorchef:bert
 meteorhacks:ssr
-fourseven:scss
 standard-minifiers
 
 
@@ -28,3 +26,7 @@ digilord:faker
 kadira:flow-router
 kadira:blaze-layout
 meteorhacks:fast-render
+meteor-base
+session
+templating
+fourseven:scss

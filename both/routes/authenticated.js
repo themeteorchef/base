@@ -1,4 +1,4 @@
-let authenticated = FlowRouter.group({
+let authenticatedRoutes = FlowRouter.group({
   triggersEnter: [ () => {
     if ( !Meteor.loggingIn() && !Meteor.userId() ) {
       FlowRouter.go( 'login' );
@@ -7,7 +7,7 @@ let authenticated = FlowRouter.group({
   }]
 });
 
-authenticated.route( '/', {
+authenticatedRoutes.route( '/', {
   name: 'index',
   triggersEnter: [ () => {
     Session.set( 'currentRoute', 'index' );
