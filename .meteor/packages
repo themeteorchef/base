@@ -30,3 +30,5 @@ session
 templating
 fourseven:scss
 stevezhu:lodash
+reactive-var
+reactive-dict
