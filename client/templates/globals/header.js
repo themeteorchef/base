@@ -5,6 +5,8 @@ Template.header.events({
         Bert.alert( error.reason, 'warning' );
       } else {
         Bert.alert( 'Logged out!', 'success' );
+        FlowRouter.go( FlowRouter.path( 'login' ) );
+        Session.set( 'currentRoute', 'login' );
       }
     });
   }
