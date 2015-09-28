@@ -34,3 +34,7 @@ reactive-var
 reactive-dict
 aldeed:collection2
 tracker
+xolvio:cucumber
+xolvio:email-stub
+email
+themeteorchef:text-fixtures
