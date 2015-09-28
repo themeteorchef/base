@@ -39,7 +39,6 @@ let _handleLogin = ( template ) => {
       Bert.alert( error.reason, 'warning' );
     } else {
       Bert.alert( 'Logged in!', 'success' );
-      FlowRouter.go( 'index' );
     }
   });
 };
