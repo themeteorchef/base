@@ -11,3 +11,12 @@ Collection.deny({
   update: () => true,
   remove: () => true
 });
+
+let CollectionSchema = new SimpleSchema({
+  "owner": {
+    type: String,
+    label: "The ID of the owner of this document."
+  }
+});
+
+Collection.attachSchema( CollectionSchema );
