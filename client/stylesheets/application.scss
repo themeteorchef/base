@@ -1,5 +1,29 @@
-@import "tools/extends";
+// Settings ---- Sass vars, etc.
+// Tools ------- Functions and mixins.
+// Base -------- Unclasses HTML elements (e.g. `h2`, `ul`).
+// Objects ----- Objects and abstractions.
+// Components -- Your designed UI elements (inuitcss includes none of these).
+// Utilities --- Overrides and helper classes.
 
-@import "objects/forms";
+// SETTINGS:
+@import "settings/settings.defaults";
+@import "settings/settings.colors";
+@import "settings/settings.responsive";
 
-@import "components/login";
+// TOOLS:
+@import "tools/tools.functions";
+@import "tools/tools.mixins";
+
+// BASE:
+@import "base/base.page";
+@import "base/base.sliders";
+@import "base/base.form.elements";
+
+// OBJECTS:
+@import "objects/objects.forms";
+
+// COMPONTENTS:
+@import "components/components.login";
+
+// UTILITIES:
+@import "utilities/utilities.clearfix";
