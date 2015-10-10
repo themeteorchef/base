@@ -13,9 +13,9 @@ Collection.deny({
 });
 
 let CollectionSchema = new SimpleSchema({
-  "owner": {
+  'owner': {
     type: String,
-    label: "The ID of the owner of this document."
+    label: 'The ID of the owner of this document.'
   }
 });
 

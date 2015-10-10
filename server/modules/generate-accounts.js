@@ -1,35 +1,12 @@
-let administrators = [
-  {
-    name: { first: 'Admin', last: 'McAdmin' },
-    email: 'admin@admin.com',
-    password: 'password'
-  }
-];
-
-let generateAccounts = () => {
-  let fakeUserCount = 5,
-      usersExist    = _checkIfAccountsExist( administrators.length + fakeUserCount );
-
-  if ( !usersExist ) {
-    _createUsers( administrators );
-    _createUsers( _generateFakeUsers( fakeUserCount ) );
-  }
-};
+let administrators = [{
+  name: { first: 'Admin', last: 'McAdmin' },
+  email: 'admin@admin.com',
+  password: 'password'
+}];
 
 let _checkIfAccountsExist = ( count ) => {
   let userCount = Meteor.users.find().count();
   return userCount < count ? false : true;
-};
-
-let _createUsers = ( users ) => {
-  for ( let i = 0; i < users.length; i++ ) {
-    let user       = users[ i ],
-        userExists = _checkIfUserExists( user.email );
-
-    if ( !userExists ) {
-      _createUser( user );
-    }
-  }
 };
 
 let _checkIfUserExists = ( email ) => {
@@ -46,6 +23,17 @@ let _createUser = ( user ) => {
   });
 };
 
+let _createUsers = ( users ) => {
+  for ( let i = 0; i < users.length; i++ ) {
+    let user       = users[ i ],
+        userExists = _checkIfUserExists( user.email );
+
+    if ( !userExists ) {
+      _createUser( user );
+    }
+  }
+};
+
 let _generateFakeUsers = ( count ) => {
   let users = [];
 
@@ -58,6 +46,16 @@ let _generateFakeUsers = ( count ) => {
   }
 
   return users;
+};
+
+let generateAccounts = () => {
+  let fakeUserCount = 5,
+      usersExist    = _checkIfAccountsExist( administrators.length + fakeUserCount );
+
+  if ( !usersExist ) {
+    _createUsers( administrators );
+    _createUsers( _generateFakeUsers( fakeUserCount ) );
+  }
 };
 
 Modules.server.generateAccounts = generateAccounts;

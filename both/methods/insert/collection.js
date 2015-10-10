@@ -3,9 +3,9 @@ Meteor.methods({
     check( argument, Object );
 
     try {
-      var documentId = Collection.insert( argument );
+      let documentId = Collection.insert( argument );
       return documentId;
-    } catch( exception ) {
+    } catch ( exception ) {
       return exception;
     }
   }
