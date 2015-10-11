@@ -4,7 +4,7 @@ Meteor.methods({
 
     try {
       Collection.remove( argument );
-    } catch( exception ) {
+    } catch ( exception ) {
       return exception;
     }
   }

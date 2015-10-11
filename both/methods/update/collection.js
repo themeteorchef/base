@@ -3,11 +3,11 @@ Meteor.methods({
     check( argument, Object );
 
     try {
-      var documentId = Collection.update( argument._id, {
+      let documentId = Collection.update( argument._id, {
         $set: { 'key': argument.key }
       });
       return documentId;
-    } catch( exception ) {
+    } catch ( exception ) {
       return exception;
     }
   }
