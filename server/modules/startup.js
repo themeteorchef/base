@@ -3,6 +3,7 @@ let startup = () => {
   _setBrowserPolicies();
   _generateAccounts();
 };
+
 var _setEnvironmentVariables = () => Modules.server.setEnvironmentVariables();
 
 var _setBrowserPolicies = () => {};
