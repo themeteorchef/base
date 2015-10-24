@@ -3,6 +3,6 @@
     "key": "value"
   },
   "private": {
-    "key": "value"
+    "MAIL_URL": ""
   }
 }
