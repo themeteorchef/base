@@ -1,0 +1,63 @@
+%clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.react-progress-bar {
+  border: 1px solid #eee;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 3px;
+
+  .labels {
+    @extend %clearfix;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 10px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .completion {
+    float: left;
+  }
+
+  .percentage {
+    float: right;
+  }
+
+  .bar {
+    background: #eee;
+    height: 10px;
+    border-radius: 30px;
+  }
+
+  .bar .fill {
+    height: 10px;
+    background: #aaa;
+    border-radius: 30px;
+    transition: all .8s cubic-bezier(0.770, 0.000, 0.175, 1.000) .1s;
+  }
+}
+
+.react-progress-bar {
+  &.danger {
+    .bar .fill { background: #da5347; }
+  }
+
+  &.warning {
+    .bar .fill { background: #FFCF50; }
+  }
+
+  &.ok {
+    .bar .fill { background: #75BA50; }
+  }
+}

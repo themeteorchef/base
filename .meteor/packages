@@ -34,3 +34,6 @@ reactive-var
 reactive-dict
 aldeed:collection2
 tracker
+react
+peerlibrary:aws-sdk
+random
