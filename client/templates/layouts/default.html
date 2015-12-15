@@ -2,6 +2,18 @@
 	{{>bertAlert}}
 	{{>header}}
 	<div class="container">
-		{{> Template.dynamic template=yield}}
+		{{#if loggingIn}}
+			{{> loading}}
+		{{else}}
+			{{#if authenticated}}
+				{{#unless redirectAuthenticated}}
+					{{> Template.dynamic template=yield}}
+				{{/unless}}
+			{{else}}
+				{{#unless redirectPublic}}
+					{{> Template.dynamic template=yield}}
+				{{/unless}}
+			{{/if}}
+		{{/if}}
 	</div>
 </template>
