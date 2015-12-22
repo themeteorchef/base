@@ -15,6 +15,9 @@ Template.default.helpers({
   loggingIn() {
     return Meteor.loggingIn();
   },
+  authenticated() {
+    return authenticated();
+  },
   redirectPublic() {
     return handleRedirect(FlowRouter.current().route);
   },
