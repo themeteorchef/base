@@ -2,13 +2,13 @@ const authenticated = () => {
   return !Meteor.loggingIn() && Meteor.user();
 }
 
-const handleRedirect = (currentRoute) => {
-  let authData = currentRoute.group.options.authentication;
-  if (authData.requireLoggedIn ^ authenticated()) {
-    FlowRouter.go( authData.redirectPath );
-    return true;
+const handleRedirect = () => {
+	let currentRoute = FlowRouter.getRouteName();
+  let authData = FlowRouter.current().route.group.options.authentication;
+	if ( authData.requireLoggedIn ^ authenticated() ) {
+		FlowRouter.go( authData.redirectPath );
+		return true;
   }
-  return false;
 };
 
 Template.default.helpers({
@@ -18,10 +18,7 @@ Template.default.helpers({
   authenticated() {
     return authenticated();
   },
-  redirectPublic() {
-    return handleRedirect(FlowRouter.current().route);
-  },
-  redirectAuthenticated() {
-    return handleRedirect(FlowRouter.current().route);
+  redirectRequired() {
+    return handleRedirect();
   }
 });
