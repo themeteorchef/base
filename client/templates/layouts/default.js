@@ -1,8 +1,8 @@
-let authenticated = () => {
+const authenticated = () => {
   return !Meteor.loggingIn() && Meteor.user();
 }
 
-let handleRedirect = (currentRoute) => {
+const handleRedirect = (currentRoute) => {
   let authData = currentRoute.group.options.authentication;
   if (authData.requireLoggedIn ^ authenticated()) {
     FlowRouter.go( authData.redirectPath );
