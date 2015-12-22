@@ -5,9 +5,9 @@
 		{{#if loggingIn}}
 			{{> loading}}
 		{{else}}
-      {{#unless redirectRequired}}
-        {{> Template.dynamic template=yield}}
-      {{/unless}}
+			{{#unless redirectRequired}}
+				{{> Template.dynamic template=yield}}
+			{{/unless}}
 		{{/if}}
 	</div>
 </template>
