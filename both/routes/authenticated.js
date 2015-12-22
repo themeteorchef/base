@@ -1,5 +1,10 @@
 const authenticatedRoutes = FlowRouter.group({
-  name: 'authenticated'
+  name: 'authenticated',
+  // passing an object so it is easy to extend
+  authentication: {
+    requireLoggedIn: true,
+    redirectPath: '/login'
+  }
 });
 
 authenticatedRoutes.route( '/', {

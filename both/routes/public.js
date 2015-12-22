@@ -1,5 +1,10 @@
 const publicRoutes = FlowRouter.group({
-  name: 'public'
+  name: 'public',
+  // passing an object so it is easy to extend
+  authentication: {
+    requireLoggedIn: false,
+    redirectPath: '/'
+  }
 });
 
 publicRoutes.route( '/signup', {
