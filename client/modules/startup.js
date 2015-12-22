@@ -1,9 +1,3 @@
-let startup = () => {
-  
-  Template.registerHelper('authentication', () => {
-    return Modules.client.handleRedirect();
-  });
-  
-};
+let startup = () => {};
 
 Modules.client.startup = startup;
