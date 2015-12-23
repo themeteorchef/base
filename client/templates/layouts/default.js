@@ -1,5 +1,5 @@
 const authenticated = () => {
-  return !Meteor.loggingIn() && Meteor.user();
+  return !Meteor.loggingIn() && Meteor.user() != null;
 }
 
 const handleRedirect = () => {
