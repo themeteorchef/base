@@ -3,7 +3,7 @@ const authenticated = () => {
 }
 
 const handleRedirect = () => {
-  let currentRoute = FlowRouter.getRouteName();
+  FlowRouter.watchPathChange();
   let authData = FlowRouter.current().route.group.options.authentication;
   if ( authData && authData.requireLoggedIn ^ authenticated() ) {
     FlowRouter.go( authData.redirectPath );
