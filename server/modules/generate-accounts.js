@@ -46,9 +46,7 @@ let _createUser = ( user ) => {
     }
   });
 
-  if ( user.role !== undefined ) {
-    Roles.addUsersToRoles( userId, user.role );
-  }
+  Roles.addUsersToRoles( userId, user.role );
 };
 
 let _generateFakeUsers = ( count ) => {
@@ -58,7 +56,8 @@ let _generateFakeUsers = ( count ) => {
     users.push({
       name: { first: faker.name.firstName(), last: faker.name.lastName() },
       email: faker.internet.email(),
-      password: 'password'
+      password: 'password',
+      role: 'user'
     });
   }
 
