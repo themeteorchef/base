@@ -14,17 +14,22 @@ Template.default.helpers({
 		return !Meteor.loggingIn() && Meteor.user();
 	},
 	redirectAuthenticated() {
-	 	return handleRedirect([
-			'login',
-			'signup',
-			'recover-password',
-			'reset-password'
-		], '/' );
+    let forbiddenRoutes = [
+      'login',
+      'signup',
+      'recover-password',
+      'reset-password'
+    ];
+    if ( !Roles.userIsInRole( Meteor.userId() , 'admin' ) ) {
+      forbiddenRoutes.push( 'settings' );
+    }
+	 	return handleRedirect( forbiddenRoutes, '/' );
 	},
 	redirectPublic() {
 		return handleRedirect([
 			'index',
-			'dashboard'
+			'dashboard',
+      'settings'
 		], '/login' );
 	}
 });

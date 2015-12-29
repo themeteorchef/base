@@ -2,7 +2,8 @@ let administrators = [
   {
     name: { first: 'Admin', last: 'McAdmin' },
     email: 'admin@admin.com',
-    password: 'password'
+    password: 'password',
+    role: 'admin'
   }
 ];
 
@@ -37,13 +38,17 @@ let _checkIfUserExists = ( email ) => {
 };
 
 let _createUser = ( user ) => {
-  Accounts.createUser({
+  let userId = Accounts.createUser({
     email: user.email,
     password: user.password,
     profile: {
       name: user.name
     }
   });
+
+  if ( user.role !== undefined ) {
+    Roles.addUsersToRoles( userId, user.role );
+  }
 };
 
 let _generateFakeUsers = ( count ) => {
