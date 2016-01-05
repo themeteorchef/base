@@ -2,7 +2,8 @@ let administrators = [
   {
     name: { first: 'Admin', last: 'McAdmin' },
     email: 'admin@admin.com',
-    password: 'password'
+    password: 'password',
+    role: 'admin'
   }
 ];
 
@@ -37,13 +38,15 @@ let _checkIfUserExists = ( email ) => {
 };
 
 let _createUser = ( user ) => {
-  Accounts.createUser({
+  let userId = Accounts.createUser({
     email: user.email,
     password: user.password,
     profile: {
       name: user.name
     }
   });
+
+  Roles.addUsersToRoles( userId, user.role );
 };
 
 let _generateFakeUsers = ( count ) => {
@@ -53,7 +56,8 @@ let _generateFakeUsers = ( count ) => {
     users.push({
       name: { first: faker.name.firstName(), last: faker.name.lastName() },
       email: faker.internet.email(),
-      password: 'password'
+      password: 'password',
+      role: 'user'
     });
   }
 

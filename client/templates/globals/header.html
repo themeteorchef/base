@@ -13,6 +13,9 @@
 	    <div id="navbar-collapse" class="collapse navbar-collapse">
 	    	{{#if currentUser}}
 					{{> authenticatedNavigation}}
+          {{#if isInRole 'admin'}}
+            {{> adminNavigation}}
+          {{/if}}
 	      {{else}}
 	      	{{> publicNavigation}}
 	      {{/if}}
