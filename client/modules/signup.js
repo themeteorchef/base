@@ -42,6 +42,8 @@ let _handleSignup = ( template ) => {
     if ( error ) {
       Bert.alert( error.reason, 'danger' );
     } else {
+      let userId = Meteor.userId();
+      Meteor.call( 'addUserToRole', userId, 'user' );
       Bert.alert( 'Welcome!', 'success' );
     }
   });
