@@ -46,6 +46,7 @@ jquery@1.11.4
 jsx@0.2.3
 kadira:blaze-layout@2.2.0
 kadira:flow-router@2.7.0
+kadira:react-layout@1.4.1
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
