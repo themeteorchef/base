@@ -4,8 +4,8 @@ PublicNavigation = React.createClass({
     return {
       items: {
         right: [
-          { uid: 'login', href: '/login', label: 'Login' },
-          { uid: 'signup', href: '/signup', label: 'Signup' }
+          { uid: 'login', href: '/login', label: 'Log In' },
+          { uid: 'signup', href: '/signup', label: 'Sign Up' }
         ]
       }
     };

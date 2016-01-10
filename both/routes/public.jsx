@@ -17,14 +17,14 @@ publicRoutes.route( '/login', {
 });
 
 publicRoutes.route( '/recover-password', {
-  name: 'recover-password',
+  name: 'recoverPassword',
   action() {
     ReactLayout.render( App, { yield: <RecoverPassword /> } );
   }
 });
 
 publicRoutes.route( '/reset-password/:token', {
-  name: 'reset-password',
+  name: 'resetPassword',
   action( params ) {
     ReactLayout.render( App, { yield: <ResetPassword token={ params.token } /> } );
   }

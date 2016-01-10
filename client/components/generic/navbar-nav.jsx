@@ -18,6 +18,7 @@ NavBarNav = React.createClass({
     let classes = this.props.position ? `nav navbar-nav ${ this.props.position }` : 'nav navbar-nav';
     return <ul className={ classes }>
       {this.props.items.map( ( item, index ) => {
+        item.active = FlowRouter.getRouteName() === item.uid;
         return item.dropdown ? this.renderDropdown( item, index ) : this.renderItem( item, index );
       })}
     </ul>;

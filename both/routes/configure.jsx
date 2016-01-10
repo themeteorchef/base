@@ -1,6 +1,7 @@
 FlowRouter.notFound = {
+  name: 'notFound',
   action() {
-    BlazeLayout.render( 'default', { yield: 'notFound' } );
+    ReactLayout.render( App, { yield: <NotFound /> } );
   }
 };
 
@@ -10,11 +11,3 @@ Accounts.onLogin( () => {
     FlowRouter.go( 'index' );
   }
 });
-
-if ( Meteor.isClient ) {
-  Tracker.autorun( () => {
-    if ( !Meteor.userId() && FlowRouter.current().route ) {
-      FlowRouter.go( 'login' );
-    }
-  });
-}

@@ -7,7 +7,10 @@ Login = React.createClass({
 
     return <GridRow>
       <GridColumn className="col-xs-12 col-sm-6 col-md-4">
-        <PageHeader size="h4" label="Login" />
+        <PageHeader size="h4" label="Log In" />
+        <InfoAlert>
+          To access the demo, you can use the email address <strong>admin@admin.com</strong> and the password <strong>password</strong>.
+        </InfoAlert>
         <Form id="login" className="login" onSubmit={ this.handleSubmit }>
           <FormGroup>
             <EmailInput showLabel={ true } />
