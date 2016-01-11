@@ -16,12 +16,14 @@ FormControl = React.createClass({
   renderFormControl() {
     let fields = {
       input: <input
+        ref={ this.props.ref }
         type={ this.props.type }
         className="form-control"
         name={ this.props.name }
         placeholder={ this.props.label }
       />,
       textarea: <textarea
+        ref={ this.props.ref }
         name={ this.props.name }
         className="form-control"
         placeholder={ this.props.label }

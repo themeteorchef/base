@@ -1,4 +1,34 @@
 Login = React.createClass({
+  validations() {
+    let component = this;
+
+    return {
+      rules: {
+        emailAddress: { email: true, required: true },
+        password:     { required: true }
+      },
+      submitHandler() {
+        let { getValue } = ReactHelpers;
+
+        // TODO: Is there a better way to access nested component refs? Yeesh!
+
+        let form     = component.refs.loginForm.refs.form,
+            email    = getValue( form, '[name="emailAddress"]' ),
+            password = getValue( form, '[name="password"]' );
+
+        Meteor.loginWithPassword( email, password, ( error ) => {
+          if ( error ) {
+            Bert.alert( error.reason, 'danger' );
+          } else {
+            Bert.alert( 'Logged in!', 'success' );
+          }
+        });
+      }
+    };
+  },
+  handleSubmit( event ) {
+    event.preventDefault();
+  },
   render() {
     let passwordLabelLink = {
       href: '/recover-password',
@@ -11,12 +41,12 @@ Login = React.createClass({
         <InfoAlert>
           To access the demo, you can use the email address <strong>admin@admin.com</strong> and the password <strong>password</strong>.
         </InfoAlert>
-        <Form id="login" className="login" onSubmit={ this.handleSubmit }>
+        <Form ref="loginForm" id="login" className="login" validations={ this.validations() } onSubmit={ this.handleSubmit }>
           <FormGroup>
-            <EmailInput showLabel={ true } />
+            <EmailInput ref="emailAddress" showLabel={ true } />
           </FormGroup>
           <FormGroup>
-            <PasswordInput showLabel={ true } labelLink={ passwordLabelLink } />
+            <PasswordInput ref="password" showLabel={ true } labelLink={ passwordLabelLink } />
           </FormGroup>
           <FormGroup>
             <SuccessButton type="submit" label="Login" />
