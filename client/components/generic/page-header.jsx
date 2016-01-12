@@ -7,7 +7,7 @@ PageHeader = React.createClass({
       h4: <h4 className="page-header">{ this.props.label }</h4>,
       h5: <h5 className="page-header">{ this.props.label }</h5>,
       h6: <h6 className="page-header">{ this.props.label }</h6>
-    }
+    };
 
     return headers[ this.props.size ];
   },
