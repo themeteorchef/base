@@ -18,9 +18,6 @@ App = React.createClass({
       }
     };
   },
-  loading() {
-    return <div className="loading"></div>;
-  },
   getView() {
     return this.data.canView() ? this.props.yield : <Login />;
   },
@@ -28,7 +25,7 @@ App = React.createClass({
     return <div className="app-root">
       <AppHeader hasUser={ this.data.hasUser } />
       <div className="container">
-        { this.data.loggingIn ? this.loading() : this.getView() }
+        { this.data.loggingIn ? <Loading /> : this.getView() }
       </div>
     </div>;
   }

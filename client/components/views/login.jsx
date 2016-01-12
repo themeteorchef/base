@@ -4,13 +4,25 @@ Login = React.createClass({
 
     return {
       rules: {
-        emailAddress: { email: true, required: true },
-        password:     { required: true }
+        emailAddress: {
+          required: true,
+          email: true
+        },
+        password: {
+          required: true
+        }
+      },
+      messages: {
+        emailAddress: {
+          required: 'Need an email address here.',
+          email: 'Is this email address legit?'
+        },
+        password: {
+          required: 'Need a password here.'
+        }
       },
       submitHandler() {
         let { getValue } = ReactHelpers;
-
-        // TODO: Is there a better way to access nested component refs? Yeesh!
 
         let form     = component.refs.loginForm.refs.form,
             email    = getValue( form, '[name="emailAddress"]' ),
@@ -36,7 +48,7 @@ Login = React.createClass({
     };
 
     return <GridRow>
-      <GridColumn className="col-xs-12 col-sm-6 col-md-4">
+      <GridColumn className="col-xs-12 col-sm-6 col-md-5 col-lg-4">
         <PageHeader size="h4" label="Log In" />
         <InfoAlert>
           To access the demo, you can use the email address <strong>admin@admin.com</strong> and the password <strong>password</strong>.

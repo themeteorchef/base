@@ -4,6 +4,7 @@ InfoButton = React.createClass({
       type={ this.props.type }
       style="info"
       label={ this.props.label }
+      href={ this.props.href }
     />;
   }
 });

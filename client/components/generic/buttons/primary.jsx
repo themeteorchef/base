@@ -4,6 +4,7 @@ PrimaryButton = React.createClass({
       type={ this.props.type }
       style="primary"
       label={ this.props.label }
+      href={ this.props.href }
     />;
   }
 });

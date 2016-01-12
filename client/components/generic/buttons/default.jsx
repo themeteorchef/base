@@ -4,6 +4,7 @@ DefaultButton = React.createClass({
       type={ this.props.type }
       style="default"
       label={ this.props.label }
+      href={ this.props.href }
     />;
   }
 });

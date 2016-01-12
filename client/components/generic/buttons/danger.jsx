@@ -4,6 +4,7 @@ DangerButton = React.createClass({
       type={ this.props.type }
       style="danger"
       label={ this.props.label }
+      href={ this.props.href }
     />;
   }
 });
