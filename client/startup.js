@@ -1,1 +1,3 @@
-Meteor.startup( () => Modules.client.startup() );
+import { startup } from './modules/startup';
+
+Meteor.startup( () => startup() );

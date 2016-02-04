@@ -9,9 +9,7 @@ jquery
 check
 audit-argument-checks
 themeteorchef:jquery-validation
-twbs:bootstrap
 browser-policy
-meteorhacks:npm
 
 
 themeteorchef:bert
@@ -19,9 +17,7 @@ meteorhacks:ssr
 standard-minifiers
 
 
-npm-container
 ecmascript
-digilord:faker
 kadira:flow-router
 kadira:blaze-layout
 meteorhacks:fast-render
@@ -34,3 +30,6 @@ reactive-var
 reactive-dict
 aldeed:collection2
 tracker
+twbs:bootstrap
+momentjs:moment
+alanning:roles

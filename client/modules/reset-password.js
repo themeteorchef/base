@@ -1,9 +1,14 @@
-let resetPassword = ( options ) => {
-  _validate( options.form, options.template );
-};
+let _handleReset = ( template ) => {
+  var token    = FlowRouter.current().params.token,
+      password = template.find( '[name="newPassword"]' ).value;
 
-let _validate = ( form, template ) => {
-  $( form ).validate( validation( template ) );
+  Accounts.resetPassword( token, password, ( error ) => {
+    if ( error ) {
+      Bert.alert( error.reason, 'danger' );
+    } else {
+      Bert.alert( 'Password reset!', 'success' );
+    }
+  });
 };
 
 let validation = ( template ) => {
@@ -33,17 +38,10 @@ let validation = ( template ) => {
   };
 };
 
-let _handleReset = ( template ) => {
-  var token    = FlowRouter.current().params.token,
-      password = template.find( '[name="newPassword"]' ).value;
-
-  Accounts.resetPassword( token, password, ( error ) => {
-    if ( error ) {
-      Bert.alert( error.reason, 'danger' );
-    } else {
-      Bert.alert( 'Password reset!', 'success' );
-    }
-  });
+let _validate = ( form, template ) => {
+  $( form ).validate( validation( template ) );
 };
 
-Modules.client.resetPassword = resetPassword;
+export function resetPassword( options ) {
+  _validate( options.form, options.template );
+}

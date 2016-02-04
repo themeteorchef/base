@@ -1,9 +1,16 @@
-let signup = ( options ) => {
-  _validate( options.form, options.template );
-};
+let _handleSignup = ( template ) => {
+  let user = {
+    email: template.find( '[name="emailAddress"]' ).value,
+    password: template.find( '[name="password"]' ).value
+  };
 
-let _validate = ( form, template ) => {
-  $( form ).validate( validation( template ) );
+  Accounts.createUser( user, ( error ) => {
+    if ( error ) {
+      Bert.alert( error.reason, 'danger' );
+    } else {
+      Bert.alert( 'Welcome!', 'success' );
+    }
+  });
 };
 
 let validation = ( template ) => {
@@ -32,19 +39,10 @@ let validation = ( template ) => {
   };
 };
 
-let _handleSignup = ( template ) => {
-  let user = {
-    email: template.find( '[name="emailAddress"]' ).value,
-    password: template.find( '[name="password"]' ).value
-  };
-
-  Accounts.createUser( user, ( error ) => {
-    if ( error ) {
-      Bert.alert( error.reason, 'danger' );
-    } else {
-      Bert.alert( 'Welcome!', 'success' );
-    }
-  });
+let _validate = ( form, template ) => {
+  $( form ).validate( validation( template ) );
 };
 
-Modules.client.signup = signup;
+export function signup( options ) {
+  _validate( options.form, options.template );
+}

@@ -1,5 +1,7 @@
+import { login } from '../../modules/login';
+
 Template.login.onRendered( () => {
-  Modules.client.login( { form: "#login", template: Template.instance() } );
+  login( { form: "#login", template: Template.instance() } );
 });
 
 Template.login.events({

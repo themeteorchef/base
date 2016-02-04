@@ -12,6 +12,6 @@ authenticatedRoutes.route( '/', {
 authenticatedRoutes.route( '/dashboard', {
   name: 'dashboard',
   action() {
-    BlazeLayout.render( 'default', { yield: 'dashboard' } );
+    BlazeLayout.render( 'default', { yield: 'dashboard' }, hello );
   }
 });

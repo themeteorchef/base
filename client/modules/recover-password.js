@@ -1,9 +1,13 @@
-let recoverPassword = ( options ) => {
-  _validate( options.form, options.template );
-};
+let _handleRecovery = ( template ) => {
+  let email = template.find( '[name="emailAddress"]' ).value;
 
-let _validate = ( form, template ) => {
-  $( form ).validate( validation( template ) );
+  Accounts.forgotPassword( { email: email }, ( error ) => {
+    if ( error ) {
+      Bert.alert( error.reason, 'warning' );
+    } else {
+      Bert.alert( 'Check your inbox for a reset link!', 'success' );
+    }
+  });
 };
 
 let validation = ( template ) => {
@@ -24,16 +28,10 @@ let validation = ( template ) => {
   };
 };
 
-let _handleRecovery = ( template ) => {
-  let email = template.find( '[name="emailAddress"]' ).value;
-
-  Accounts.forgotPassword( { email: email }, ( error ) => {
-    if ( error ) {
-      Bert.alert( error.reason, 'warning' );
-    } else {
-      Bert.alert( 'Check your inbox for a reset link!', 'success' );
-    }
-  });
+let _validate = ( form, template ) => {
+  $( form ).validate( validation( template ) );
 };
 
-Modules.client.recoverPassword = recoverPassword;
+export function recoverPassword( options ) {
+  _validate( options.form, options.template );
+}

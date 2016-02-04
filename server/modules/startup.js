@@ -1,13 +1,7 @@
-let startup = () => {
-  _setEnvironmentVariables();
-  _setBrowserPolicies();
-  _generateAccounts();
-};
+import { setBrowserPolicies } from './set-browser-policies';
+import { seedDatabase } from './seed-database';
 
-var _setEnvironmentVariables = () => Modules.server.setEnvironmentVariables();
-
-var _setBrowserPolicies = () => {};
-
-var _generateAccounts = () => Modules.server.generateAccounts();
-
-Modules.server.startup = startup;
+export function startup() {
+  setBrowserPolicies();
+  seedDatabase();
+}

@@ -1,9 +1,14 @@
-let login = ( options ) => {
-  _validate( options.form, options.template );
-};
+let _handleLogin = ( template ) => {
+  let email    = template.find( '[name="emailAddress"]' ).value,
+      password = template.find( '[name="password"]' ).value;
 
-let _validate = ( form, template ) => {
-  $( form ).validate( validation( template ) );
+  Meteor.loginWithPassword( email, password, ( error ) => {
+    if ( error ) {
+      Bert.alert( error.reason, 'warning' );
+    } else {
+      Bert.alert( 'Logged in!', 'success' );
+    }
+  });
 };
 
 let validation = ( template ) => {
@@ -30,17 +35,10 @@ let validation = ( template ) => {
   };
 };
 
-let _handleLogin = ( template ) => {
-  let email    = template.find( '[name="emailAddress"]' ).value,
-      password = template.find( '[name="password"]' ).value;
-
-  Meteor.loginWithPassword( email, password, ( error ) => {
-    if ( error ) {
-      Bert.alert( error.reason, 'warning' );
-    } else {
-      Bert.alert( 'Logged in!', 'success' );
-    }
-  });
+let _validate = ( form, template ) => {
+  $( form ).validate( validation( template ) );
 };
 
-Modules.client.login = login;
+export function login( options ) {
+  _validate( options.form, options.template );
+}

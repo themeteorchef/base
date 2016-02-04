@@ -1,3 +1,3 @@
-let startup = () => {};
-
-Modules.client.startup = startup;
+export function startup() {
+  Bert.defaults.style = 'growl-top-right';
+}
