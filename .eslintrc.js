@@ -23,6 +23,7 @@ module.exports = {
     'eqeqeq': [2, 'smart'],
     'indent': [2, 2],
     'linebreak-style': [2, 'unix'],
+    'no-multi-spaces': [1, { 'exceptions': { 'VariableDeclarator': true } } ],
     'no-unneeded-ternary': [2],
     'quotes': [2, 'single'],
     'semi': [2, 'always'],
