@@ -1,5 +1,5 @@
 Meteor.methods({
-  removeServerOnly( argument ) {
+  removeServerOnly( documentId ) {
     check( documentId, String );
 
     try {

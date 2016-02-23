@@ -1,3 +1,3 @@
-import { startup } from './modules/startup';
-
-Meteor.startup( () => startup() );
+Meteor.startup( () => {
+  Bert.defaults.style = 'growl-bottom-right';
+});

@@ -1,3 +1,3 @@
-import { startup } from './modules/startup';
-
-Meteor.startup( () => startup() );
+Meteor.startup( () => {
+  // Code to run on client *and* server startup.  
+});

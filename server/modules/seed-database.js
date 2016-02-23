@@ -1,10 +1,19 @@
-import { Seed } from '../seeder';
+import seed from 'meteor/themeteorchef:seeder';
 
-export function seedDatabase() {
-  Seed( 'users', {
+let _seedUsers = () => {
+  seed( 'users', {
+    environments: [ 'development', 'staging', 'production' ],
     data: [{
       email: 'admin@admin.com',
-      password: 'password'
+      password: 'password',
+      profile: {
+        name: { first: 'Carl', last: 'Winslow' }
+      },
+      roles: [ 'admin' ]
     }]
   });
+};
+
+export default function() {
+  _seedUsers();
 }

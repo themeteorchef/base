@@ -1,4 +1,6 @@
-let _handleRecovery = ( template ) => {
+let template;
+
+let _handleRecovery = () => {
   let email = template.find( '[name="emailAddress"]' ).value;
 
   Accounts.forgotPassword( { email: email }, ( error ) => {
@@ -10,7 +12,7 @@ let _handleRecovery = ( template ) => {
   });
 };
 
-let validation = ( template ) => {
+let validation = () => {
   return {
     rules: {
       emailAddress: {
@@ -24,14 +26,15 @@ let validation = ( template ) => {
         email: 'Is this email address legit?'
       }
     },
-    submitHandler() { _handleRecovery( template ); }
+    submitHandler() { _handleRecovery(); }
   };
 };
 
-let _validate = ( form, template ) => {
-  $( form ).validate( validation( template ) );
+let _validate = ( form ) => {
+  $( form ).validate( validation() );
 };
 
-export function recoverPassword( options ) {
-  _validate( options.form, options.template );
+export default function( options ) {
+  template = options.template;
+  _validate( options.form );
 }

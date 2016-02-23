@@ -13,9 +13,9 @@ Documents.deny({
 });
 
 let DocumentsSchema = new SimpleSchema({
-  "title": {
+  'title': {
     type: String,
-    label: "The title of this document."
+    label: 'The title of this document.'
   }
 });
 

@@ -1,10 +1,7 @@
-import { recoverPassword } from '../../modules/recover-password';
+import recoverPassword from '../../modules/recover-password';
 
 Template.recoverPassword.onRendered( () => {
-  recoverPassword({
-    form: "#recover-password",
-    template: Template.instance()
-  });
+  recoverPassword( { form: '#recover-password', template: Template.instance() } );
 });
 
 Template.recoverPassword.events({

@@ -1,5 +1,7 @@
-let _handleReset = ( template ) => {
-  var token    = FlowRouter.current().params.token,
+let template;
+
+let _handleReset = () => {
+  var token    = FlowRouter.getParam( 'token' ),
       password = template.find( '[name="newPassword"]' ).value;
 
   Accounts.resetPassword( token, password, ( error ) => {
@@ -11,7 +13,7 @@ let _handleReset = ( template ) => {
   });
 };
 
-let validation = ( template ) => {
+let validation = () => {
   return {
     rules: {
       newPassword: {
@@ -26,22 +28,23 @@ let validation = ( template ) => {
     },
     messages: {
       newPassword: {
-        required: "Enter a new password, please.",
-        minlength: "Use at least six characters, please."
+        required: 'Enter a new password, please.',
+        minlength: 'Use at least six characters, please.'
       },
       repeatNewPassword: {
-        required: "Repeat your new password, please.",
-        equalTo: "Hmm, your passwords don't match. Try again?"
+        required: 'Repeat your new password, please.',
+        equalTo: 'Hmm, your passwords don\'t match. Try again?'
       }
     },
-    submitHandler() { _handleReset( template ); }
+    submitHandler() { _handleReset(); }
   };
 };
 
-let _validate = ( form, template ) => {
-  $( form ).validate( validation( template ) );
+let _validate = ( form ) => {
+  $( form ).validate( validation() );
 };
 
-export function resetPassword( options ) {
-  _validate( options.form, options.template );
+export default function ( options ) {
+  template = options.template;
+  _validate( options.form );
 }

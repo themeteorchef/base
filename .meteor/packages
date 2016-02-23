@@ -25,7 +25,6 @@ meteor-base
 session
 templating
 fourseven:scss
-stevezhu:lodash
 reactive-var
 reactive-dict
 aldeed:collection2
@@ -33,3 +32,4 @@ tracker
 twbs:bootstrap
 momentjs:moment
 alanning:roles
+themeteorchef:seeder

@@ -1,6 +1,4 @@
-const authenticatedRoutes = FlowRouter.group({
-  name: 'authenticated'
-});
+const authenticatedRoutes = FlowRouter.group( { name: 'authenticated' } );
 
 authenticatedRoutes.route( '/', {
   name: 'index',
@@ -12,6 +10,6 @@ authenticatedRoutes.route( '/', {
 authenticatedRoutes.route( '/dashboard', {
   name: 'dashboard',
   action() {
-    BlazeLayout.render( 'default', { yield: 'dashboard' }, hello );
+    BlazeLayout.render( 'default', { yield: 'dashboard' } );
   }
 });

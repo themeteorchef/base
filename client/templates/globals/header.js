@@ -7,7 +7,9 @@ Template.header.helpers({
 });
 
 Template.header.events({
-  'click .logout' () {
+  'click .logout' ( event ) {
+    event.preventDefault();
+
     Meteor.logout( ( error ) => {
       if ( error ) {
         Bert.alert( error.reason, 'warning' );

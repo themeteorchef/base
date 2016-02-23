@@ -1,3 +1,0 @@
-let startup = () => {};
-
-export { startup };

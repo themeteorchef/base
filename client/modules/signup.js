@@ -1,4 +1,6 @@
-let _handleSignup = ( template ) => {
+let template;
+
+let _handleSignup = () => {
   let user = {
     email: template.find( '[name="emailAddress"]' ).value,
     password: template.find( '[name="password"]' ).value
@@ -13,7 +15,7 @@ let _handleSignup = ( template ) => {
   });
 };
 
-let validation = ( template ) => {
+let validation = () => {
   return {
     rules: {
       emailAddress: {
@@ -35,14 +37,15 @@ let validation = ( template ) => {
         minlength: 'Use at least six characters, please.'
       }
     },
-    submitHandler() { _handleSignup( template ); }
+    submitHandler() { _handleSignup(); }
   };
 };
 
-let _validate = ( form, template ) => {
-  $( form ).validate( validation( template ) );
+let _validate = ( form ) => {
+  $( form ).validate( validation() );
 };
 
-export function signup( options ) {
-  _validate( options.form, options.template );
+export default function( options ) {
+  template = options.template;
+  _validate( options.form );
 }
