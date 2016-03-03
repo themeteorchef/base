@@ -14,7 +14,6 @@ browser-policy
 
 themeteorchef:bert
 meteorhacks:ssr
-standard-minifiers
 
 
 ecmascript
@@ -35,3 +34,5 @@ alanning:roles
 themeteorchef:seeder
 themeteorchef:commonmark
 risul:moment-timezone
+standard-minifier-css
+standard-minifier-js
