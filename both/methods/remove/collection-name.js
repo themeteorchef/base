@@ -1,5 +1,5 @@
 Meteor.methods({
-  remove( documentId ) {
+  removeBoth( documentId ) {
     check( documentId, String );
 
     try {

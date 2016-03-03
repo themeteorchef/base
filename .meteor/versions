@@ -76,6 +76,7 @@ reactive-dict@1.1.4-modules.8
 reactive-var@1.0.6
 reload@1.1.5-modules.8
 retry@1.0.4
+risul:moment-timezone@0.5.0_5
 routepolicy@1.0.7-modules.8
 service-configuration@1.0.6-modules.8
 session@1.1.2-modules.8
@@ -89,6 +90,7 @@ standard-minifiers-js@1.0.3-modules.8
 templating@1.1.6-modules.8
 templating-tools@1.0.1-modules.8
 themeteorchef:bert@2.1.0
+themeteorchef:commonmark@1.1.0
 themeteorchef:jquery-validation@1.14.0
 themeteorchef:seeder@0.1.0
 tracker@1.0.10-modules.8

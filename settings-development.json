@@ -1,10 +1,4 @@
 {
-  "public": {
-    "application": {
-      "name": "Application Name",
-      "domain": "localhost:3000",
-      "supportEmail": "admin@application.com"
-    }
-  },
+  "public": {},
   "private": {}
 }

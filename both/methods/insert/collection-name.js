@@ -1,5 +1,5 @@
 Meteor.methods({
-  insert( object ) {
+  insertBoth( object ) {
     check( object, Object );
 
     try {

@@ -16,6 +16,8 @@ module.exports = {
     'BlazeLayout': true,
     'Documents': true,
     'FlowRouter': true,
+    'moment': true,
+    'parseMarkdown': true,
     'Roles': true,
     'SimpleSchema': true
   },
@@ -25,6 +27,7 @@ module.exports = {
     'eqeqeq': [ 2, 'smart' ],
     'indent': [ 2, 2, { 'VariableDeclarator': 2 } ],
     'linebreak-style': [ 2, 'unix' ],
+    'no-console': [ 0 ],
     'no-unneeded-ternary': [ 2 ],
     'object-curly-spacing': [ 2, 'always' ],
     'quotes': [ 2, 'single' ],

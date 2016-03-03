@@ -33,3 +33,5 @@ twbs:bootstrap
 momentjs:moment
 alanning:roles
 themeteorchef:seeder
+themeteorchef:commonmark
+risul:moment-timezone

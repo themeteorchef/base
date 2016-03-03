@@ -1,5 +1,5 @@
 Meteor.methods({
-  update( update ) {
+  updateBoth( update ) {
     check( update, Object );
 
     try {
