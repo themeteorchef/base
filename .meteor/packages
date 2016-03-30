@@ -1,38 +1,32 @@
 # Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
+meteor-base             # Packages every Meteor app needs to have
+mobile-experience       # Packages for a great mobile UX
+mongo                   # The database Meteor supports right now
+reactive-var            # Reactive variable for tracker
+session
+jquery                  # Helpful client-side library
+tracker                 # Meteor's client-side reactive programming library
+
+standard-minifier-css   # CSS minifier run for production mode
+standard-minifier-js    # JS minifier run for production mode
+es5-shim                # ECMAScript 5 compatibility for older browsers.
+ecmascript              # Enable ECMAScript2015+ syntax in app code
+
 accounts-password
 accounts-base
-jquery
 check
 audit-argument-checks
-themeteorchef:jquery-validation
 browser-policy
 
-
-themeteorchef:bert
-meteorhacks:ssr
-
-
-ecmascript
-kadira:flow-router
-kadira:blaze-layout
-meteorhacks:fast-render
-meteor-base
-session
-templating
 fourseven:scss
-reactive-var
-reactive-dict
 aldeed:collection2
-tracker
-twbs:bootstrap
-momentjs:moment
+# momentjs:moment NPM this
 alanning:roles
-themeteorchef:seeder
-themeteorchef:commonmark
-risul:moment-timezone
-standard-minifier-css
-standard-minifier-js
+react-meteor-data
+themeteorchef:jquery-validation
+themeteorchef:bert

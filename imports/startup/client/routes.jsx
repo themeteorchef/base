@@ -1,0 +1,44 @@
+import React from 'react';
+import { render } from 'react-dom';
+import { Router, Route, Redirect, IndexRoute, browserHistory } from 'react-router';
+
+import { App } from '../../ui/layouts/app';
+import { Dashboard } from '../../ui/pages/dashboard';
+import { Index } from '../../ui/pages/index';
+import { Login } from '../../ui/pages/login';
+import { RecoverPassword } from '../../ui/pages/recover-password';
+import { ResetPassword } from '../../ui/pages/reset-password';
+import { Signup } from '../../ui/pages/signup';
+
+const requireAuth = ( nextState, replace ) => {
+  if ( !Meteor.loggingIn() && !Meteor.user() ) {
+    replace({
+      pathname: '/login',
+      state: { nextPathName: nextState.location.pathname }
+    });
+  }
+};
+
+const renderReactRoot = () => {
+  let container = document.createElement( 'div' );
+  container.id = 'react-root';
+  document.body.appendChild( container );
+};
+
+Meteor.startup( () => {
+  renderReactRoot();
+
+  render(
+    <Router history={ browserHistory }>
+      <Route path="/" component={ App }>
+        <IndexRoute component={ Index } onEnter={ requireAuth } />
+        <Route path="/dashboard" component={ Dashboard } onEnter={ requireAuth } />
+        <Route path="/login" component={ Login } />
+        <Route path="/recover-password" component={ RecoverPassword } />
+        <Route path="/reset-password/:token" component={ ResetPassword } />
+        <Route path="/signup" component={ Signup } />
+      </Route>
+    </Router>,
+    document.getElementById( 'react-root' )
+  );
+});
