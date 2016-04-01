@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { Row, Col, PageHeader, Input, Button } from 'react-bootstrap';
 import { handleLogin } from '../../modules/login';
 
@@ -26,7 +27,7 @@ export class Login extends React.Component {
           <div className="form-group">
             <label htmlFor="password">
               <span className="pull-left">Password</span>
-              <a className="pull-right" href="/recover-password">Forgot Password?</a>
+              <Link className="pull-right" to="/recover-password">Forgot Password?</Link>
             </label>
             <input type="password" className="form-control" ref="password" name="password" placeholder="Password" />
           </div>

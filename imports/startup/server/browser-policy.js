@@ -1,3 +1,1 @@
-export default function() {
-  // e.g. BrowserPolicy.content.allowOriginForAll( '*.website.com' );
-}
+// e.g., BrowserPolicy.content.allowOriginForAll( 's3.amazonaws.com' );

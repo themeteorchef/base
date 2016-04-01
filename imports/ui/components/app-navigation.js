@@ -4,7 +4,7 @@ import { PublicNavigation } from './public-navigation';
 import { AuthenticatedNavigation } from './authenticated-navigation';
 
 export class AppNavigation extends React.Component {
-  renderNavigation( hasUser ) {
+  renderNavigation( hasUser, location ) {
     return hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />;
   }
 

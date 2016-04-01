@@ -31,12 +31,12 @@ Meteor.startup( () => {
   render(
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
-        <IndexRoute component={ Index } onEnter={ requireAuth } />
-        <Route path="/dashboard" component={ Dashboard } onEnter={ requireAuth } />
-        <Route path="/login" component={ Login } />
-        <Route path="/recover-password" component={ RecoverPassword } />
-        <Route path="/reset-password/:token" component={ ResetPassword } />
-        <Route path="/signup" component={ Signup } />
+        <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
+        <Route name="dashboard" path="/dashboard" component={ Dashboard } onEnter={ requireAuth } />
+        <Route name="login" path="/login" component={ Login } />
+        <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
+        <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
+        <Route name="signup" path="/signup" component={ Signup } />
       </Route>
     </Router>,
     document.getElementById( 'react-root' )

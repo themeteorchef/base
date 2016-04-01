@@ -1,14 +1,17 @@
+import { browserHistory } from 'react-router';
+
 let component;
 
 const _handleLogin = () => {
-  // <Input /> component is accessed via nested refs.
-  let email    = component.refs.emailAddress.refs.input.value,
-      password = component.refs.password.value;
+  // <Input /> component value is accessed via nested refs.
+  const email    = component.refs.emailAddress.refs.input.value,
+        password = component.refs.password.value;
 
   Meteor.loginWithPassword( email, password, ( error ) => {
     if ( error ) {
       Bert.alert( error.reason, 'warning' );
     } else {
+      browserHistory.push( '/' );
       Bert.alert( 'Logged in!', 'success' );
     }
   });
