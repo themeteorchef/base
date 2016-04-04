@@ -1,10 +1,22 @@
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router';
 import { Nav, NavItem } from 'react-bootstrap';
 
-export const PublicNavigation = ( { router } ) => (
-  <Nav pullRight>
-    <NavItem eventKey={ 1 } href="/signup">Sign Up</NavItem>
-    <NavItem eventKey={ 2 } href="/login">Login</NavItem>
-  </Nav>
-)
+export const PublicNavigation = React.createClass({
+  isActive( route, indexOnly ) {
+    return this.props.activeRoute( route, indexOnly ) ? 'active' : '';
+  },
+  handleRouteChange() {
+   this.forceUpdate();
+  },
+  render() {
+    return <Nav pullRight>
+      <li className={ this.isActive( '/signup' ) } onClick={ this.handleRouteChange }>
+        <Link to="/signup">Sign Up</Link>
+      </li>
+      <li className={ this.isActive( '/login' ) } onClick={ this.handleRouteChange }>
+        <Link to="/login">Log In</Link>
+      </li>
+    </Nav>;
+  }
+});

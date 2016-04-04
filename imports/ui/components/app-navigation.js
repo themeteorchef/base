@@ -4,8 +4,8 @@ import { PublicNavigation } from './public-navigation';
 import { AuthenticatedNavigation } from './authenticated-navigation';
 
 export class AppNavigation extends React.Component {
-  renderNavigation( hasUser, location ) {
-    return hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />;
+  renderNavigation( hasUser, activeRoute ) {
+    return hasUser ? <AuthenticatedNavigation activeRoute={ activeRoute } /> : <PublicNavigation activeRoute={ activeRoute } />;
   }
 
   render() {
@@ -15,7 +15,7 @@ export class AppNavigation extends React.Component {
           <a href="/">Application Name</a>
         </Navbar.Brand>
       </Navbar.Header>
-      { this.renderNavigation( this.props.hasUser ) }
+      { this.renderNavigation( this.props.hasUser, this.props.activeRoute ) }
     </Navbar>;
   }
 }

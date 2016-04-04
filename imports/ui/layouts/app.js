@@ -9,8 +9,9 @@ export const App = React.createClass({
     }
   },
   render() {
+    const { isActive } = this.context.router;
     return <div>
-      <AppNavigation />
+      <AppNavigation activeRoute={ isActive } />
       <Grid>
         { this.props.children }
       </Grid>
