@@ -19,15 +19,7 @@ const requireAuth = ( nextState, replace ) => {
   }
 };
 
-const renderReactRoot = () => {
-  let container = document.createElement( 'div' );
-  container.id = 'react-root';
-  document.body.appendChild( container );
-};
-
 Meteor.startup( () => {
-  renderReactRoot();
-
   render(
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>

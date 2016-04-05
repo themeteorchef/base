@@ -30,3 +30,7 @@ alanning:roles
 react-meteor-data
 themeteorchef:jquery-validation
 themeteorchef:bert
+static-html
+xolvio:cleaner
+practicalmeteor:mocha
+xolvio:backdoor

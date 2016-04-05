@@ -4,11 +4,14 @@
   "description": "Application description.",
   "scripts": {
     "start": "meteor --settings settings-development.json",
+    "chimp-watch": "chimp --ddp=http://localhost:3000 --watch --mocha --path=tests",
+    "chimp-test": "chimp --ddp=http://localhost:3000 --mocha --path=tests",
     "staging": "meteor deploy staging.meteor.com --settings settings-development.json",
     "production": "meteor deploy production.meteor.com --settings settings-production.json"
   },
   "devDependencies": {},
   "dependencies": {
+    "chimp": "^0.33.0",
     "react": "^0.14.8",
     "react-addons-pure-render-mixin": "^0.14.8",
     "react-bootstrap": "^0.28.4",
