@@ -8,7 +8,7 @@ describe( 'Log In', function() {
     });
   });
 
-  it( 'should allow us to login @watch', function() {
+  it( 'should allow us to login', function() {
     server.execute( function() {
       Accounts.createUser({
         email: 'carl.winslow@abc.com',

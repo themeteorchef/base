@@ -8,7 +8,7 @@ describe( 'Sign Up', function() {
     });
   });
 
-  it( 'should create a new user and login with redirect to index @watch', function() {
+  it( 'should create a new user and login with redirect to index', function() {
     browser.url( 'http://localhost:3000/signup' )
            .setValue( '[name="firstName"]', 'Carl' )
            .setValue( '[name="lastName"]', 'Winslow' )
