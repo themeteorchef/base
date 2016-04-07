@@ -1,5 +1,6 @@
 import React from 'react';
-import { browserHistory, IndexLink, Link } from 'react-router';
+import { browserHistory } from 'react-router';
+import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 const handleLogout = () => {
@@ -17,8 +18,12 @@ const userName = () => {
 export const AuthenticatedNavigation = () => (
   <div>
     <Nav>
-      <li><IndexLink to="/" activeClassName="active">Index</IndexLink></li>
-      <li><Link to="/dashboard" activeClassName="active">Dashboard</Link></li>
+      <IndexLinkContainer to="/">
+        <NavItem eventKey={ 1 } href="/">Index</NavItem>
+      </IndexLinkContainer>
+      <LinkContainer to="dashboard">
+        <NavItem eventKey={ 2 } href="/dashboard">Dashboard</NavItem>
+      </LinkContainer>
     </Nav>
     <Nav pullRight>
       <NavDropdown eventKey={ 3 } title={ userName() } id="basic-nav-dropdown">

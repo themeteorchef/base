@@ -5,8 +5,8 @@ import { PublicNavigation } from './public-navigation';
 import { AuthenticatedNavigation } from './authenticated-navigation';
 
 export class AppNavigation extends React.Component {
-  renderNavigation( hasUser, activeRoute ) {
-    return hasUser ? <AuthenticatedNavigation activeRoute={ activeRoute } /> : <PublicNavigation activeRoute={ activeRoute } />;
+  renderNavigation( hasUser ) {
+    return hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />;
   }
 
   render() {
@@ -18,7 +18,7 @@ export class AppNavigation extends React.Component {
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        { this.renderNavigation( this.props.hasUser, this.props.activeRoute ) }
+        { this.renderNavigation( this.props.hasUser ) }
       </Navbar.Collapse>
     </Navbar>;
   }

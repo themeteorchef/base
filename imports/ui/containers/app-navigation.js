@@ -1,6 +1,8 @@
-import { createContainer } from 'meteor/react-meteor-data';
+import { composeWithTracker } from 'react-komposer';
 import { AppNavigation } from '../components/app-navigation';
 
-export default createContainer( ( { params } ) => {
-  return { hasUser: Meteor.user() };
-}, AppNavigation );
+const composer = ( props, onData ) => {
+  onData( null, { hasUser: Meteor.user() } );
+};
+
+export default composeWithTracker( composer, {}, {}, { pure: false } )( AppNavigation );
