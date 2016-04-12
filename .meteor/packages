@@ -35,3 +35,4 @@ xolvio:cleaner
 practicalmeteor:mocha
 xolvio:backdoor
 xolvio:email-stub
+mdg:validated-method
