@@ -1,3 +1,4 @@
+import { ValidatedMethod } from 'meteor/validated-method';
 import { Documents } from './documents';
 
 export const insertDocument = new ValidatedMethod({
