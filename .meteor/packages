@@ -25,7 +25,6 @@ browser-policy
 
 fourseven:scss
 aldeed:collection2
-# momentjs:moment NPM this
 alanning:roles
 react-meteor-data
 themeteorchef:jquery-validation
@@ -34,7 +33,5 @@ static-html
 xolvio:cleaner
 practicalmeteor:mocha
 xolvio:backdoor
-xolvio:email-stub
 mdg:validated-method
 dburles:factory
-aldeed:simple-schema
