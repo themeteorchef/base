@@ -5,10 +5,10 @@ import { handleSignup } from '../../modules/signup';
 
 export class Signup extends React.Component {
   componentDidMount() {
-    handleSignup( { component: this } );
+    handleSignup({ component: this });
   }
 
-  handleSubmit( event ) {
+  handleSubmit(event) {
     event.preventDefault();
   }
 

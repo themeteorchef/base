@@ -36,3 +36,5 @@ practicalmeteor:mocha
 xolvio:backdoor
 xolvio:email-stub
 mdg:validated-method
+dburles:factory
+aldeed:simple-schema

@@ -11,4 +11,4 @@ export const Documents = () => (
       <DocumentsList />
     </Col>
   </Row>
-)
+);

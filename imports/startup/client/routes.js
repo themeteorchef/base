@@ -11,16 +11,16 @@ import { RecoverPassword } from '../../ui/pages/recover-password';
 import { ResetPassword } from '../../ui/pages/reset-password';
 import { Signup } from '../../ui/pages/signup';
 
-const requireAuth = ( nextState, replace ) => {
-  if ( !Meteor.loggingIn() && !Meteor.user() ) {
+const requireAuth = (nextState, replace) => {
+  if (!Meteor.loggingIn() && !Meteor.user()) {
     replace({
       pathname: '/login',
-      state: { nextPathName: nextState.location.pathname }
+      state: { nextPathName: nextState.location.pathname },
     });
   }
 };
 
-Meteor.startup( () => {
+Meteor.startup(() => {
   render(
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
@@ -33,6 +33,6 @@ Meteor.startup( () => {
         <Route path="*" component={ NotFound } />
       </Route>
     </Router>,
-    document.getElementById( 'react-root' )
+    document.getElementById('react-root')
   );
 });

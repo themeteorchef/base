@@ -3,16 +3,12 @@ import { browserHistory } from 'react-router';
 import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
-const handleLogout = () => {
-  return Meteor.logout( () => browserHistory.push( '/login' ) );
-};
+const handleLogout = () => Meteor.logout(() => browserHistory.push('/login'));
 
 const userName = () => {
   const user = Meteor.user();
-  if ( user ) {
-    const name = user && user.profile ? user.profile.name : '';
-    return `${ name.first } ${ name.last }`;
-  }
+  const name = user && user.profile ? user.profile.name : '';
+  return user ? `${name.first} ${name.last}` : '';
 };
 
 export const AuthenticatedNavigation = () => (
@@ -31,4 +27,4 @@ export const AuthenticatedNavigation = () => (
       </NavDropdown>
     </Nav>
   </div>
-)
+);

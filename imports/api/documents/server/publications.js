@@ -1,5 +1,3 @@
 import { Documents } from '../documents';
 
-Meteor.publish( 'documents', function() {
-  return Documents.find();
-});
+Meteor.publish('documents', () => Documents.find());

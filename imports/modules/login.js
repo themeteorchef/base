@@ -4,44 +4,44 @@ let component;
 
 const _handleLogin = () => {
   // <Input /> component value is accessed via nested refs.
-  const email    = component.refs.emailAddress.refs.input.value,
-        password = component.refs.password.value;
+  const email = component.refs.emailAddress.refs.input.value;
+  const password = component.refs.password.value;
 
-  Meteor.loginWithPassword( email, password, ( error ) => {
-    if ( error ) {
-      Bert.alert( error.reason, 'warning' );
+  Meteor.loginWithPassword(email, password, (error) => {
+    if (error) {
+      Bert.alert(error.reason, 'warning');
     } else {
-      browserHistory.push( '/' );
-      Bert.alert( 'Logged in!', 'success' );
+      browserHistory.push('/');
+      Bert.alert('Logged in!', 'success');
     }
   });
 };
 
 const _validate = () => {
-  $( component.refs.login ).validate({
+  $(component.refs.login).validate({
     rules: {
       emailAddress: {
         required: true,
-        email: true
+        email: true,
       },
       password: {
-        required: true
-      }
+        required: true,
+      },
     },
     messages: {
       emailAddress: {
         required: 'Need an email address here.',
-        email: 'Is this email address legit?'
+        email: 'Is this email address legit?',
       },
       password: {
-        required: 'Need a password here.'
-      }
+        required: 'Need a password here.',
+      },
     },
-    submitHandler() { _handleLogin(); }
+    submitHandler() { _handleLogin(); },
   });
 };
 
-export const handleLogin = ( options ) => {
+export const handleLogin = (options) => {
   component = options.component;
   _validate();
 };

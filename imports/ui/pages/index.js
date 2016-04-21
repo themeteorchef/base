@@ -8,4 +8,4 @@ export const Index = () => (
     <p><a className="btn btn-success" href="https://themeteorchef.com/base" role="button">Read the Documentation</a></p>
     <p style={ { fontSize: '16px', color: '#aaa' } }>Currently at v4.0.0</p>
   </Jumbotron>
-)
+);

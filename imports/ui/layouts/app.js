@@ -6,7 +6,7 @@ export const App = React.createClass({
   contextTypes: {
     router() {
       return React.PropTypes.func.isRequired;
-    }
+    },
   },
   render() {
     const { isActive } = this.context.router;
@@ -16,5 +16,5 @@ export const App = React.createClass({
         { this.props.children }
       </Grid>
     </div>;
-  }
+  },
 });

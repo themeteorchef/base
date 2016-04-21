@@ -11,4 +11,4 @@ export const PublicNavigation = () => (
       <NavItem eventKey={ 2 } href="/login">Log In</NavItem>
     </LinkContainer>
   </Nav>
-)
+);

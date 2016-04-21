@@ -4,35 +4,35 @@ let component;
 
 const _handleRecovery = () => {
   Accounts.forgotPassword({
-    email: getInputValue( component, 'emailAddress', true )
-  }, ( error ) => {
-    if ( error ) {
-      Bert.alert( error.reason, 'warning' );
+    email: getInputValue(component, 'emailAddress', true),
+  }, (error) => {
+    if (error) {
+      Bert.alert(error.reason, 'warning');
     } else {
-      Bert.alert( 'Check your inbox for a reset link!', 'success' );
+      Bert.alert('Check your inbox for a reset link!', 'success');
     }
   });
 };
 
 const _validate = () => {
-  $( component.refs.recoverPassword ).validate({
+  $(component.refs.recoverPassword).validate({
     rules: {
       emailAddress: {
         required: true,
-        email: true
-      }
+        email: true,
+      },
     },
     messages: {
       emailAddress: {
         required: 'Need an email address here.',
-        email: 'Is this email address legit?'
-      }
+        email: 'Is this email address legit?',
+      },
     },
-    submitHandler() { _handleRecovery(); }
+    submitHandler() { _handleRecovery(); },
   });
 };
 
-export const handleRecoverPassword = ( options ) => {
+export const handleRecoverPassword = (options) => {
   component = options.component;
   _validate();
 };
