@@ -7,9 +7,7 @@ const composer = (params, onReady) => {
   const subscription = Meteor.subscribe('documents');
   if (subscription.ready()) {
     const documents = Documents.find().fetch();
-    // setTimeout is used to visually buffer the loading spinner so it's not
-    // jarring. Can just call onReady directly if you wish :)
-    setTimeout(() => { onReady(null, { documents }); }, 500);
+    onReady(null, { documents });
   }
 };
 
