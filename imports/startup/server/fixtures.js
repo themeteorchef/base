@@ -4,7 +4,7 @@ const users = [{
   profile: {
     name: { first: 'Carl', last: 'Winslow' },
   },
-  roles: ['admin']
+  roles: ['admin'],
 }];
 
 users.forEach(({ email, password, profile, roles }) => {
