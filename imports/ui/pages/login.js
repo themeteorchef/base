@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Row, Col, PageHeader, Input, Button } from 'react-bootstrap';
+import { Row, Col, Input, Button } from 'react-bootstrap';
 import { handleLogin } from '../../modules/login';
 
 export class Login extends React.Component {

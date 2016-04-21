@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router';
 import { PublicNavigation } from './public-navigation';
 import { AuthenticatedNavigation } from './authenticated-navigation';
@@ -23,3 +23,7 @@ export class AppNavigation extends React.Component {
     </Navbar>;
   }
 }
+
+AppNavigation.propTypes = {
+  hasUser: React.PropTypes.object,
+};

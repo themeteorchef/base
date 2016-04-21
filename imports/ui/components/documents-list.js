@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, ListGroup, Alert } from 'react-bootstrap';
+import { ListGroup, Alert } from 'react-bootstrap';
 import { Document } from './document.js';
 
 export const DocumentsList = ({ documents }) => (
@@ -10,3 +10,7 @@ export const DocumentsList = ({ documents }) => (
   </ListGroup> :
   <Alert bsStyle="warning">No documents yet.</Alert>
 );
+
+DocumentsList.propTypes = {
+  documents: React.PropTypes.array,
+};

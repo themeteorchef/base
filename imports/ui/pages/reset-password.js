@@ -43,3 +43,7 @@ with your new password.
     </Row>;
   }
 }
+
+ResetPassword.propTypes = {
+  params: React.PropTypes.object,
+};

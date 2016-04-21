@@ -1,4 +1,3 @@
-import React from 'react';
 import { composeWithTracker } from 'react-komposer';
 import { Documents } from '../../api/documents/documents.js';
 import { DocumentsList } from '../components/documents-list.js';

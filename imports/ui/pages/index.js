@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Button } from 'react-bootstrap';
+import { Jumbotron } from 'react-bootstrap';
 
 export const Index = () => (
   <Jumbotron className="text-center">

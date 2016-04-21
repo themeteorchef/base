@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, ListGroup, ListGroupItem, Input, Alert } from 'react-bootstrap';
+import { Input } from 'react-bootstrap';
 import { insertDocument } from '../../api/documents/methods.js';
 
 const handleInsertDocument = (event) => {

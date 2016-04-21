@@ -1,5 +1,4 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
 import { Alert } from 'react-bootstrap';
 
 export const NotFound = () => (
