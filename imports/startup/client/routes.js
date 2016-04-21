@@ -15,7 +15,7 @@ const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.user()) {
     replace({
       pathname: '/login',
-      state: { nextPathName: nextState.location.pathname },
+      state: { nextPathname: nextState.location.pathname },
     });
   }
 };
