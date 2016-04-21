@@ -1,3 +1,5 @@
+import $ from 'jquery';
+import 'jquery-validation';
 import { browserHistory } from 'react-router';
 import { getInputValue } from './get-input-value';
 

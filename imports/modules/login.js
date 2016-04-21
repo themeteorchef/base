@@ -1,3 +1,5 @@
+import $ from 'jquery';
+import 'jquery-validation';
 import { browserHistory } from 'react-router';
 
 let component;

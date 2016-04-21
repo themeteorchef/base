@@ -1,3 +1,5 @@
+import $ from 'jquery';
+import 'jquery-validation';
 import { getInputValue } from './get-input-value';
 
 let component;

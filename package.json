@@ -10,7 +10,14 @@
     "staging": "meteor deploy staging.meteor.com --settings settings-development.json",
     "production": "meteor deploy production.meteor.com --settings settings-production.json"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chimp": "^0.33.1",
+    "eslint": "^2.8.0",
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-meteor": "^3.5.2",
+    "eslint-plugin-react": "^4.3.0",
+    "faker": "^3.1.0"
+  },
   "eslintConfig": {
     "parserOptions": {
       "ecmaFeatures": {
@@ -41,15 +48,10 @@
     },
     "rules": {}
   },
-  "devDependencies": {
-    "chimp": "^0.33.1",
-    "eslint": "^2.8.0",
-    "eslint-config-airbnb": "^7.0.0",
-    "eslint-plugin-meteor": "^3.5.2",
-    "eslint-plugin-react": "^4.3.0",
-    "faker": "^3.1.0"
-  },
   "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3",
+    "jquery-validation": "^1.15.0",
     "react": "^15.0.1",
     "react-addons-pure-render-mixin": "^15.0.1",
     "react-bootstrap": "^0.28.4",
