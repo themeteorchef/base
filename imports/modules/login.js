@@ -1,10 +1,12 @@
 import $ from 'jquery';
 import 'jquery-validation';
 import { browserHistory } from 'react-router';
+import { Meteor } from 'meteor/meteor';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 let component;
 
-const _handleLogin = () => {
+const login = () => {
   // <Input /> component value is accessed via nested refs.
   const email = component.refs.emailAddress.refs.input.value;
   const password = component.refs.password.value;
@@ -25,7 +27,7 @@ const _handleLogin = () => {
   });
 };
 
-const _validate = () => {
+const validate = () => {
   $(component.refs.login).validate({
     rules: {
       emailAddress: {
@@ -45,11 +47,11 @@ const _validate = () => {
         required: 'Need a password here.',
       },
     },
-    submitHandler() { _handleLogin(); },
+    submitHandler() { login(); },
   });
 };
 
 export const handleLogin = (options) => {
   component = options.component;
-  _validate();
+  validate();
 };

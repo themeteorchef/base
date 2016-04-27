@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input } from 'react-bootstrap';
+import { Bert } from 'meteor/themeteorchef:bert';
 import { insertDocument } from '../../api/documents/methods.js';
 
 const handleInsertDocument = (event) => {
