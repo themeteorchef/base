@@ -1,5 +1,7 @@
 /* eslint-env mocha */
 /* eslint-disable func-names, prefer-arrow-callback */
+import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
 describe('Log In', function () {
   beforeEach(function () {

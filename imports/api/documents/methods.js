@@ -1,4 +1,6 @@
 import { Documents } from './documents';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { ValidatedMethod } from 'meteor/mdg:validated-method';
 
 export const insertDocument = new ValidatedMethod({
   name: 'documents.insert',

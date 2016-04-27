@@ -1,5 +1,6 @@
 /* eslint-env mocha */
 /* eslint-disable func-names, prefer-arrow-callback */
+import { Meteor } from 'meteor/meteor';
 
 describe('Sign Up', function () {
   beforeEach(function () {

@@ -34,19 +34,19 @@
       "plugin:react/recommended"
     ],
     "globals": {
-      "$": false,
-      "Accounts": false,
-      "Bert": false,
-      "browser": false,
-      "expect": false,
-      "Factory": false,
-      "Meteor": false,
-      "Roles": false,
       "server": false,
-      "SimpleSchema": false,
-      "ValidatedMethod": false
+      "browser": false,
+      "expect": false
     },
-    "rules": {}
+    "rules": {
+      "import/no-unresolved": 0,
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allow": ["_id", "_ensureIndex", "_verifyEmailToken", "_resetPasswordToken", "_name"]
+        }
+      ]
+    }
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
