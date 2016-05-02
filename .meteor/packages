@@ -9,7 +9,6 @@ mobile-experience       # Packages for a great mobile UX
 mongo                   # The database Meteor supports right now
 reactive-var            # Reactive variable for tracker
 session
-jquery                  # Helpful client-side library
 tracker                 # Meteor's client-side reactive programming library
 
 standard-minifier-css   # CSS minifier run for production mode
@@ -25,16 +24,11 @@ browser-policy
 
 fourseven:scss
 aldeed:collection2
-# momentjs:moment NPM this
 alanning:roles
-react-meteor-data
-themeteorchef:jquery-validation
 themeteorchef:bert
 static-html
 xolvio:cleaner
 practicalmeteor:mocha
 xolvio:backdoor
-xolvio:email-stub
 mdg:validated-method
 dburles:factory
-aldeed:simple-schema

@@ -1,4 +1,3 @@
-export const getInputValue = (component, ref, nested) => {
-  const element = component.refs[ref];
-  return nested ? element.refs.input.value : element.value;
-};
+import ReactDOM from 'react-dom';
+
+export const getInputValue = (component) => ReactDOM.findDOMNode(component).value;

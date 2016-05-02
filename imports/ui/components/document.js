@@ -1,5 +1,6 @@
 import React from 'react';
-import { Row, Col, ListGroupItem, Input, Button } from 'react-bootstrap';
+import { Row, Col, ListGroupItem, FormControl, Button } from 'react-bootstrap';
+import { Bert } from 'meteor/themeteorchef:bert';
 import { updateDocument, removeDocument } from '../../api/documents/methods.js';
 
 const handleUpdateDocument = (documentId, event) => {
@@ -20,6 +21,9 @@ const handleUpdateDocument = (documentId, event) => {
 
 const handleRemoveDocument = (documentId, event) => {
   event.preventDefault();
+  // this should be replaced with a styled solution so for now we will
+  // disable the eslint `no-alert`
+  // eslint-disable-next-line no-alert
   if (confirm('Are you sure? This is permanent.')) {
     removeDocument.call({
       _id: documentId,
@@ -37,7 +41,7 @@ export const Document = ({ document }) => (
   <ListGroupItem key={ document._id }>
     <Row>
       <Col xs={ 8 } sm={ 10 }>
-        <Input
+        <FormControl
           type="text"
           standalone
           defaultValue={ document.title }

@@ -10,7 +10,14 @@
     "staging": "meteor deploy staging.meteor.com --settings settings-development.json",
     "production": "meteor deploy production.meteor.com --settings settings-production.json"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chimp": "^0.33.1",
+    "eslint": "^2.8.0",
+    "eslint-config-airbnb": "^7.0.0",
+    "eslint-plugin-meteor": "^3.5.2",
+    "eslint-plugin-react": "^4.3.0",
+    "faker": "^3.1.0"
+  },
   "eslintConfig": {
     "parserOptions": {
       "ecmaFeatures": {
@@ -27,31 +34,33 @@
       "plugin:react/recommended"
     ],
     "globals": {
-      "$": false,
-      "Accounts": false,
-      "Bert": false,
-      "browser": false,
-      "expect": false,
-      "Factory": false,
-      "Meteor": false,
       "server": false,
-      "SimpleSchema": false,
-      "ValidatedMethod": false
+      "browser": false,
+      "expect": false
     },
-    "rules": {}
-  },
-  "devDependencies": {
-    "chimp": "^0.33.1",
-    "eslint": "^2.8.0",
-    "eslint-config-airbnb": "^7.0.0",
-    "eslint-plugin-meteor": "^3.5.2",
-    "eslint-plugin-react": "^4.3.0",
-    "faker": "^3.1.0"
+    "rules": {
+      "import/no-unresolved": 0,
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allow": [
+            "_id",
+            "_ensureIndex",
+            "_verifyEmailToken",
+            "_resetPasswordToken",
+            "_name"
+          ]
+        }
+      ]
+    }
   },
   "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3",
+    "jquery-validation": "^1.15.0",
     "react": "^15.0.1",
     "react-addons-pure-render-mixin": "^15.0.1",
-    "react-bootstrap": "^0.28.4",
+    "react-bootstrap": "^0.29.3",
     "react-dom": "^15.0.1",
     "react-komposer": "^1.7.1",
     "react-router": "^2.0.1",

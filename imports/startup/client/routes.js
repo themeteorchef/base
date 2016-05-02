@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
+import { Meteor } from 'meteor/meteor';
 import { App } from '../../ui/layouts/app';
 import { Documents } from '../../ui/pages/documents';
 import { Index } from '../../ui/pages/index';
@@ -12,10 +12,10 @@ import { ResetPassword } from '../../ui/pages/reset-password';
 import { Signup } from '../../ui/pages/signup';
 
 const requireAuth = (nextState, replace) => {
-  if (!Meteor.loggingIn() && !Meteor.user()) {
+  if (!Meteor.loggingIn() && !Meteor.userId()) {
     replace({
       pathname: '/login',
-      state: { nextPathName: nextState.location.pathname },
+      state: { nextPathname: nextState.location.pathname },
     });
   }
 };
