@@ -1,5 +1,6 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
+
 import { IndexLinkContainer, LinkContainer } from 'react-router-bootstrap';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
@@ -19,6 +20,9 @@ export const AuthenticatedNavigation = () => (
       </IndexLinkContainer>
       <LinkContainer to="/documents">
         <NavItem eventKey={ 2 } href="/documents">Documents</NavItem>
+      </LinkContainer>
+      <LinkContainer to="/search">
+        <NavItem eventKey={ 3 } href="/search">Search</NavItem>
       </LinkContainer>
     </Nav>
     <Nav pullRight>

@@ -1,5 +1,5 @@
 import { composeWithTracker } from 'react-komposer';
-import { AppNavigation } from '../components/app-navigation';
+import { AppNavigation } from '../components/navigation/app';
 
 const composer = (props, onData) => {
   onData(null, { hasUser: Meteor.user() });

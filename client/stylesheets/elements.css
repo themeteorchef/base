@@ -1,0 +1,19 @@
+textarea {
+  resize: none;
+}
+
+#secondMdataCol {
+  background-color: red
+}
+
+#dataRow {
+  background-color: blue
+}
+
+#dataCol {
+  background-color: green
+}
+
+#outerCol {
+  background-color: #FFFF00
+}
