@@ -1,0 +1,18 @@
+https://facebook.github.io/react/docs/component-specs.html
+
+render
+getInitialState
+getDefaultProps
+mixins
+statics
+displayName
+
+Mounting: componentWillMount
+Mounting: componentDidMount
+
+Updating: componentWillReceiveProps
+Updating: shouldComponentUpdate
+Updating: componentWillUpdate
+Updating: componentDidUpdate
+
+Unmounting: componentWillUnmount

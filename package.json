@@ -11,11 +11,11 @@
     "production": "meteor deploy production.meteor.com --settings settings-production.json"
   },
   "devDependencies": {
-    "chimp": "^0.33.1",
+    "chimp": "^0.34.1",
     "eslint": "^2.8.0",
-    "eslint-config-airbnb": "^7.0.0",
+    "eslint-config-airbnb": "^8.0.0",
     "eslint-plugin-meteor": "^3.5.2",
-    "eslint-plugin-react": "^4.3.0",
+    "eslint-plugin-react": "^5.0.1",
     "faker": "^3.1.0"
   },
   "eslintConfig": {
@@ -53,12 +53,14 @@
     "faker": "^3.1.0",
     "jquery": "^2.2.3",
     "jquery-validation": "^1.15.0",
+    "moment": "^2.13.0",
     "react": "^15.0.2",
     "react-addons-pure-render-mixin": "^15.0.1",
-    "react-bootstrap": "^0.28.5",
+    "react-bootstrap": "^0.29.3",
+    "react-datepicker": "^0.27.0",
     "react-dom": "^15.0.2",
     "react-komposer": "^1.8.0",
     "react-router": "^2.4.0",
-    "react-router-bootstrap": "^0.20.1"
+    "react-router-bootstrap": "^0.23.0"
   }
 }

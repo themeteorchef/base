@@ -32,3 +32,4 @@ practicalmeteor:mocha
 xolvio:backdoor
 mdg:validated-method
 dburles:factory
+percolate:paginated-subscription

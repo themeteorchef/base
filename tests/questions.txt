@@ -1,0 +1,22 @@
+multiline text in a textarea placeholder
+access mongo thru meteor shell
+mongo _uid = ObjectId or not
+bug: first selected multi-selection not working on mobile
+style search buttons
+user accts
+glyphicons not working
+hide glyphicons on mobile
+reactive data lists
+less
+<FormGroup controlId="" GIVES THE SAME ID TO EVERY FormControl IN THE FormGroup
+edit image
+pin elements to bottom
+NavItem href?
+loading.jsx l.25 why not "/>" and rmv l.26?
+horizontally center the Loading spinner
+/bios and /jobs paths
+resultsAlert width = 100%
+infinite scroll w/apollo
+apollo ssh
+apollo mult queries
+apollo "authentication, authorization, caching, logging, input validation etc"

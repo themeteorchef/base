@@ -1,15 +1,22 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-import { Engine } from '../components/search/engine.jsx';
-import ResultsList from '../containers/search/results-list.js';
+import { Engine } from '../containers/search/engine';
+import { Results } from '../containers/search/results';
 
-//      <h4 className="page-header">Bios</h4>
-export const Search = () => (
-  <Row>
-    <Col xs={12}>
-      <Engine />
-      <ResultsList />
-    </Col>
-  </Row>
-);
+export const Search = React.createClass({
+  getInitialState() {
+    return {showResults:false};
+  },
+
+  render(){
+    return (
+	  <Row>
+		<Col xs={12}>
+		  <Engine onUpdateResults={()=>(this.setState({showResults:true}))}/>
+		  {this.state.showResults?<Results />:''}
+		</Col>
+	  </Row>
+    );
+  }
+});

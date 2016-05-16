@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Col, ButtonGroup, Button } from 'react-bootstrap';
 
-export const Mdata = React.createClass({
+export const First = React.createClass({
   btnClick(e){
-console.log(e.currentTarget.textContent);
+    this.props.onClick(e.currentTarget.textContent);
   },
 
   render() {
@@ -11,11 +11,13 @@ console.log(e.currentTarget.textContent);
     const colTwo = ['Admitted','Language','Description','City','State','Country','Label'];
 
     return <Row>
+      <div className="spacer" />
       <Col xs={6}>
         <ButtonGroup vertical>
           {colOne.map((mdata) => (
             <Row key={mdata}>
               <Button></Button><Button onClick={this.btnClick}>{mdata}</Button>
+              <div className="spacer" />
             </Row>))}          
         </ButtonGroup>
       </Col>
@@ -24,6 +26,7 @@ console.log(e.currentTarget.textContent);
           {colTwo.map((mdata) => (
             <Row key={mdata}>
               <Button></Button><Button onClick={this.btnClick}>{mdata}</Button>
+              <div className="spacer" />
             </Row>))}          
         </ButtonGroup>
       </Col>

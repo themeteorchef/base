@@ -5,7 +5,6 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { App } from '../../ui/layouts/app';
 import { Index } from '../../ui/pages/index';
 
-import { Documents } from '../../ui/pages/documents';
 import { Search } from '../../ui/pages/search';
 
 import { Login } from '../../ui/pages/login';
@@ -28,7 +27,6 @@ Meteor.startup(() => {
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
         <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
-        <Route name="documents" path="/documents" component={ Documents } onEnter={ requireAuth } />
         <Route name="search" path="/search" component={ Search } onEnter={ requireAuth } />
 
         <Route name="login" path="/login" component={ Login } />
