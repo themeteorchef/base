@@ -1,9 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Row, Col, ButtonGroup, Button } from 'react-bootstrap';
 
 export const First = React.createClass({
-  btnClick(e){
-    this.props.onClick(e.currentTarget.textContent);
+  btnClick(mdata, event){
+    this.props.onClick(event.currentTarget.textContent);
+    ReactDOM.findDOMNode(this.refs[mdata]).classList.toggle('open');
   },
 
   render() {
@@ -16,7 +18,7 @@ export const First = React.createClass({
         <ButtonGroup vertical>
           {colOne.map((mdata) => (
             <Row key={mdata}>
-              <Button></Button><Button onClick={this.btnClick}>{mdata}</Button>
+              <Button className="mdata-btn" ref={mdata} onClick={this.btnClick.bind(this, mdata)}>{mdata}</Button>
               <div className="spacer" />
             </Row>))}          
         </ButtonGroup>
@@ -25,7 +27,7 @@ export const First = React.createClass({
         <ButtonGroup vertical>
           {colTwo.map((mdata) => (
             <Row key={mdata}>
-              <Button></Button><Button onClick={this.btnClick}>{mdata}</Button>
+              <Button className="mdata-btn" ref={mdata} onClick={this.btnClick.bind(this, mdata)}>{mdata}</Button>
               <div className="spacer" />
             </Row>))}          
         </ButtonGroup>

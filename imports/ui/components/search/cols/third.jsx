@@ -21,7 +21,7 @@ console.log(data);
 	})}
   </div>
   <ButtonToolbar id="btnToolbar">
-	<Button bsStyle={props.btnStyle} onClick={props.updateResults}><Glyphicon glyph="star" />Update Results</Button>
+	<Button bsStyle={props.btnStyle} onClick={props.updateResults}><Glyphicon glyph="pencil" />Update Results</Button>
 	<Button bsStyle="link">Save Search</Button>
 	<Button bsStyle="link">Cross Search</Button>
   </ButtonToolbar>

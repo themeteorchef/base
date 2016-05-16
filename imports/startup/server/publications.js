@@ -7,5 +7,5 @@ Meteor.publish('entities', () => Entities.find());
 import { Bios } from '../../api/bios/bios';
 Meteor.publish('bios',(limit) => {
   check(limit,Number);
-  Bios.find({},{limit});
+  return Bios.find({}, {limit});//{},{limit}
 });
