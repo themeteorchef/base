@@ -2,6 +2,10 @@ textarea {
   resize: none;
 }
 
+#resultsContainer {
+  text-align:center;
+}
+
 #btnToolbar {
 background-color: #FF00FF;
   padding-left: 10px;

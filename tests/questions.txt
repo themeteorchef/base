@@ -1,17 +1,14 @@
 multiline text in a textarea placeholder
-access mongo thru meteor shell
-mongo _uid = ObjectId or not
 bug: first selected multi-selection not working on mobile
 user accts
 hide glyphicons on mobile
 reactive data lists
-less
+less/sass
 <FormGroup controlId="" GIVES THE SAME ID TO EVERY FormControl IN THE FormGroup
 edit image
 pin elements to bottom
 NavItem href?
 loading.jsx l.25 why not "/>" and rmv l.26?
-horizontally center the Loading spinner
 /bios and /jobs paths
 resultsAlert width = 100%
 infinite scroll w/apollo

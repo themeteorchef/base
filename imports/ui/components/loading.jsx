@@ -2,7 +2,6 @@ import React from 'react';
 
 export const Loading = () => (
   <svg
-    style={{display: 'inline-block'}}
     version="1.1"
     className="loading"
     xmlns="http://www.w3.org/2000/svg"

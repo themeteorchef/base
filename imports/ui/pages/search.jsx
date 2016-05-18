@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import { Engine } from '../containers/search/engine';
-import { Results } from '../containers/search/results';
+import { NavAndResults } from '../containers/search/navAndResults';
 
 export const Search = React.createClass({
   getInitialState() {
@@ -14,7 +14,7 @@ export const Search = React.createClass({
 	  <Row>
 		<Col xs={12}>
 		  <Engine onUpdateResults={()=>(this.setState({showResults:true}))}/>
-		  {this.state.showResults?<Results />:''}
+		  {this.state.showResults?<NavAndResults />:''}
 		</Col>
 	  </Row>
     );

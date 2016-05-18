@@ -69,7 +69,6 @@ npm-bcrypt@0.8.5
 npm-mongo@1.4.43
 observe-sequence@1.0.11
 ordered-dict@1.0.7
-percolate:paginated-subscription@0.2.4
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:loglevel@1.2.0_2
 practicalmeteor:mocha@2.4.5_1
