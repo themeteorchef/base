@@ -49,19 +49,28 @@
     "rules": {}
   },
   "dependencies": {
+    "apollo-client": "^0.3.9",
     "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
     "faker": "^3.1.0",
+    "graphql": "^0.5.0",
+    "graphql-tools": "^0.4.0",
+    "http-proxy-middleware": "^0.15.0",
     "jquery": "^2.2.3",
     "jquery-validation": "^1.15.0",
     "moment": "^2.13.0",
+    "mysql": "^2.10.2",
     "react": "^15.0.2",
     "react-addons-pure-render-mixin": "^15.0.1",
+    "react-apollo": "^0.3.4",
     "react-bootstrap": "^0.29.3",
     "react-datepicker": "^0.27.0",
     "react-dom": "^15.0.2",
     "react-infinite": "^0.9.2",
     "react-komposer": "^1.8.0",
     "react-router": "^2.4.0",
-    "react-router-bootstrap": "^0.23.0"
+    "react-router-bootstrap": "^0.23.0",
+    "redux": "^3.5.2",
+    "sequelize": "^3.23.2"
   }
 }

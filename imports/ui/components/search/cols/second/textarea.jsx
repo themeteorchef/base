@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormGroup, FormControl } from 'react-bootstrap';
 
-import { PlaceHolderText } from './placeHolderText';
+import { PlaceholderText } from './placeholder-text';
 
 export const Textarea = React.createClass({
   //the component's 'value' must be set to a string; can't be 'undefined'
@@ -42,7 +42,7 @@ export const Textarea = React.createClass({
             componentClass="textarea"
             value={this.state.value}
             onChange={this.handleChange}
-            placeholder={PlaceHolderText[this.props.type]}
+            placeholder={PlaceholderText[this.props.type]}
             onMouseLeave={this.mouseLeave}
           />
 		      <div className="spacer" />

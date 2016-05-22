@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import { Engine } from '../containers/search/engine';
-import { NavAndResults } from '../containers/search/navAndResults';
+import { NavAndResults } from '../containers/search/nav-and-results';
 
 export const Search = React.createClass({
   getInitialState() {

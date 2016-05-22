@@ -16,3 +16,15 @@ Updating: componentWillUpdate
 Updating: componentDidUpdate
 
 Unmounting: componentWillUnmount
+
+//TESTING
+/*
+componentWillMount(){console.log('componentWillMount');},
+componentDidMount(){console.log('componentDidMount');},
+componentWillReceiveProps(){console.log('componentWillReceiveProps',arguments);},
+shouldComponentUpdate(nextProps,nextState){console.log('shouldComponentUpdate',nextProps,nextState);return true;},
+componentWillUpdate(){console.log('componentWillUpdate');},
+componentDidUpdate(){console.log('componentDidUpdate');},
+componentWillUnmount(){console.log('componentWillUnmount');},
+*/
+//TESTING

@@ -1,4 +1,4 @@
-export const PlaceHolderText = {
+export const PlaceholderText = {
   "Name":"separate names by pressing the enter key",
   "Practice":"separate practices by pressing the enter key\nlit = litigation\nim = immigration\nma = mergers & acquisitions\nip = intellectual property\nre = real estate\nsf = structured finance\nte = trusts & estates",
   "School":"separate schools by pressing the enter key",
