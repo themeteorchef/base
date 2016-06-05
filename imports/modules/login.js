@@ -1,13 +1,15 @@
 import $ from 'jquery';
 import 'jquery-validation';
 import { browserHistory } from 'react-router';
+import { Meteor } from 'meteor/meteor';
+import { Bert } from 'meteor/themeteorchef:bert';
+import { getInputValue } from './get-input-value';
 
 let component;
 
-const _handleLogin = () => {
-  // <Input /> component value is accessed via nested refs.
-  const email = component.refs.emailAddress.refs.input.value;
-  const password = component.refs.password.value;
+const login = () => {
+  const email = getInputValue(component.refs.emailAddress);
+  const password = getInputValue(component.refs.password);
 
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
@@ -25,7 +27,7 @@ const _handleLogin = () => {
   });
 };
 
-const _validate = () => {
+const validate = () => {
   $(component.refs.login).validate({
     rules: {
       emailAddress: {
@@ -45,11 +47,11 @@ const _validate = () => {
         required: 'Need a password here.',
       },
     },
-    submitHandler() { _handleLogin(); },
+    submitHandler() { login(); },
   });
 };
 
 export const handleLogin = (options) => {
   component = options.component;
-  _validate();
+  validate();
 };

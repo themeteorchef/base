@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Alert, Input, Button } from 'react-bootstrap';
+import { Row, Col, Alert, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import { handleResetPassword } from '../../modules/reset-password';
 
 export class ResetPassword extends React.Component {
@@ -23,20 +23,24 @@ export class ResetPassword extends React.Component {
 with your new password.
         </Alert>
         <form ref="resetPassword" className="reset-password" onSubmit={ this.handleSubmit }>
-          <Input
-            label="New Password"
-            type="password"
-            ref="newPassword"
-            name="newPassword"
-            placeholder="New Password"
-          />
-          <Input
-            label="Repeat New Password"
-            type="password"
-            ref="repeatNewPassword"
-            name="repeatNewPassword"
-            placeholder="Repeat New Password"
-          />
+          <FormGroup>
+            <ControlLabel>New Password</ControlLabel>
+            <FormControl
+              type="password"
+              ref="newPassword"
+              name="newPassword"
+              placeholder="New Password"
+            />
+          </FormGroup>
+          <FormGroup>
+            <ControlLabel>Repeat New Password</ControlLabel>
+            <FormControl
+              type="password"
+              ref="repeatNewPassword"
+              name="repeatNewPassword"
+              placeholder="Repeat New Password"
+            />
+          </FormGroup>
           <Button type="submit" bsStyle="success">Reset Password &amp; Login</Button>
         </form>
       </Col>

@@ -25,7 +25,7 @@ caching-html-compiler@1.0.6
 callback-hook@1.0.8
 check@1.2.1
 coffeescript@1.0.17
-dburles:factory@0.4.2
+dburles:factory@1.0.0
 ddp@1.2.5
 ddp-client@1.2.7
 ddp-common@1.2.5
@@ -71,7 +71,7 @@ observe-sequence@1.0.11
 ordered-dict@1.0.7
 practicalmeteor:chai@2.1.0_1
 practicalmeteor:loglevel@1.2.0_2
-practicalmeteor:mocha@2.4.5_1
+practicalmeteor:mocha@2.4.5_2
 practicalmeteor:mocha-core@0.1.4
 practicalmeteor:sinon@1.14.1_2
 promise@0.6.7

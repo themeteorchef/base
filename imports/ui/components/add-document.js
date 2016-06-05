@@ -1,5 +1,6 @@
 import React from 'react';
-import { Input } from 'react-bootstrap';
+import { FormGroup, FormControl } from 'react-bootstrap';
+import { Bert } from 'meteor/themeteorchef:bert';
 import { insertDocument } from '../../api/documents/methods.js';
 
 const handleInsertDocument = (event) => {
@@ -21,9 +22,11 @@ const handleInsertDocument = (event) => {
 };
 
 export const AddDocument = () => (
-  <Input
-    type="text"
-    onKeyUp={ handleInsertDocument }
-    placeholder="Type a document title and press enter..."
-  />
+  <FormGroup>
+    <FormControl
+      type="text"
+      onKeyUp={ handleInsertDocument }
+      placeholder="Type a document title and press enter..."
+    />
+  </FormGroup>
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Alert, Input, Button } from 'react-bootstrap';
+import { Row, Col, Alert, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { handleRecoverPassword } from '../../modules/recover-password';
 
 export class RecoverPassword extends React.Component {
@@ -19,13 +19,15 @@ export class RecoverPassword extends React.Component {
           Enter your email address below to receive a link to reset your password.
         </Alert>
         <form ref="recoverPassword" className="recover-password" onSubmit={ this.handleSubmit }>
-          <Input
-            type="email"
-            ref="emailAddress"
-            name="emailAddress"
-            placeholder="Email Address"
-          />
-        <Button type="submit" bsStyle="success">Recover Password</Button>
+          <FormGroup>
+            <FormControl
+              type="email"
+              ref="emailAddress"
+              name="emailAddress"
+              placeholder="Email Address"
+            />
+          </FormGroup>
+          <Button type="submit" bsStyle="success">Recover Password</Button>
         </form>
       </Col>
     </Row>;

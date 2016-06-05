@@ -1,3 +1,7 @@
+import { Meteor } from 'meteor/meteor';
+import { Roles } from 'meteor/alanning:roles';
+import { Accounts } from 'meteor/accounts-base';
+
 const users = [{
   email: 'admin@admin.com',
   password: 'password',

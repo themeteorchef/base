@@ -1,13 +1,15 @@
 import $ from 'jquery';
 import 'jquery-validation';
 import { browserHistory } from 'react-router';
+import { Accounts } from 'meteor/accounts-base';
+import { Bert } from 'meteor/themeteorchef:bert';
 import { getInputValue } from './get-input-value';
 
 let component;
 let token;
 
-const _handleReset = () => {
-  const password = getInputValue(component, 'newPassword', true);
+const handleReset = () => {
+  const password = getInputValue(component.refs.newPassword);
   Accounts.resetPassword(token, password, (error) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
@@ -18,7 +20,7 @@ const _handleReset = () => {
   });
 };
 
-const _validate = () => {
+const validate = () => {
   $(component.refs.resetPassword).validate({
     rules: {
       newPassword: {
@@ -41,12 +43,12 @@ const _validate = () => {
         equalTo: 'Hmm, your passwords don\'t match. Try again?',
       },
     },
-    submitHandler() { _handleReset(); },
+    submitHandler() { handleReset(); },
   });
 };
 
 export const handleResetPassword = (options) => {
   component = options.component;
   token = options.token;
-  _validate();
+  validate();
 };

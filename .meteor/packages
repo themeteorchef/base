@@ -31,4 +31,4 @@ xolvio:cleaner
 practicalmeteor:mocha
 xolvio:backdoor
 mdg:validated-method
-dburles:factory
+dburles:factory@1.0.0
