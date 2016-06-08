@@ -66,7 +66,6 @@
     "react-bootstrap": "^0.29.3",
     "react-datepicker": "^0.27.0",
     "react-dom": "^15.0.2",
-    "react-infinite": "^0.9.2",
     "react-komposer": "^1.8.0",
     "react-router": "^2.4.0",
     "react-router-bootstrap": "^0.23.0",
