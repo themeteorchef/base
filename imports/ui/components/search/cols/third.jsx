@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonToolbar, Button, Glyphicon } from 'react-bootstrap';
+import { ButtonToolbar, Button } from 'react-bootstrap';
 
 export const Third = (props) => <div>
   <div className="spacer" />
@@ -21,8 +21,8 @@ console.log(data);
 	})}
   </div>
   <ButtonToolbar id="btnToolbar">
-	<Button bsStyle={props.btnStyle} onClick={props.updateResults}><Glyphicon glyph="pencil" />Update Results</Button>
-	<Button bsStyle="link">Save Search</Button>
-	<Button bsStyle="link">Cross Search</Button>
+	<Button bsStyle={props.btnStyle} onClick={props.updateResults}><i className="fa fa-refresh fa-fw"></i>Update Results</Button>
+	<Button bsStyle="link"><i className="fa fa-floppy-o fa-fw"></i>Save Search</Button>
+	<Button bsStyle="link"><i className="fa fa-random fa-fw"></i>Cross Search</Button>
   </ButtonToolbar>
 </div>;

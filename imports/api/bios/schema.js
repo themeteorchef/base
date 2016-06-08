@@ -15,7 +15,7 @@ type Entity {
   compact: String
 }
 type Bios {
-  bio(limit: Int, os: Int): Results
+  bios(offset: Int, limit: Int): Results
 }
 type Results {
   count: Int

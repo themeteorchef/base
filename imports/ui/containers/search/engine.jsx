@@ -5,7 +5,7 @@ import { First } from '../../components/search/cols/first.jsx';
 import { Second } from '../../components/search/cols/second.jsx';
 import { Third } from '../../components/search/cols/third.jsx';
 
-export const Engine = React.createClass({
+export default Engine = React.createClass({
   criteria:{},
 
   getInitialState() {

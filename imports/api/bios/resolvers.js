@@ -41,9 +41,9 @@ Results:{
   rows(root,args){return root.rows;}
 },
 Bios:{
-  bio(root,args){
+  bios(root,args){
 //TESTING
-console.log('Bio bio');
+console.log('Bios bios');
 //console.log(arguments);
 console.log(root,args);
 console.log('');
@@ -61,7 +61,7 @@ FROM (
 )C
 WHERE cnt = 0;
 */
-    return Bios.findAndCountAll({limit:args.limit,offset:args.os});
+    return Bios.findAndCountAll({offset:args.offset,limit:args.limit});
   }
 },
   Query: {

@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Row, Col, ButtonGroup, Button } from 'react-bootstrap';
 
+const colOne = ['Date','Name','Law Firm','Practice','Level','Experience','School'];
+const colTwo = ['Admitted','Language','Description','City','State','Country','Label'];
+
 export const First = React.createClass({
   btnClick(mdata, event){
     this.props.onClick(event.currentTarget.textContent);
@@ -9,9 +12,6 @@ export const First = React.createClass({
   },
 
   render() {
-    const colOne = ['Date','Name','Law Firm','Practice','Level','Experience','School'];
-    const colTwo = ['Admitted','Language','Description','City','State','Country','Label'];
-
     return <Row>
       <div className="spacer" />
       <Col xs={6}>

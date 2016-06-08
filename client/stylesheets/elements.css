@@ -2,68 +2,13 @@ textarea {
   resize: none;
 }
 
-#resultsContainer {
-  text-align:center;
-}
-
-#btnToolbar {
-background-color: #FF00FF;
-  padding-left: 10px;
-  position:absolute;
-  bottom:0;
-}
-
-#btnToolbar > * {
-  padding-left: 0px;
-}
-
-.mdata {
-  color: red;
-}
-
-#criteriaContainer {
-  height: 250px;
-  overflow: scroll;
-  white-space:pre-wrap;
-}
-
 #logo {
   width: 200px;
   height: 50px;
   padding:0px
 }
 
-#ListFormGrp {
-background-color: #225522;
-  height:240px;
-}
-
-#gridRow {
-background-color: #AAAAAA;
-}
-
-#outerColOne {
-background-color: #FFFF00;
-}
-#secondMdataCol {
-background-color: blue;
-}
-
-#outerColTwo {
-background-color: #00AA00;
-  height:285px;
-}
-
-#outerColThree {
-  position:relative;
-  height:285px;
-}
-
 .spacer {
 background-color: red;
   height: 5px;
 }
-/*
-#resultsAlert {
-  width: 100%;
-}*/

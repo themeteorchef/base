@@ -1,0 +1,47 @@
+.mdata {
+  color: red;
+}
+
+#ListFormGrp {
+background-color: #225522;
+  height:240px;
+}
+
+#gridRow {
+background-color: #AAAAAA;
+}
+
+#outerColOne {
+background-color: #FFFF00;
+}
+
+#secondMdataCol {
+background-color: blue;
+}
+
+#outerColTwo {
+background-color: #00AA00;
+  height:285px;
+}
+
+#outerColThree {
+  position:relative;
+  height:285px;
+}
+
+#criteriaContainer {
+  height: 250px;
+  overflow: scroll;
+  white-space:pre-wrap;
+}
+
+#btnToolbar {
+background-color: #FF00FF;
+  position:absolute;
+  bottom:0;
+}
+
+#btnToolbar > * {
+  padding-left: 0px;
+  padding-right: 0px;
+}

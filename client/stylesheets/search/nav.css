@@ -1,0 +1,32 @@
+#SortAndDocsContainer {
+background-color:#4488CC;
+  text-align:center;
+}
+
+#docsContainer {
+background-color:yellow;
+/*width: 2000px;*/
+height: 300px;
+overflow: auto;
+/*  text-align:center;*/
+}
+
+.individualDoc{
+background-color:#12CC56;
+height: 60px;
+}
+
+#sortNavGrid {
+background-color:#F0F0F0;
+/*  position:relative;*/
+}
+
+.sortBtn:hover {
+  opacity: 0.5;
+  cursor:pointer;
+}
+
+#sortCol {
+background-color:#AA00AA;
+  padding: 0px;
+}
