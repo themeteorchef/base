@@ -32,3 +32,4 @@ practicalmeteor:mocha
 xolvio:backdoor
 mdg:validated-method
 dburles:factory@1.0.0
+ddp-rate-limiter
