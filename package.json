@@ -58,10 +58,12 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "eslint": "^2.13.1",
+    "eslint-plugin-import": "^1.10.2",
     "eslint-plugin-jsx-a11y": "^1.5.3",
     "eslint-plugin-react": "^5.2.2",
     "jquery": "^2.2.4",
     "jquery-validation": "^1.15.0",
+    "mobx": "^2.3.5",
     "react": "^15.2.0",
     "react-addons-pure-render-mixin": "^15.0.2",
     "react-bootstrap": "^0.29.5",
