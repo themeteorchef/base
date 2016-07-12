@@ -27,7 +27,6 @@
       }
     },
     "plugins": [
-      "meteor",
       "react"
     ],
     "extends": [
