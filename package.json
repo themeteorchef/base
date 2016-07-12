@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "chimp": "^0.34.1",
-    "eslint": "^2.10.2",
+    "eslint": "^2.9.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.9.2",
     "eslint-plugin-jsx-a11y": "^1.2.0",
@@ -58,14 +58,17 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "jquery": "^2.2.3",
+    "eslint": "^2.13.1",
+    "eslint-plugin-jsx-a11y": "^1.5.3",
+    "eslint-plugin-react": "^5.2.2",
+    "jquery": "^2.2.4",
     "jquery-validation": "^1.15.0",
-    "react": "^15.0.2",
+    "react": "^15.2.0",
     "react-addons-pure-render-mixin": "^15.0.2",
-    "react-bootstrap": "^0.29.4",
-    "react-dom": "^15.0.2",
+    "react-bootstrap": "^0.29.5",
+    "react-dom": "^15.2.0",
     "react-komposer": "^1.8.0",
-    "react-router": "^2.4.0",
+    "react-router": "^2.5.2",
     "react-router-bootstrap": "^0.23.0"
   }
 }
