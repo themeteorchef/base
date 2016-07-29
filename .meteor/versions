@@ -20,11 +20,11 @@ browser-policy@1.0.9
 browser-policy-common@1.0.10
 browser-policy-content@1.0.11
 browser-policy-framing@1.0.11
-caching-compiler@1.0.6
+caching-compiler@1.1.6
 caching-html-compiler@1.0.6
 callback-hook@1.0.9
 check@1.2.3
-coffeescript@1.0.17
+coffeescript@1.2.3
 dburles:factory@1.1.0
 ddp@1.2.5
 ddp-client@1.2.9
@@ -39,7 +39,7 @@ ejson@1.0.12
 email@1.1.16
 es5-shim@4.6.13
 fastclick@1.0.12
-fortawesome:fontawesome@4.4.0_1
+fortawesome:fontawesome@4.5.0
 fourseven:scss@3.8.0_1
 geojson-utils@1.0.9
 hot-code-push@1.0.4
@@ -53,7 +53,7 @@ livedata@1.0.18
 localstorage@1.0.11
 logging@1.1.14
 mdg:validated-method@1.1.0
-mdg:validation-error@0.2.0
+mdg:validation-error@0.5.1
 meteor@1.2.16
 meteor-base@1.0.4
 minifier-css@1.2.13
