@@ -1,6 +1,7 @@
 import { Documents } from './documents';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
+import { rateLimit } from '../../modules/rate-limit.js';
 
 export const insertDocument = new ValidatedMethod({
   name: 'documents.insert',
@@ -31,4 +32,14 @@ export const removeDocument = new ValidatedMethod({
   run({ _id }) {
     Documents.remove(_id);
   },
+});
+
+rateLimit({
+  methods: [
+    insertDocument,
+    updateDocument,
+    removeDocument,
+  ],
+  limit: 5,
+  timeRange: 1000,
 });
