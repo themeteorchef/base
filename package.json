@@ -17,7 +17,7 @@
     "eslint-plugin-jsx-a11y": "^1.5.5",
     "eslint-plugin-meteor": "^3.6.0",
     "eslint-plugin-react": "^5.2.2",
-    "faker": "^3.1.0"
+    "faker": "4.0.0"
   },
   "eslintConfig": {
     "parserOptions": {
