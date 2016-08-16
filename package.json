@@ -37,7 +37,8 @@
     "globals": {
       "server": false,
       "browser": false,
-      "expect": false
+      "expect": false,
+      "Global": true
     },
     "rules": {
       "import/no-unresolved": 0,
