@@ -43,7 +43,6 @@ export const Document = ({ document }) => (
       <Col xs={ 8 } sm={ 10 }>
         <FormControl
           type="text"
-          standalone
           defaultValue={ document.title }
           onKeyUp={ handleUpdateDocument.bind(this, document._id) }
         />
