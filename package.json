@@ -60,6 +60,7 @@
     "bootstrap": "^3.3.7",
     "jquery": "^2.2.4",
     "jquery-validation": "^1.15.1",
+    "meteor-promise": "^0.7.3",
     "react": "^15.3.0",
     "react-addons-pure-render-mixin": "^15.2.1",
     "react-bootstrap": "^0.30.2",
