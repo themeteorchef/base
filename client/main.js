@@ -1,1 +1,1 @@
-import '/imports/startup/client';
+import './ui';

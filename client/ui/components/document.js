@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, ListGroupItem, FormControl, Button } from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { updateDocument, removeDocument } from '../../api/documents/methods.js';
+import { updateDocument, removeDocument } from '/imports/api/documents/methods.js';
 
 const handleUpdateDocument = (documentId, event) => {
   const title = event.target.value.trim();
