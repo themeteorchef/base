@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormGroup, FormControl } from 'react-bootstrap';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { insertDocument } from '../../api/documents/methods.js';
+import { insertDocument } from '/imports/api/documents/methods.js';
 
 const handleInsertDocument = (event) => {
   const target = event.target;

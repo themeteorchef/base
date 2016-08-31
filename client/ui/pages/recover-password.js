@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Alert, FormGroup, FormControl, Button } from 'react-bootstrap';
-import { handleRecoverPassword } from '../../modules/recover-password';
+import { handleRecoverPassword } from '/imports/modules/recover-password';
 
 export class RecoverPassword extends React.Component {
   componentDidMount() {
