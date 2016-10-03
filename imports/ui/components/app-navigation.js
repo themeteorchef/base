@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router';
+import { Image } from 'react-bootstrap';
 import { PublicNavigation } from './public-navigation';
 import { AuthenticatedNavigation } from './authenticated-navigation';
 
@@ -13,7 +14,8 @@ export class AppNavigation extends React.Component {
     return <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <Link to="/">Application Name</Link>
+          <Image src="/psa-logo.png" responsive />
+          <Link to="/"></Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
