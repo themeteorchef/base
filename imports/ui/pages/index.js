@@ -18,9 +18,23 @@ export class Index extends React.Component {
 		return (<div>
 	  	<Jumbotron className="text-center">
 	  	  <h3>Search local powersports deals</h3>
-
 	  		<input type="search" name="search" onKeyUp={ this.handleSearch } className="form-control" />
 	  	</Jumbotron>
+	  	<section>
+	  	<div className="container">
+	  		<div className="row">
+	  			<div className="col-md-8">
+	  				<h3>2017 Polaris® GENERAL™ 1000 EPS Deluxe Titanium Matte Metallic</h3>
+	  				<img className="img-responsive" src="/2017-polaris-general.jpg"/>
+	  			</div>
+	  			<div className="col-md-4">
+	  				<p className="lead">$17,500</p>
+	  				<button>Get a Quote</button>
+	  				<button>Call Now</button>
+	  			</div>
+	  		</div>
+	  	</div>
+	  	</section>
 	  	<ul>
 		  	{vehicles.map(({ dealername, make, model }) => {
 		  		return <li>{ dealername } - { make } / { model }</li>;
@@ -29,17 +43,3 @@ export class Index extends React.Component {
 	  </div>);
 	}
 }
-
-// export const Index = ({ vehicles, query }) => (
-//   <div>
-//   	<Jumbotron className="text-center">
-//   	  <h3>Search local powersports deals</h3>
-//   	<SearchBar />
-//   	</Jumbotron>
-//   	<ul>
-// 	  	{vehicles.map(({ dealername, make, model }) => {
-// 	  		return <li>{ dealername } - { make } / { model }</li>;
-// 	  	})}
-//   	</ul>
-//   </div>
-// );
