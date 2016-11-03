@@ -21,7 +21,7 @@ const handleInsertDocument = (event) => {
   }
 };
 
-export const AddDocument = () => (
+const AddDocument = () => (
   <FormGroup>
     <FormControl
       type="text"
@@ -30,3 +30,5 @@ export const AddDocument = () => (
     />
   </FormGroup>
 );
+
+export default AddDocument;

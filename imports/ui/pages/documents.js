@@ -1,9 +1,9 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import DocumentsList from '../containers/documents-list.js';
-import { AddDocument } from '../components/add-document.js';
+import DocumentsList from '../containers/DocumentsList.js';
+import { AddDocument } from '../components/AddDocument.js';
 
-export const Documents = () => (
+const Documents = () => (
   <Row>
     <Col xs={ 12 }>
       <h4 className="page-header">Documents</h4>
@@ -12,3 +12,5 @@ export const Documents = () => (
     </Col>
   </Row>
 );
+
+export default Documents;

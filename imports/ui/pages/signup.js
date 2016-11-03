@@ -3,17 +3,17 @@ import { Link } from 'react-router';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import { handleSignup } from '../../modules/signup';
 
-export class Signup extends React.Component {
+export default class Signup extends React.Component {
   componentDidMount() {
     handleSignup({ component: this });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit() {
+    this.preventDefault();
   }
 
   render() {
-    return <Row>
+    return (<Row>
       <Col xs={ 12 } sm={ 6 } md={ 4 }>
         <h4 className="page-header">Sign Up</h4>
         <form ref="signup" className="signup" onSubmit={ this.handleSubmit }>
@@ -63,6 +63,6 @@ export class Signup extends React.Component {
         </form>
         <p>Already have an account? <Link to="/login">Log In</Link>.</p>
       </Col>
-    </Row>;
+    </Row>);
   }
 }

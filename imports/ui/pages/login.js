@@ -3,17 +3,17 @@ import { Link } from 'react-router';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import { handleLogin } from '../../modules/login';
 
-export class Login extends React.Component {
+export default class Login extends React.Component {
   componentDidMount() {
     handleLogin({ component: this });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit() {
+    this.preventDefault();
   }
 
   render() {
-    return <Row>
+    return (<Row>
       <Col xs={ 12 } sm={ 6 } md={ 4 }>
         <h4 className="page-header">Login</h4>
         <form ref="login" className="login" onSubmit={ this.handleSubmit }>
@@ -41,6 +41,6 @@ export class Login extends React.Component {
           <Button type="submit" bsStyle="success">Login</Button>
         </form>
       </Col>
-    </Row>;
+    </Row>);
   }
 }

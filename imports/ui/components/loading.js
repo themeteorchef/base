@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Loading = () => (
+const Loading = () => (
   <svg
     version="1.1"
     className="loading"
@@ -26,3 +26,5 @@ export const Loading = () => (
     </path>
   </svg>
 );
+
+export default Loading;

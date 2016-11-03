@@ -2,17 +2,17 @@ import React from 'react';
 import { Row, Col, Alert, FormGroup, FormControl, Button } from 'react-bootstrap';
 import { handleRecoverPassword } from '../../modules/recover-password';
 
-export class RecoverPassword extends React.Component {
+export default class RecoverPassword extends React.Component {
   componentDidMount() {
     handleRecoverPassword({ component: this });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit() {
+    this.preventDefault();
   }
 
   render() {
-    return <Row>
+    return (<Row>
       <Col xs={ 12 } sm={ 6 } md={ 4 }>
         <h4 className="page-header">Recover Password</h4>
         <Alert bsStyle="info">
@@ -30,6 +30,6 @@ export class RecoverPassword extends React.Component {
           <Button type="submit" bsStyle="success">Recover Password</Button>
         </form>
       </Col>
-    </Row>;
+    </Row>);
   }
 }

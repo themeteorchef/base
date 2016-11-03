@@ -2,14 +2,14 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
-import { App } from '../../ui/layouts/app';
-import { Documents } from '../../ui/pages/documents';
-import { Index } from '../../ui/pages/index';
-import { Login } from '../../ui/pages/login';
-import { NotFound } from '../../ui/pages/not-found';
-import { RecoverPassword } from '../../ui/pages/recover-password';
-import { ResetPassword } from '../../ui/pages/reset-password';
-import { Signup } from '../../ui/pages/signup';
+import { App } from '../../ui/layouts/App.js';
+import { Documents } from '../../ui/pages/Documents.js';
+import { Index } from '../../ui/pages/Index.js';
+import { Login } from '../../ui/pages/Login.js';
+import { NotFound } from '../../ui/pages/NotFound.js';
+import { RecoverPassword } from '../../ui/pages/RecoverPassword.js';
+import { ResetPassword } from '../../ui/pages/ResetPassword.js';
+import { Signup } from '../../ui/pages/Signup.js';
 
 const requireAuth = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {

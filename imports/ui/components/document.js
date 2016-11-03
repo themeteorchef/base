@@ -37,7 +37,7 @@ const handleRemoveDocument = (documentId, event) => {
   }
 };
 
-export const Document = ({ document }) => (
+const Document = ({ document }) => (
   <ListGroupItem key={ document._id }>
     <Row>
       <Col xs={ 8 } sm={ 10 }>
@@ -58,3 +58,9 @@ export const Document = ({ document }) => (
     </Row>
   </ListGroupItem>
 );
+
+Document.propTypes = {
+  document: React.PropTypes.object,
+};
+
+export default Document;

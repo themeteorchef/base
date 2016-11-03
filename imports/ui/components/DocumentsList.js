@@ -1,10 +1,10 @@
 import React from 'react';
 import { ListGroup, Alert } from 'react-bootstrap';
-import { Document } from './document.js';
+import { Document } from './Document.js';
 
-export const DocumentsList = ({ documents }) => (
+const DocumentsList = ({ documents }) => (
   documents.length > 0 ? <ListGroup className="documents-list">
-    {documents.map((doc) => (
+    {documents.map(doc => (
       <Document key={ doc._id } document={ doc } />
     ))}
   </ListGroup> :
@@ -14,3 +14,5 @@ export const DocumentsList = ({ documents }) => (
 DocumentsList.propTypes = {
   documents: React.PropTypes.array,
 };
+
+export default DocumentsList;
