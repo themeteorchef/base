@@ -17,8 +17,7 @@
     "eslint-plugin-import": "^1.16.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-meteor": "^4.0.1",
-    "eslint-plugin-react": "^6.4.1",
-    "faker": "^3.1.0"
+    "eslint-plugin-react": "^6.4.1"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -58,13 +57,14 @@
             "_name"
           ]
         }
-      ]
+      ],
+      "class-methods-use-this": 0
     }
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
     "bootstrap": "^3.3.7",
-    "jquery": "^3.1.1",
+    "jquery": "^2.2.4",
     "jquery-validation": "^1.15.1",
     "react": "^15.3.2",
     "react-addons-pure-render-mixin": "^15.3.2",

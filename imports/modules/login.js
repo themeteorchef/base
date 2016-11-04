@@ -27,7 +27,7 @@ const login = () => {
 };
 
 const validate = () => {
-  $(component.refs.login).validate({
+  $('.login').validate({
     rules: {
       emailAddress: {
         required: true,

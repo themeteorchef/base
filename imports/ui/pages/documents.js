@@ -1,13 +1,18 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import DocumentsList from '../containers/DocumentsList.js';
-import { AddDocument } from '../components/AddDocument.js';
 
 const Documents = () => (
   <Row>
     <Col xs={ 12 }>
-      <h4 className="page-header">Documents</h4>
-      <AddDocument />
+      <div className="page-header clearfix">
+        <h4 className="pull-left">Documents</h4>
+        <Button
+          bsStyle="success"
+          className="pull-right"
+          href="/documents/new"
+        >New Document</Button>
+      </div>
       <DocumentsList />
     </Col>
   </Row>

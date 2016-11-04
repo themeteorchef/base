@@ -1,11 +1,10 @@
 import React from 'react';
-import { ListGroup, Alert } from 'react-bootstrap';
-import { Document } from './Document.js';
+import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 
 const DocumentsList = ({ documents }) => (
-  documents.length > 0 ? <ListGroup className="documents-list">
-    {documents.map(doc => (
-      <Document key={ doc._id } document={ doc } />
+  documents.length > 0 ? <ListGroup className="DocumentsList">
+    {documents.map(({ _id, title }) => (
+      <ListGroupItem key={ _id } href={`/documents/${_id}`}>{ title }</ListGroupItem>
     ))}
   </ListGroup> :
   <Alert bsStyle="warning">No documents yet.</Alert>

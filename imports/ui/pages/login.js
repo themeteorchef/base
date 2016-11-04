@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import { handleLogin } from '../../modules/login';
+import handleLogin from '../../modules/login';
 
 export default class Login extends React.Component {
   componentDidMount() {
     handleLogin({ component: this });
   }
 
-  handleSubmit() {
-    this.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
   }
 
   render() {
