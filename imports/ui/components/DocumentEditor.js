@@ -7,6 +7,7 @@ import documentEditor from '../../modules/document-editor.js';
 export default class DocumentEditor extends React.Component {
   componentDidMount() {
     documentEditor({ component: this });
+    setTimeout(() => { document.querySelector('[name="title"]').focus(); }, 0);
   }
 
   render() {
