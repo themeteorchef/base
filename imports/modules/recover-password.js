@@ -1,7 +1,8 @@
-import $ from 'jquery';
-import 'jquery-validation';
+/* eslint-disable no-undef */
+
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
+import './validation.js';
 
 let component;
 
@@ -18,7 +19,7 @@ const handleRecovery = () => {
 };
 
 const validate = () => {
-  $(component.refs.recoverPassword).validate({
+  $(component.recoverPasswordForm).validate({
     rules: {
       emailAddress: {
         required: true,

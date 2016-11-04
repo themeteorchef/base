@@ -16,7 +16,7 @@ import RecoverPassword from '../../ui/pages/RecoverPassword.js';
 import ResetPassword from '../../ui/pages/ResetPassword.js';
 import Signup from '../../ui/pages/Signup.js';
 
-const requireAuth = (nextState, replace) => {
+const authenticate = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
     replace({
       pathname: '/login',
@@ -29,11 +29,11 @@ Meteor.startup(() => {
   render(
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
-        <IndexRoute name="index" component={ Index } onEnter={ requireAuth } />
-        <Route name="documents" path="/documents" component={ Documents } onEnter={ requireAuth } />
-        <Route name="newDocument" path="/documents/new" component={ NewDocument } onEnter={ requireAuth } />
-        <Route name="editDocument" path="/documents/:_id/edit" component={ EditDocument } onEnter={ requireAuth } />
-        <Route name="viewDocument" path="/documents/:_id" component={ ViewDocument } onEnter={ requireAuth } />
+        <IndexRoute name="index" component={ Index } onEnter={ authenticate } />
+        <Route name="documents" path="/documents" component={ Documents } onEnter={ authenticate } />
+        <Route name="newDocument" path="/documents/new" component={ NewDocument } onEnter={ authenticate } />
+        <Route name="editDocument" path="/documents/:_id/edit" component={ EditDocument } onEnter={ authenticate } />
+        <Route name="viewDocument" path="/documents/:_id" component={ ViewDocument } onEnter={ authenticate } />
         <Route name="login" path="/login" component={ Login } />
         <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
         <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />

@@ -1,8 +1,9 @@
-import $ from 'jquery';
-import 'jquery-validation';
+/* eslint-disable no-undef */
+
 import { browserHistory } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
+import './validation.js';
 
 let component;
 let token;
@@ -20,7 +21,7 @@ const handleReset = () => {
 };
 
 const validate = () => {
-  $(component.refs.resetPassword).validate({
+  $(component.resetPassword).validate({
     rules: {
       newPassword: {
         required: true,

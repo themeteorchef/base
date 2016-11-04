@@ -1,8 +1,9 @@
-import $ from 'jquery';
-import 'jquery-validation';
+/* eslint-disable no-undef */
+
 import { browserHistory } from 'react-router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { upsertDocument } from '../api/documents/methods.js';
+import './validation.js';
 
 let component;
 

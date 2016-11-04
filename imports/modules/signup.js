@@ -1,8 +1,9 @@
-import $ from 'jquery';
-import 'jquery-validation';
+/* eslint-disable no-undef */
+
 import { browserHistory } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
+import './validation.js';
 
 let component;
 
@@ -31,7 +32,7 @@ const signup = () => {
 };
 
 const validate = () => {
-  $(component.refs.signup).validate({
+  $(component.signupForm).validate({
     rules: {
       firstName: {
         required: true,

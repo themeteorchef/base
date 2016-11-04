@@ -13,7 +13,7 @@ export default class DocumentEditor extends React.Component {
   render() {
     const { doc } = this.props;
     return (<form
-      ref={ form => this.form = form }
+      ref={ form => (this.documentEditorForm = form) }
       onSubmit={ event => event.preventDefault() }
     >
       <FormGroup>

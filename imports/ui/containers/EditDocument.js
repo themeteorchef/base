@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { composeWithTracker } from 'react-komposer';
 import Documents from '../../api/documents/documents.js';
 import EditDocument from '../pages/EditDocument.js';
-import { Loading } from '../components/Loading.js';
+import Loading from '../components/Loading.js';
 
 const composer = ({ params }, onData) => {
   const subscription = Meteor.subscribe('documents.edit', params._id);

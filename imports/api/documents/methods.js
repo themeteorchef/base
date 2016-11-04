@@ -1,7 +1,7 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import Documents from './documents';
-import { rateLimit } from '../../modules/rate-limit.js';
+import rateLimit from '../../modules/rate-limit.js';
 
 export const upsertDocument = new ValidatedMethod({
   name: 'documents.upsert',

@@ -2,8 +2,9 @@
 @import "base/animations";
 @import "base/forms";
 
-@import "module/loading";
-@import "module/login";
-@import "module/signup";
+@import "module/Loading";
+@import "module/Login";
+@import "module/PageHeader";
+@import "module/Signup";
 
-@import "state/navbar";
+@import "state/Navbar";
