@@ -2,13 +2,12 @@ import $ from 'jquery';
 import 'jquery-validation';
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { getInputValue } from './get-input-value';
 
 let component;
 
 const handleRecovery = () => {
   Accounts.forgotPassword({
-    email: getInputValue(component.refs.emailAddress),
+    email: document.querySelector('[name="emailAddress"]').value,
   }, (error) => {
     if (error) {
       Bert.alert(error.reason, 'warning');
@@ -36,7 +35,7 @@ const validate = () => {
   });
 };
 
-export const handleRecoverPassword = (options) => {
+export default function handleRecoverPassword(options) {
   component = options.component;
   validate();
-};
+}

@@ -3,13 +3,12 @@ import 'jquery-validation';
 import { browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { getInputValue } from './get-input-value';
 
 let component;
 
 const login = () => {
-  const email = getInputValue(component.refs.emailAddress);
-  const password = getInputValue(component.refs.password);
+  const email = document.querySelector('[name="emailAddress"]').value;
+  const password = document.querySelector('[name="password"]').value;
 
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
@@ -51,7 +50,7 @@ const validate = () => {
   });
 };
 
-export const handleLogin = (options) => {
+export default function handleLogin(options) {
   component = options.component;
   validate();
-};
+}
