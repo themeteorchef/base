@@ -5,7 +5,7 @@ import EditDocument from '../pages/EditDocument.js';
 import Loading from '../components/Loading.js';
 
 const composer = ({ params }, onData) => {
-  const subscription = Meteor.subscribe('documents.edit', params._id);
+  const subscription = Meteor.subscribe('documents.view', params._id);
 
   if (subscription.ready()) {
     const doc = Documents.findOne();
