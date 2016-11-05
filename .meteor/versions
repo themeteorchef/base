@@ -13,7 +13,7 @@ babel-compiler@6.13.0
 babel-runtime@0.1.13
 base64@1.0.10
 binary-heap@1.0.10
-blaze@2.1.9
+blaze@2.2.0
 blaze-tools@1.0.10
 boilerplate-generator@1.0.11
 browser-policy@1.0.9
@@ -39,7 +39,7 @@ ejson@1.0.13
 email@1.1.18
 es5-shim@4.6.15
 fastclick@1.0.13
-fortawesome:fontawesome@4.6.3
+fortawesome:fontawesome@4.7.0
 fourseven:scss@3.10.1
 geojson-utils@1.0.10
 hot-code-push@1.0.4
