@@ -1,14 +1,14 @@
-import $ from 'jquery';
-import 'jquery-validation';
+/* eslint-disable no-undef */
+
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { getInputValue } from './get-input-value';
+import './validation.js';
 
 let component;
 
 const handleRecovery = () => {
   Accounts.forgotPassword({
-    email: getInputValue(component.refs.emailAddress),
+    email: document.querySelector('[name="emailAddress"]').value,
   }, (error) => {
     if (error) {
       Bert.alert(error.reason, 'warning');
@@ -19,7 +19,7 @@ const handleRecovery = () => {
 };
 
 const validate = () => {
-  $(component.refs.recoverPassword).validate({
+  $(component.recoverPasswordForm).validate({
     rules: {
       emailAddress: {
         required: true,
@@ -36,7 +36,7 @@ const validate = () => {
   });
 };
 
-export const handleRecoverPassword = (options) => {
+export default function handleRecoverPassword(options) {
   component = options.component;
   validate();
-};
+}

@@ -1,26 +1,17 @@
-import { Documents } from './documents';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
-import { rateLimit } from '../../modules/rate-limit.js';
+import Documents from './documents';
+import rateLimit from '../../modules/rate-limit.js';
 
-export const insertDocument = new ValidatedMethod({
-  name: 'documents.insert',
+export const upsertDocument = new ValidatedMethod({
+  name: 'documents.upsert',
   validate: new SimpleSchema({
-    title: { type: String },
+    _id: { type: String, optional: true },
+    title: { type: String, optional: true },
+    body: { type: String, optional: true },
   }).validator(),
   run(document) {
-    Documents.insert(document);
-  },
-});
-
-export const updateDocument = new ValidatedMethod({
-  name: 'documents.update',
-  validate: new SimpleSchema({
-    _id: { type: String },
-    'update.title': { type: String, optional: true },
-  }).validator(),
-  run({ _id, update }) {
-    Documents.update(_id, { $set: update });
+    return Documents.upsert({ _id: document._id }, { $set: document });
   },
 });
 
@@ -36,8 +27,7 @@ export const removeDocument = new ValidatedMethod({
 
 rateLimit({
   methods: [
-    insertDocument,
-    updateDocument,
+    upsertDocument,
     removeDocument,
   ],
   limit: 5,

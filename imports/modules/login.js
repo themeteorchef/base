@@ -1,15 +1,15 @@
-import $ from 'jquery';
-import 'jquery-validation';
+/* eslint-disable no-undef */
+
 import { browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { getInputValue } from './get-input-value';
+import './validation.js';
 
 let component;
 
 const login = () => {
-  const email = getInputValue(component.refs.emailAddress);
-  const password = getInputValue(component.refs.password);
+  const email = document.querySelector('[name="emailAddress"]').value;
+  const password = document.querySelector('[name="password"]').value;
 
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
@@ -28,7 +28,7 @@ const login = () => {
 };
 
 const validate = () => {
-  $(component.refs.login).validate({
+  $(component.loginForm).validate({
     rules: {
       emailAddress: {
         required: true,
@@ -51,7 +51,7 @@ const validate = () => {
   });
 };
 
-export const handleLogin = (options) => {
+export default function handleLogin(options) {
   component = options.component;
   validate();
-};
+}

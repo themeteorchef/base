@@ -1,24 +1,24 @@
-import $ from 'jquery';
-import 'jquery-validation';
+/* eslint-disable no-undef */
+
 import { browserHistory } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { getInputValue } from './get-input-value';
+import './validation.js';
 
 let component;
 
 const getUserData = () => ({
-  email: getInputValue(component.refs.emailAddress),
-  password: getInputValue(component.refs.password),
+  email: document.querySelector('[name="emailAddress"]').value,
+  password: document.querySelector('[name="password"]').value,
   profile: {
     name: {
-      first: getInputValue(component.refs.firstName),
-      last: getInputValue(component.refs.lastName),
+      first: document.querySelector('[name="firstName"]').value,
+      last: document.querySelector('[name="lastName"]').value,
     },
   },
 });
 
-const signUp = () => {
+const signup = () => {
   const user = getUserData();
 
   Accounts.createUser(user, (error) => {
@@ -32,7 +32,7 @@ const signUp = () => {
 };
 
 const validate = () => {
-  $(component.refs.signup).validate({
+  $(component.signupForm).validate({
     rules: {
       firstName: {
         required: true,
@@ -65,11 +65,11 @@ const validate = () => {
         minlength: 'Use at least six characters, please.',
       },
     },
-    submitHandler() { signUp(); },
+    submitHandler() { signup(); },
   });
 };
 
-export const handleSignup = (options) => {
+export default function handleSignup(options) {
   component = options.component;
   validate();
-};
+}

@@ -1,9 +1,9 @@
-import faker from 'faker';
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Factory } from 'meteor/dburles:factory';
 
-export const Documents = new Mongo.Collection('Documents');
+const Documents = new Mongo.Collection('Documents');
+export default Documents;
 
 Documents.allow({
   insert: () => false,
@@ -22,10 +22,15 @@ Documents.schema = new SimpleSchema({
     type: String,
     label: 'The title of the document.',
   },
+  body: {
+    type: String,
+    label: 'The body of the document.',
+  },
 });
 
 Documents.attachSchema(Documents.schema);
 
 Factory.define('document', Documents, {
-  title: () => faker.hacker.phrase(),
+  title: () => 'Factory Title',
+  body: () => 'Factory Body',
 });
