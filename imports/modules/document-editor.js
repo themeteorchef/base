@@ -21,7 +21,7 @@ const handleUpsert = () => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
-      component.form.reset();
+      component.documentEditorForm.reset();
       Bert.alert(confirmation, 'success');
       browserHistory.push(`/documents/${insertedId || doc._id}`);
     }
@@ -29,7 +29,7 @@ const handleUpsert = () => {
 };
 
 const validate = () => {
-  $(component.form).validate({
+  $(component.documentEditorForm).validate({
     rules: {
       title: {
         required: true,
@@ -50,7 +50,7 @@ const validate = () => {
   });
 };
 
-export default function handleLogin(options) {
+export default function documentEditor(options) {
   component = options.component;
   validate();
 }
