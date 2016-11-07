@@ -5,7 +5,7 @@ A starting point for Meteor apps.
   <tbody>
     <tr>
       <th>Base Version</th>
-      <td>v4.8.0</td>
+      <td>v4.8.1</td>
     </tr>
     <tr>
       <th>Meteor Version</th>
