@@ -5,11 +5,11 @@ A starting point for Meteor apps.
   <tbody>
     <tr>
       <th>Base Version</th>
-      <td>v4.8.1</td>
+      <td>v4.9.0</td>
     </tr>
     <tr>
       <th>Meteor Version</th>
-      <td>v1.4.2</td>
+      <td>v1.4.2.1</td>
     </tr>
   </tbody>
 </table>
