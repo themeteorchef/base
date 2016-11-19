@@ -21,7 +21,7 @@ const handleReset = () => {
 };
 
 const validate = () => {
-  $(component.resetPassword).validate({
+  $(component.resetPasswordForm).validate({
     rules: {
       newPassword: {
         required: true,
