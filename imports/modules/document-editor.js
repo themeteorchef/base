@@ -17,13 +17,13 @@ const handleUpsert = () => {
 
   if (doc && doc._id) upsert._id = doc._id;
 
-  upsertDocument.call(upsert, (error, { insertedId }) => {
+  upsertDocument.call(upsert, (error, response) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
       component.documentEditorForm.reset();
       Bert.alert(confirmation, 'success');
-      browserHistory.push(`/documents/${insertedId || doc._id}`);
+      browserHistory.push(`/documents/${response.insertedId || doc._id}`);
     }
   });
 };
