@@ -4,6 +4,10 @@ import { browserHistory } from 'react-router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { removeDocument } from '../../api/documents/methods.js';
 
+const handleEdit = (_id) => {
+  browserHistory.push(`/documents/${_id}/edit`);
+}
+
 const handleRemove = (_id) => {
   if (confirm('Are you sure? This is permanent!')) {
     removeDocument.call({ _id }, (error) => {
@@ -23,7 +27,7 @@ const ViewDocument = ({ doc }) => (
       <h4 className="pull-left">{ doc.title }</h4>
       <ButtonToolbar className="pull-right">
         <ButtonGroup bsSize="small">
-          <Button href={`/documents/${doc._id}/edit`}>Edit</Button>
+          <Button onClick={ () => handleEdit(doc._id) }>Edit</Button>
           <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
         </ButtonGroup>
       </ButtonToolbar>
