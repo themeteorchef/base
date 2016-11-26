@@ -1,12 +1,7 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { Link } from 'react-router';
 import { Row, Col, Button } from 'react-bootstrap';
 import DocumentsList from '../containers/DocumentsList.js';
-
-const buttonNav = (event) => {
-  event.preventDefault();
-  browserHistory.push('/documents/new');
-}
 
 const Documents = () => (
   <div className="Documents">
@@ -14,11 +9,12 @@ const Documents = () => (
       <Col xs={ 12 }>
         <div className="page-header clearfix">
           <h4 className="pull-left">Documents</h4>
-          <Button
-            bsStyle="success"
-            className="pull-right"
-            onClick={ buttonNav }
-          >New Document</Button>
+          <Link to="/documents/new">
+            <Button
+              bsStyle="success"
+              className="pull-right"
+            >New Document</Button>
+          </Link>
         </div>
         <DocumentsList />
       </Col>
