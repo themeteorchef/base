@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { composeWithTracker } from 'react-komposer';
 import Documents from '../../../api/documents/documents.js';
-import EditDocument from '../../pages/documents/EditDocument.js';
+import ViewDocument from '../../pages/documents/View.js';
 import Loading from '../../components/Loading.js';
 
 const composer = ({ params }, onData) => {
@@ -13,4 +13,4 @@ const composer = ({ params }, onData) => {
   }
 };
 
-export default composeWithTracker(composer, Loading)(EditDocument);
+export default composeWithTracker(composer, Loading)(ViewDocument);

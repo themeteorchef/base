@@ -1,7 +1,7 @@
 import { composeWithTracker } from 'react-komposer';
 import { Meteor } from 'meteor/meteor';
 import Documents from '../../../api/documents/documents.js';
-import DocumentsList from '../../components/documents/DocumentsList.js';
+import DocumentsList from '../../components/documents/List.js';
 import Loading from '../../components/Loading.js';
 
 const composer = (params, onData) => {
