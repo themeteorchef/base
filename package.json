@@ -65,6 +65,7 @@
     "babel-runtime": "^6.18.0",
     "bcrypt": "^0.8.7",
     "bootstrap": "^3.3.7",
+    "griddle-react": "^0.7.1",
     "jquery": "^2.2.4",
     "jquery-validation": "^1.15.1",
     "react": "^15.3.2",
