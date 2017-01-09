@@ -1,5 +1,5 @@
 import React from 'react';
-import DocumentEditor from '../components/DocumentEditor.js';
+import DocumentEditor from '../../components/documents/Editor.js';
 
 const EditDocument = ({ doc }) => (
   <div className="EditDocument">
