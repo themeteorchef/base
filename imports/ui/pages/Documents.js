@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import DocumentsList from '../containers/DocumentsList.js';
 
 const Documents = () => (
@@ -8,11 +9,12 @@ const Documents = () => (
       <Col xs={ 12 }>
         <div className="page-header clearfix">
           <h4 className="pull-left">Documents</h4>
-          <Button
-            bsStyle="success"
-            className="pull-right"
-            href="/documents/new"
-          >New Document</Button>
+          <LinkContainer to="/documents/new">
+              <Button
+                bsStyle="success"
+                className="pull-right"
+              >New Document</Button>
+          </LinkContainer>
         </div>
         <DocumentsList />
       </Col>
