@@ -24,7 +24,7 @@ const handleRemove = (_id) => {
 const ViewDocument = ({ doc }) => (
   <div className="ViewDocument">
     <div className="page-header clearfix">
-      <h4 className="pull-left">{ doc.title }</h4>
+      <h4 className="pull-left">{ doc && doc.title }</h4>
       <ButtonToolbar className="pull-right">
         <ButtonGroup bsSize="small">
           <Button onClick={ () => handleEdit(doc._id) }>Edit</Button>
@@ -32,12 +32,12 @@ const ViewDocument = ({ doc }) => (
         </ButtonGroup>
       </ButtonToolbar>
     </div>
-    { doc.body }
+    { doc && doc.body }
   </div>
 );
 
 ViewDocument.propTypes = {
-  doc: React.PropTypes.object.isRequired,
+  doc: React.PropTypes.object,
 };
 
 export default ViewDocument;
