@@ -3,6 +3,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
 import { Meteor } from 'meteor/meteor';
 import App from '../../ui/layouts/App.js';
 import Documents from '../../ui/pages/Documents.js';
@@ -15,6 +17,11 @@ import NotFound from '../../ui/pages/NotFound.js';
 import RecoverPassword from '../../ui/pages/RecoverPassword.js';
 import ResetPassword from '../../ui/pages/ResetPassword.js';
 import Signup from '../../ui/pages/Signup.js';
+import GraphTest from '../../ui/containers/GraphTest';
+
+const client = new ApolloClient({
+  networkInterface: createNetworkInterface({ uri: 'http://localhost:4000/graphql' }),
+});
 
 const authenticate = (nextState, replace) => {
   if (!Meteor.loggingIn() && !Meteor.userId()) {
@@ -27,20 +34,23 @@ const authenticate = (nextState, replace) => {
 
 Meteor.startup(() => {
   render(
-    <Router history={ browserHistory }>
-      <Route path="/" component={ App }>
-        <IndexRoute name="index" component={ Index } />
-        <Route name="documents" path="/documents" component={ Documents } onEnter={ authenticate } />
-        <Route name="newDocument" path="/documents/new" component={ NewDocument } onEnter={ authenticate } />
-        <Route name="editDocument" path="/documents/:_id/edit" component={ EditDocument } onEnter={ authenticate } />
-        <Route name="viewDocument" path="/documents/:_id" component={ ViewDocument } onEnter={ authenticate } />
-        <Route name="login" path="/login" component={ Login } />
-        <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
-        <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
-        <Route name="signup" path="/signup" component={ Signup } />
-        <Route path="*" component={ NotFound } />
-      </Route>
-    </Router>,
+    <ApolloProvider client={ client }>
+      <Router history={ browserHistory }>
+        <Route path="/" component={ App }>
+          <IndexRoute name="index" component={ Index } />
+          <Route name="documents" path="/graffkewl" component={ GraphTest } />
+          <Route name="documents" path="/documents" component={ Documents } onEnter={ authenticate } />
+          <Route name="newDocument" path="/documents/new" component={ NewDocument } onEnter={ authenticate } />
+          <Route name="editDocument" path="/documents/:_id/edit" component={ EditDocument } onEnter={ authenticate } />
+          <Route name="viewDocument" path="/documents/:_id" component={ ViewDocument } onEnter={ authenticate } />
+          <Route name="login" path="/login" component={ Login } />
+          <Route name="recover-password" path="/recover-password" component={ RecoverPassword } />
+          <Route name="reset-password" path="/reset-password/:token" component={ ResetPassword } />
+          <Route name="signup" path="/signup" component={ Signup } />
+          <Route path="*" component={ NotFound } />
+        </Route>
+      </Router>
+    </ApolloProvider>,
     document.getElementById('react-root')
   );
 });
