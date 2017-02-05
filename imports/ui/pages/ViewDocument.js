@@ -21,23 +21,27 @@ const handleRemove = (_id) => {
   }
 };
 
-const ViewDocument = ({ doc }) => (
-  <div className="ViewDocument">
-    <div className="page-header clearfix">
-      <h4 className="pull-left">{ doc && doc.title }</h4>
-      <ButtonToolbar className="pull-right">
-        <ButtonGroup bsSize="small">
-          <Button onClick={ () => handleEdit(doc._id) }>Edit</Button>
-          <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
-        </ButtonGroup>
-      </ButtonToolbar>
+const ViewDocument = ({ data }) => {
+  const { loading } = data;
+  const doc = data.documents && data.documents[0];
+  return !loading ? (
+    <div className="ViewDocument">
+      <div className="page-header clearfix">
+        <h4 className="pull-left">{ doc && doc.title }</h4>
+        <ButtonToolbar className="pull-right">
+          <ButtonGroup bsSize="small">
+            <Button onClick={ () => handleEdit(doc._id) }>Edit</Button>
+            <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
+          </ButtonGroup>
+        </ButtonToolbar>
+      </div>
+      { doc && doc.body }
     </div>
-    { doc && doc.body }
-  </div>
-);
+  ) : <div></div>;
+};
 
 ViewDocument.propTypes = {
-  doc: React.PropTypes.object,
+  data: React.PropTypes.object,
 };
 
 export default ViewDocument;

@@ -17,7 +17,6 @@ import NotFound from '../../ui/pages/NotFound.js';
 import RecoverPassword from '../../ui/pages/RecoverPassword.js';
 import ResetPassword from '../../ui/pages/ResetPassword.js';
 import Signup from '../../ui/pages/Signup.js';
-import GraphTest from '../../ui/containers/GraphTest';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({ uri: 'http://localhost:4000/graphql' }),
@@ -38,7 +37,6 @@ Meteor.startup(() => {
       <Router history={ browserHistory }>
         <Route path="/" component={ App }>
           <IndexRoute name="index" component={ Index } />
-          <Route name="documents" path="/graffkewl" component={ GraphTest } />
           <Route name="documents" path="/documents" component={ Documents } onEnter={ authenticate } />
           <Route name="newDocument" path="/documents/new" component={ NewDocument } onEnter={ authenticate } />
           <Route name="editDocument" path="/documents/:_id/edit" component={ EditDocument } onEnter={ authenticate } />

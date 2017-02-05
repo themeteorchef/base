@@ -1,16 +1,22 @@
-import { Meteor } from 'meteor/meteor';
-import { composeWithTracker } from 'react-komposer';
-import Documents from '../../api/documents/documents.js';
-import EditDocument from '../pages/EditDocument.js';
-import Loading from '../components/Loading.js';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+import EditDocument from '../pages/EditDocument';
 
-const composer = ({ params }, onData) => {
-  const subscription = Meteor.subscribe('documents.view', params._id);
-
-  if (subscription.ready()) {
-    const doc = Documents.findOne();
-    onData(null, { doc });
+const MyQuery = gql`
+  query ($_id: String!){
+    documents(_id: $_id) {
+      _id
+      title
+      body
+    }
   }
-};
+`;
 
-export default composeWithTracker(composer, Loading)(EditDocument);
+export default graphql(MyQuery, {
+  options: ({ params }) => ({
+    variables: {
+      _id: params._id,
+    },
+    pollInterval: 10000,
+  }),
+})(EditDocument);

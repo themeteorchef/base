@@ -1,15 +1,19 @@
 import React from 'react';
-import DocumentEditor from '../components/DocumentEditor.js';
+import DocumentEditor from '../containers/DocumentEditor.js';
 
-const EditDocument = ({ doc }) => (
-  <div className="EditDocument">
-    <h4 className="page-header">Editing "{ doc.title }"</h4>
-    <DocumentEditor doc={ doc } />
-  </div>
-);
+const EditDocument = ({ data }) => {
+  const { loading } = data;
+  const doc = data.documents && data.documents[0];
+  return !loading ? (
+    <div className="EditDocument">
+      <h4 className="page-header">Editing "{ doc.title }"</h4>
+      <DocumentEditor data={ data } doc={ doc } />
+    </div>
+  ) : <div></div>;
+};
 
 EditDocument.propTypes = {
-  doc: React.PropTypes.object,
+  data: React.PropTypes.object,
 };
 
 export default EditDocument;

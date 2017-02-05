@@ -5,6 +5,11 @@ import Schema from './schema';
 
 const app = express().use('*', cors());
 
+/* TODO: Authentication layer here. */
+app.use((request, response, next) => {
+  next();
+});
+
 app.use('/graphql', graphqlHTTP({
   schema: Schema,
   graphiql: true,
