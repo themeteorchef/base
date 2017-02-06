@@ -74,6 +74,7 @@
     "graphql-tag": "^1.2.4",
     "jquery": "^2.2.4",
     "jquery-validation": "^1.15.1",
+    "mysql": "^2.13.0",
     "react": "^15.3.2",
     "react-addons-pure-render-mixin": "^15.3.2",
     "react-apollo": "^0.10.0",
