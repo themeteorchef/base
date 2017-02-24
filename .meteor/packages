@@ -22,7 +22,7 @@ check@1.2.4
 audit-argument-checks@1.0.7
 browser-policy@1.0.9
 
-fourseven:scss
+fourseven:scss@4.5.0
 aldeed:collection2
 alanning:roles
 themeteorchef:bert
