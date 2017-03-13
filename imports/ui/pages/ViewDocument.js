@@ -23,8 +23,7 @@ const handleRemove = (_id) => {
 };
 
 const ViewDocument = ({ doc }) => {
-  if (!doc) return <NotFound />;
-  return (
+  return doc ? (
     <div className="ViewDocument">
       <div className="page-header clearfix">
         <h4 className="pull-left">{ doc && doc.title }</h4>
@@ -37,7 +36,7 @@ const ViewDocument = ({ doc }) => {
       </div>
       { doc && doc.body }
     </div>
-  )
+  ) : <NotFound />;
 };
 
 ViewDocument.propTypes = {
