@@ -1,7 +1,7 @@
 {
-  "name": "application-name",
+  "name": "{{ name }}",
   "version": "1.0.0",
-  "description": "Application description.",
+  "description": "{{ description }}",
   "scripts": {
     "start": "meteor --settings settings-development.json",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 5000",
