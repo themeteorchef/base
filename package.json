@@ -67,6 +67,7 @@
     "bootstrap": "^3.3.7",
     "jquery": "^2.2.4",
     "jquery-validation": "^1.15.1",
+    "material-ui": "^0.17.1",
     "react": "^15.3.2",
     "react-addons-pure-render-mixin": "^15.3.2",
     "react-bootstrap": "^0.30.5",

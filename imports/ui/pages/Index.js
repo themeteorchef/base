@@ -1,15 +1,27 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
 
 const Index = () => (
-  <div className="Index">
-    <Jumbotron className="text-center">
-      <h2>Base</h2>
-      <p>A starting point for Meteor applications.</p>
-      <p><a className="btn btn-success" href="https://themeteorchef.com/base" role="button">Read the Documentation</a></p>
-      <p style={ { fontSize: '16px', color: '#aaa' } }>Currently at v4.13.0</p>
-    </Jumbotron>
-  </div>
+  <Paper zDepth={1}>
+    <Card>
+      <CardMedia>
+        <img src="card-blue.png"/>
+      </CardMedia>
+      <CardTitle title="Base" subtitle="A starting point for Meteor applications. Currently at v4.13.0."/>
+      <CardActions>
+        <FlatButton label="Documentation" href="https://themeteorchef.com/base"/>
+      </CardActions>
+    </Card>
+  </Paper>
 );
 
 export default Index;
