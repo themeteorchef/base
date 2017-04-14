@@ -5,7 +5,7 @@ Meteor.publish('users.info', function userInfoPublish() {
     return this.ready();
   }
 
-  return Meteor.users.find({}, {
+  return Meteor.users.find(this.userId, {
     fields: {
       name: 1,
     },
