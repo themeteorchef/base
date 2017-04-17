@@ -1,0 +1,58 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "allowImportExportEverywhere": true
+  },
+  "plugins": [
+    "meteor"
+  ],
+  "extends": [
+    "airbnb",
+    "plugin:meteor/recommended"
+  ],
+  "rules": {
+    "import/extensions": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "meteor/no-session": "off",
+    "object-shorthand": [
+      "error",
+      "always",
+      {
+        "avoidQuotes": false
+      }
+    ],
+    "meteor/eventmap-params": [
+      "error",
+      {
+        "eventParamName": "event",
+        "templateInstanceParamName": "instance"
+      }
+    ],
+    "meteor/template-names": [
+      "off"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "react/forbid-prop-types": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "prefer-arrow-callback": "off"
+  },
+  "settings": {
+    "import/resolver": "meteor"
+  }
+}
