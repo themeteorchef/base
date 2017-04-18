@@ -1,34 +1,69 @@
-import React from 'react';
+import React, {
+  PropTypes
+} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppNavigation from '../containers/AppNavigation.js';
-import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
-import Paper from 'material-ui/Paper';
-import IconRestore from 'material-ui/svg-icons/action/restore';
-import IconFavorite from 'material-ui/svg-icons/action/favorite';
-import IconLocationOn from 'material-ui/svg-icons/communication/location-on';
+import Header from '../components/Header';
+import Menu from '../components/Menu';
+//TODO: what exactly is this withWidth
+import withWidth, {
+  SMALL
+} from 'material-ui/utils/withWidth';
+import ThemeDefault from '../theme-default';
+import Data from '../data';
 
-const recentIcon = <IconRestore/>;
-const favoriteIcon = <IconFavorite/>;
-const locationOnIcon = <IconLocationOn/>;
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isMobile: props.width <= SMALL,
+      isDrawerOpen: false
+    };
+  }
 
-const App = ({children}) => (
-  <MuiThemeProvider>
-    <div>
-      <AppNavigation/> {children}
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      isMobile: nextProps.width <= SMALL
+    });
+  }
 
-      <Paper zDepth={1}>
-        <BottomNavigation selectedIndex={1}>
-          <BottomNavigationItem label="Recents" icon={recentIcon} onTouchTap={() => this.select(0)}/>
-          <BottomNavigationItem label="Favorites" icon={favoriteIcon} onTouchTap={() => this.select(1)}/>
-          <BottomNavigationItem label="Nearby" icon={locationOnIcon} onTouchTap={() => this.select(2)}/>
-        </BottomNavigation>
-      </Paper>
-    </div>
-  </MuiThemeProvider>
-);
+  handleDrawerToggle() {
+    this.setState({
+      isDrawerOpen: !this.state.isDrawerOpen
+    });
+  }
+
+  render() {
+    let {
+      isMobile,
+      isDrawerOpen
+    } = this.state;
+
+    const styles = {
+      container: {
+        margin: '20px 20px 20px 20px',
+        paddingLeft: isMobile ?
+          0 : 230
+      }
+    };
+
+    return (
+      <MuiThemeProvider muiTheme={ThemeDefault}>
+        <div>
+          <Header isMobile={isMobile} styles={styles.header} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
+          <Menu isMobile={isMobile} isDrawerOpen={isDrawerOpen} menus={Meteor.user() ? Data.authenticated_menus : Data.public_menus} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
+
+          <div style={styles.container}>
+            {this.props.children}
+          </div>
+        </div>
+      </MuiThemeProvider>
+    );
+  }
+}
 
 App.propTypes = {
-  children: React.PropTypes.node
+  children: PropTypes.element,
+  width: PropTypes.number
 };
 
-export default App;
+export default withWidth()(App);
