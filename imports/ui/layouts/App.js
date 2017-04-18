@@ -2,8 +2,8 @@
 
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
-import { Route } from 'react-router-dom';
 import AppNavigation from '../containers/AppNavigation.js';
 import EditDocument from '../containers/EditDocument.js';
 import ViewDocument from '../containers/ViewDocument.js';
@@ -16,44 +16,47 @@ import RecoverPassword from '../pages/RecoverPassword.js';
 import ResetPassword from '../pages/ResetPassword.js';
 import Signup from '../pages/Signup.js';
 
-const authenticate = (nextState, replace) => {
-  /* if (!Meteor.loggingIn() && !Meteor.userId()) {
-    replace({
-      pathname: '/login',
-      state: { nextPathname: nextState.location.pathname },
-    });
-  } */
+const authenticate = (props, component) => {
+  if (!Meteor.loggingIn() && !Meteor.userId()) {
+    props.history.push('/login');
+  }
+
+  return component;
 };
 
-const App = ({ children }) => (
-  <div>
-    <AppNavigation />
-    <Grid>
-      { children }
-    </Grid>
+const logout = (history) => {
+  Meteor.logout((error) => {
+    if (error) {
+      console.log(`Error: ${error}`);
+      return <div>Logout Failed</div>;
+    }
 
-    <Route path="/" component={Index} />
-    <Route path="/documents" component={Documents} onEnter={authenticate} />
+    history.push('/');
+    return null;
+  });
+};
 
-    {/* <Route path="/" component={Index} />
-    <Route path="/documents/:_id/edit" component={EditDocument} onEnter={authenticate} />
-    <Route path="/documents/:_id" component={ViewDocument} onEnter={authenticate} />
-    <Route path="/documents/new" component={NewDocument} onEnter={authenticate} />
-    <Route path="/documents" component={Documents} onEnter={authenticate} />
-    <Route path="/login" component={Login} />
-    <Route path="/recover-password" component={RecoverPassword} />
-    <Route path="/reset-password/:token" component={ResetPassword} />
-    <Route path="/signup" component={Signup} />
-    <Route component={NotFound} /> */}
-  </div>
+const App = () => (
+  <Router>
+    <div>
+      <AppNavigation />
+      <Grid>
+        <Switch>
+          <Route exact path="/" render={() => (<Index />)} />
+          <Route path="/documents/new" render={props => (authenticate(props, <NewDocument {...props} />))} />
+          <Route path="/documents/:_id/edit" render={props => (authenticate(props, <EditDocument {...props} />))} />
+          <Route path="/documents/:_id" render={props => (authenticate(props, <ViewDocument {...props} />))} />
+          <Route path="/documents" render={props => (authenticate(props, <Documents {...props} />))} />
+          <Route path="/login" render={props => (<Login {...props} />)} />
+          <Route path="/logout" render={({ history }) => (logout(history))} />
+          <Route path="/recover-password" render={() => (<RecoverPassword />)} />
+          <Route path="/reset-password/:token" render={props => (<ResetPassword {...props}  />)} />
+          <Route path="/signup" render={props => (<Signup {...props} />)} />
+          <Route render={() => (<NotFound />)} />
+        </Switch>
+      </Grid>
+    </div>
+  </Router>
 );
-
-App.defaultProps = {
-  children: null,
-};
-
-App.propTypes = {
-  children: React.PropTypes.node,
-};
 
 export default App;

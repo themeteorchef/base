@@ -15,9 +15,7 @@ const AppNavigation = ({ hasUser }) => (
       <Navbar.Toggle />
     </Navbar.Header>
     <div>
-      { /*renderNavigation(hasUser)*/ }
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/login">Log In</Link>
+      { renderNavigation(hasUser) }
     </div>
   </Navbar>
 );
