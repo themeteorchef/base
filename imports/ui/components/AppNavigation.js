@@ -1,6 +1,6 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
-import { Link } from 'react-router';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import PublicNavigation from './PublicNavigation.js';
 import AuthenticatedNavigation from './AuthenticatedNavigation.js';
 
@@ -14,9 +14,11 @@ const AppNavigation = ({ hasUser }) => (
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
-    <Navbar.Collapse>
-      { renderNavigation(hasUser) }
-    </Navbar.Collapse>
+    <div>
+      { /*renderNavigation(hasUser)*/ }
+        <Link to="/signup">Sign Up</Link>
+        <Link to="/login">Log In</Link>
+    </div>
   </Navbar>
 );
 

@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import DocumentsList from '../containers/DocumentsList.js';
 
-const Documents = () => (
+const Documents = ({ match }) => (
   <div className="Documents">
+    <Jumbotron className="text-center">
+      <h2>Document List</h2>
+      <p>I should render a document list.</p>
+    </Jumbotron>
+    {/*
     <Row>
       <Col xs={ 12 }>
         <div className="page-header clearfix">
@@ -18,7 +23,7 @@ const Documents = () => (
         </div>
         <DocumentsList />
       </Col>
-    </Row>
+    </Row> */}
   </div>
 );
 
