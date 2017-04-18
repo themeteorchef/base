@@ -2,6 +2,7 @@
   "name": "application-name",
   "version": "1.0.0",
   "description": "Application description.",
+  "license": "MIT",
   "scripts": {
     "start": "meteor --settings settings-development.json",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 5000",
