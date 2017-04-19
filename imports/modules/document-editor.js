@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { upsertDocument } from '../api/documents/methods.js';
 import './validation.js';
@@ -8,7 +7,7 @@ import './validation.js';
 let component;
 
 const handleUpsert = () => {
-  const { doc } = component.props;
+  const { doc, history } = component.props;
   const confirmation = doc && doc._id ? 'Document updated!' : 'Document added!';
   const upsert = {
     title: document.querySelector('[name="title"]').value.trim(),
@@ -23,7 +22,7 @@ const handleUpsert = () => {
     } else {
       component.documentEditorForm.reset();
       Bert.alert(confirmation, 'success');
-      browserHistory.push(`/documents/${response.insertedId || doc._id}`);
+      history.push(`/documents/${response.insertedId || doc._id}`);
     }
   });
 };
@@ -40,10 +39,10 @@ const validate = () => {
     },
     messages: {
       title: {
-        required: 'Need a title in here, Seuss.',
+        required: 'Need a title in here, thanks!.',
       },
       body: {
-        required: 'This thneeds a body, please.',
+        required: 'This needs a body, please.',
       },
     },
     submitHandler() { handleUpsert(); },

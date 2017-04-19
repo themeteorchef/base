@@ -1,12 +1,22 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
-const NotFound = () => (
+const NotFound = ({ location }) => (
   <div className="NotFound">
     <Alert bsStyle="danger">
-      <p><strong>Error [404]</strong>: { window.location.pathname } does not exist.</p>
+      <p><strong>Error [404]</strong>: {location.pathname} does not exist.</p>
     </Alert>
   </div>
 );
 
-export default NotFound;
+NotFound.defaultProps = {
+  location: null,
+};
+
+NotFound.propTypes = {
+  location: PropTypes.object,
+};
+
+export default withRouter(NotFound);

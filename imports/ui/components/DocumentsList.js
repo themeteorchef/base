@@ -1,15 +1,12 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
 import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 
-const handleNav = (_id) => {
-  browserHistory.push(`/documents/${_id}`);
-}
-
-const DocumentsList = ({ documents }) => (
+const DocumentsList = ({ documents, history }) => (
   documents.length > 0 ? <ListGroup className="DocumentsList">
     {documents.map(({ _id, title }) => (
-      <ListGroupItem key={ _id } onClick={ () => handleNav(_id) }>
+      <ListGroupItem key={_id} onClick={() => history.push(`/documents/${_id}`)}>
         { title }
       </ListGroupItem>
     ))}
@@ -17,8 +14,15 @@ const DocumentsList = ({ documents }) => (
   <Alert bsStyle="warning">No documents yet.</Alert>
 );
 
-DocumentsList.propTypes = {
-  documents: React.PropTypes.array,
+
+DocumentsList.defaultProps = {
+  documents: [],
+  history: null,
 };
 
-export default DocumentsList;
+DocumentsList.propTypes = {
+  documents: PropTypes.array,
+  history: PropTypes.object,
+};
+
+export default withRouter(DocumentsList);

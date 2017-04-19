@@ -1,5 +1,19 @@
-.DS_Store
 settings-production.json
-npm-debug.log
 
-node_modules
+# OSX
+#
+.DS_Store
+.tmp/
+
+# IntelliJ
+#
+build/
+local/
+.idea
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+

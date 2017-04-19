@@ -1,16 +1,15 @@
 import { Meteor } from 'meteor/meteor';
-import { composeWithTracker } from 'react-komposer';
 import Documents from '../../api/documents/documents.js';
 import EditDocument from '../pages/EditDocument.js';
-import Loading from '../components/Loading.js';
+import composeWithTracker from '../../modules/compose-with-tracker';
 
-const composer = ({ params }, onData) => {
-  const subscription = Meteor.subscribe('documents.view', params._id);
+const composer = (props, onData) => {
+  const subscription = Meteor.subscribe('documents.view', props.match.params._id);
 
   if (subscription.ready()) {
-    const doc = Documents.findOne(params._id);
-    onData(null, { doc });
+    const document = Documents.findOne(props.match.params._id);
+    onData(null, { document });
   }
 };
 
-export default composeWithTracker(composer, Loading)(EditDocument);
+export default composeWithTracker(composer)(EditDocument);

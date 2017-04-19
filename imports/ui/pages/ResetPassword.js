@@ -1,10 +1,14 @@
-import React from 'react';
+/* eslint-disable max-len */
+
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import { Row, Col, Alert, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import handleResetPassword from '../../modules/reset-password';
 
-export default class ResetPassword extends React.Component {
+class ResetPassword extends Component {
   componentDidMount() {
-    handleResetPassword({ component: this, token: this.props.params.token });
+    handleResetPassword({ component: this });
   }
 
   handleSubmit(event) {
@@ -15,16 +19,15 @@ export default class ResetPassword extends React.Component {
     return (
       <div className="ResetPassword">
         <Row>
-          <Col xs={ 12 } sm={ 6 } md={ 4 }>
+          <Col xs={12} sm={6} md={4}>
             <h4 className="page-header">Reset Password</h4>
             <Alert bsStyle="info">
-              To reset your password, enter a new one below. You will be logged in
-    with your new password.
+              To reset your password, enter a new one below. You will be logged in with your new password.
             </Alert>
             <form
-              ref={ form => (this.resetPasswordForm = form) }
+              ref={form => (this.resetPasswordForm = form)}
               className="reset-password"
-              onSubmit={ this.handleSubmit }
+              onSubmit={this.handleSubmit}
             >
               <FormGroup>
                 <ControlLabel>New Password</ControlLabel>
@@ -54,5 +57,7 @@ export default class ResetPassword extends React.Component {
 }
 
 ResetPassword.propTypes = {
-  params: React.PropTypes.object,
+  match: PropTypes.object.isRequired,
 };
+
+export default withRouter(ResetPassword);
