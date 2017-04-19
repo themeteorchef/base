@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import handleSignup from '../../modules/signup';
 
-export default class Signup extends React.Component {
+class Signup extends Component {
   componentDidMount() {
     handleSignup({ component: this });
   }
@@ -16,14 +16,14 @@ export default class Signup extends React.Component {
     return (
       <div className="Signup">
         <Row>
-          <Col xs={ 12 } sm={ 6 } md={ 4 }>
+          <Col xs={12} sm={6} md={4}>
             <h4 className="page-header">Sign Up</h4>
             <form
               ref={ form => (this.signupForm = form) }
               onSubmit={ this.handleSubmit }
             >
               <Row>
-                <Col xs={ 6 } sm={ 6 }>
+                <Col xs={6} sm={6}>
                   <FormGroup>
                     <ControlLabel>First Name</ControlLabel>
                     <FormControl
@@ -34,7 +34,7 @@ export default class Signup extends React.Component {
                     />
                   </FormGroup>
                 </Col>
-                <Col xs={ 6 } sm={ 6 }>
+                <Col xs={6} sm={6}>
                   <FormGroup>
                     <ControlLabel>Last Name</ControlLabel>
                     <FormControl
@@ -73,3 +73,5 @@ export default class Signup extends React.Component {
     );
   }
 }
+
+export default withRouter(Signup);

@@ -1,18 +1,16 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import DocumentEditor from '../components/DocumentEditor';
-import NotFound from './NotFound';
 
-const EditDocument = ({ doc }) => {
-  return doc ? (
-    <div className="EditDocument">
-      <h4 className="page-header">Editing "{ doc.title }"</h4>
-      <DocumentEditor doc={ doc }/>
-    </div>
-  ) : <NotFound />;
-};
+const EditDocument = ({ document }) => (
+  <div className="EditDocument">
+    <h4 className="page-header">Editing &quot;{document.title}&quot;</h4>
+    <DocumentEditor doc={document} />
+  </div>
+);
 
 EditDocument.propTypes = {
-  doc: React.PropTypes.object,
+  document: PropTypes.object.isRequired,
 };
 
 export default EditDocument;

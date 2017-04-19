@@ -1,20 +1,20 @@
 /* eslint-disable no-undef */
 
-import { browserHistory } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
 import { Bert } from 'meteor/themeteorchef:bert';
 import './validation.js';
 
 let component;
-let token;
 
 const handleReset = () => {
+  const { history, match } = component.props;
   const password = document.querySelector('[name="newPassword"]').value;
-  Accounts.resetPassword(token, password, (error) => {
+
+  Accounts.resetPassword(match.params.token, password, (error) => {
     if (error) {
       Bert.alert(error.reason, 'danger');
     } else {
-      browserHistory.push('/');
+      history.push('/');
       Bert.alert('Password reset!', 'success');
     }
   });
@@ -49,6 +49,5 @@ const validate = () => {
 
 export default function handleResetPassword(options) {
   component = options.component;
-  token = options.token;
   validate();
 }
