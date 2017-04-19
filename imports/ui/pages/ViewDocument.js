@@ -1,9 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
+import { Meteor } from 'meteor/meteor';
 import { Bert } from 'meteor/themeteorchef:bert';
+import Documents from '../../api/documents/documents';
 import { removeDocument } from '../../api/documents/methods';
 import NotFound from './NotFound';
+import container from '../../modules/container';
 
 const handleEdit = (_id) => {
   browserHistory.push(`/documents/${_id}/edit`);
@@ -40,7 +44,15 @@ const ViewDocument = ({ doc }) => {
 };
 
 ViewDocument.propTypes = {
-  doc: React.PropTypes.object,
+  doc: PropTypes.object,
 };
 
-export default ViewDocument;
+export default container((props, onData) => {
+  const documentId = props.params._id;
+  const subscription = Meteor.subscribe('documents.view', documentId);
+
+  if (subscription.ready()) {
+    const doc = Documents.findOne(documentId);
+    onData(null, { doc });
+  }
+}, ViewDocument);
