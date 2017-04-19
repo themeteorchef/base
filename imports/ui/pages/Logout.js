@@ -13,17 +13,7 @@ const Logout = ({ ...rest }) => {
   });
 
   return (
-    <Route
-      {...rest}
-      render={props => (
-        <Redirect
-          to={{
-            pathname: '/',
-            state: { from: props.location },
-          }}
-        />
-      )}
-    />
+    <Route {...rest} render={() => (<Redirect to="/" />)} />
   );
 };
 
