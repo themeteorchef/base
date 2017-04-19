@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid } from 'react-bootstrap';
-import AppNavigation from '../containers/AppNavigation.js';
+import AppNavigation from '../components/AppNavigation';
 
 const App = ({ children }) => (
   <div>
@@ -12,7 +13,7 @@ const App = ({ children }) => (
 );
 
 App.propTypes = {
-  children: React.PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default App;
