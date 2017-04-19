@@ -7,8 +7,8 @@ const composer = (props, onData) => {
   const subscription = Meteor.subscribe('documents.view', props.match.params._id);
 
   if (subscription.ready()) {
-    const doc = Documents.findOne(props.match.params._id);
-    onData(null, { ...props, doc });
+    const document = Documents.findOne(props.match.params._id);
+    onData(null, { document });
   }
 };
 

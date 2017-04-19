@@ -1,6 +1,7 @@
 import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import PublicNavigation from './PublicNavigation.js';
 import AuthenticatedNavigation from './AuthenticatedNavigation.js';
 
@@ -21,7 +22,7 @@ const AppNavigation = ({ hasUser }) => (
 );
 
 AppNavigation.propTypes = {
-  hasUser: React.PropTypes.object,
+  hasUser: PropTypes.object,
 };
 
 export default AppNavigation;

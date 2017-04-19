@@ -7,7 +7,7 @@ const composer = (props, onData) => {
   const subscription = Meteor.subscribe('documents.list');
   if (subscription.ready()) {
     const documents = Documents.find().fetch();
-    onData(null, { ...props, documents });
+    onData(null, { documents });
   }
 };
 

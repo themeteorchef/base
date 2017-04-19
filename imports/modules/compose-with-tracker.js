@@ -9,7 +9,6 @@ const getTrackerLoader = reactiveMapper => (
     let trackerCleanup = null;
     const handler = Tracker.nonreactive(() =>
       Tracker.autorun(() => {
-        // assign the custom clean-up function.
         trackerCleanup = reactiveMapper(props, onData, env);
       }),
     );

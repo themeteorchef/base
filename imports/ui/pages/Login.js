@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import handleLogin from '../../modules/login';
 
-export default class Login extends React.Component {
+class Login extends Component {
   componentDidMount() {
     handleLogin({ component: this });
   }
@@ -52,3 +52,5 @@ export default class Login extends React.Component {
     );
   }
 }
+
+export default withRouter(Login);

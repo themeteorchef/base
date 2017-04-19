@@ -39,10 +39,10 @@ const validate = () => {
     },
     messages: {
       title: {
-        required: 'Need a title in here, Seuss.',
+        required: 'Need a title in here, thanks!.',
       },
       body: {
-        required: 'This thneeds a body, please.',
+        required: 'This needs a body, please.',
       },
     },
     submitHandler() { handleUpsert(); },

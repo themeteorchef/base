@@ -8,7 +8,7 @@ const composer = (props, onData) => {
 
   if (subscription.ready()) {
     const doc = Documents.findOne(props.match.params._id);
-    onData(null, { ...props, doc });
+    onData(null, { doc });
   }
 };
 
