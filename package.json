@@ -1,8 +1,8 @@
 {
   "name": "application-name",
-  "private": true,
   "version": "1.0.0",
   "description": "Application description.",
+  "license": "MIT",
   "scripts": {
     "start": "meteor --settings settings-development.json",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 5000",
@@ -15,27 +15,28 @@
     "babel-runtime": "^6.23.0",
     "bcrypt": "^1.0.2",
     "bootstrap": "^3.3.7",
-    "jquery": "^3.2.1",
-    "jquery-validation": "^1.16.0",
+    "jquery": "^2.2.4",
+    "jquery-validation": "^1.15.1",
     "meteor-node-stubs": "^0.2.6",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-addons-pure-render-mixin": "^15.5.2",
-    "react-bootstrap": "^0.30.8",
+    "react-bootstrap": "^0.30.9",
     "react-dom": "^15.5.4",
     "react-komposer": "^2.0.0",
-    "react-router-bootstrap": "^0.23.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "react-router-bootstrap": "^0.23.2",
+    "simpl-schema": "^0.2.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",
-    "chimp": "^0.47.2",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-import-resolver-meteor": "^0.4.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "chimp": "^0.41.2",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-meteor": "^4.0.1",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint-plugin-react": "^6.4.1",
+    "eslint-import-resolver-meteor": "^0.4.0"
   }
 }

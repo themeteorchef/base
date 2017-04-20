@@ -1,9 +1,11 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import PublicNavigation from './PublicNavigation.js';
 import AuthenticatedNavigation from './AuthenticatedNavigation.js';
+import container from '../../modules/container';
 
 const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
 
@@ -15,9 +17,9 @@ const AppNavigation = ({ hasUser }) => (
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
-    <div>
+    <Navbar.Collapse>
       { renderNavigation(hasUser) }
-    </div>
+    </Navbar.Collapse>
   </Navbar>
 );
 
@@ -25,4 +27,7 @@ AppNavigation.propTypes = {
   hasUser: PropTypes.object,
 };
 
-export default AppNavigation;
+export default container((props, onData) => {
+  onData(null, { hasUser: Meteor.user() });
+}, AppNavigation);
+

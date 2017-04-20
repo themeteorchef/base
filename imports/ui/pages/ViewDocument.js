@@ -1,10 +1,14 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { Bert } from 'meteor/themeteorchef:bert';
+import Documents from '../../api/documents/documents';
 import { removeDocument } from '../../api/documents/methods';
 import NotFound from './NotFound';
+import container from '../../modules/container';
+import Loading from '../components/Loading';
 
 const handleRemove = (history, _id) => {
   if (confirm('Are you sure? This is permanent!')) {
@@ -48,4 +52,13 @@ ViewDocument.propTypes = {
   history: PropTypes.object,
 };
 
-export default withRouter(ViewDocument);
+export default withRouter(container((props, onData) => {
+  const documentId = props.match.params._id;
+  const subscription = Meteor.subscribe('documents.view', documentId);
+
+  if (subscription.ready()) {
+    const doc = Documents.findOne(documentId);
+    onData(null, { doc });
+  }
+}, ViewDocument, { loadingHandler: () => <Loading /> }));
+
