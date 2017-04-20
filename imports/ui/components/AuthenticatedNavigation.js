@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, browserHistory, Link, Route, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { Meteor } from 'meteor/meteor';
-
-const handleLogout = () => Meteor.logout(() => browserHistory.push('/login'));
 
 const userName = () => {
   const user = Meteor.user();
@@ -12,7 +11,7 @@ const userName = () => {
   return user ? `${name.first} ${name.last}` : '';
 };
 
-/* const AuthenticatedNavigation = () => (
+const AuthenticatedNavigation = ({ history }) => (
   <div>
     <Nav>
       <LinkContainer to="/documents">
@@ -21,23 +20,18 @@ const userName = () => {
     </Nav>
     <Nav pullRight>
       <NavDropdown eventKey={3} title={userName()} id="basic-nav-dropdown">
-        <MenuItem eventKey={3.1} onClick={handleLogout}>Logout</MenuItem>
-      </NavDropdown>
-    </Nav>
-  </div>
-); */
-
-const AuthenticatedNavigation = () => (
-  <div>
-    <Nav>
-      <Link to="/documents">Documents</Link>
-    </Nav>
-    <Nav pullRight>
-      <NavDropdown eventKey={3} title={userName()} id="basic-nav-dropdown">
-        <MenuItem eventKey={3.1}><Link to="/logout">Logout</Link></MenuItem>
+        <MenuItem eventKey={3.1} onClick={() => Meteor.logout(() => history.push('/login'))}>Logout</MenuItem>
       </NavDropdown>
     </Nav>
   </div>
 );
 
-export default AuthenticatedNavigation;
+AuthenticatedNavigation.defaultProps = {
+  history: null,
+};
+
+AuthenticatedNavigation.propTypes = {
+  history: PropTypes.object,
+};
+
+export default withRouter(AuthenticatedNavigation);

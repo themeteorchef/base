@@ -11,7 +11,6 @@ import Documents from '../pages/Documents';
 import NewDocument from '../pages/NewDocument';
 import Index from '../pages/Index';
 import Login from '../pages/Login';
-import Logout from '../pages/Logout';
 import NotFound from '../pages/NotFound';
 import RecoverPassword from '../pages/RecoverPassword';
 import ResetPassword from '../pages/ResetPassword';
@@ -29,7 +28,6 @@ const App = () => (
           <PrivateRoute path="/documents/:_id" component={ViewDocument} />
           <PrivateRoute path="/documents" component={Documents} />
           <Route path="/login" component={Login} />
-          <Logout path="/logout" />
           <Route path="/recover-password" component={RecoverPassword} />
           <Route path="/reset-password/:token" component={ResetPassword} />
           <Route path="/signup" component={Signup} />

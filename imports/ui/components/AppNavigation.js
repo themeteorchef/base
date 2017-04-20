@@ -30,4 +30,3 @@ AppNavigation.propTypes = {
 export default container((props, onData) => {
   onData(null, { hasUser: Meteor.user() });
 }, AppNavigation);
-
