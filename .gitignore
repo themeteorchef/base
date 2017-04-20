@@ -3,5 +3,3 @@ settings-production.json
 npm-debug.log
 
 node_modules
-
-imports/ui/containers/AppNavigation.js
