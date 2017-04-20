@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
 import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
+import { Meteor } from 'meteor/meteor';
+import Documents from '../../api/documents/documents';
+import container from '../../modules/container';
 
-const handleNav = (_id) => {
-  browserHistory.push(`/documents/${_id}`);
-}
+const handleNav = _id => browserHistory.push(`/documents/${_id}`);
 
 const DocumentsList = ({ documents }) => (
   documents.length > 0 ? <ListGroup className="DocumentsList">
@@ -18,7 +20,13 @@ const DocumentsList = ({ documents }) => (
 );
 
 DocumentsList.propTypes = {
-  documents: React.PropTypes.array,
+  documents: PropTypes.array,
 };
 
-export default DocumentsList;
+export default container((props, onData) => {
+  const subscription = Meteor.subscribe('documents.list');
+  if (subscription.ready()) {
+    const documents = Documents.find().fetch();
+    onData(null, { documents });
+  }
+}, DocumentsList);

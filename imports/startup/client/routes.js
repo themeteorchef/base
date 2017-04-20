@@ -7,8 +7,8 @@ import { Meteor } from 'meteor/meteor';
 import App from '../../ui/layouts/App.js';
 import Documents from '../../ui/pages/Documents.js';
 import NewDocument from '../../ui/pages/NewDocument.js';
-import EditDocument from '../../ui/containers/EditDocument.js';
-import ViewDocument from '../../ui/containers/ViewDocument.js';
+import EditDocument from '../../ui/pages/EditDocument.js';
+import ViewDocument from '../../ui/pages/ViewDocument.js';
 import Index from '../../ui/pages/Index.js';
 import Login from '../../ui/pages/Login.js';
 import NotFound from '../../ui/pages/NotFound.js';
@@ -41,6 +41,6 @@ Meteor.startup(() => {
         <Route path="*" component={ NotFound } />
       </Route>
     </Router>,
-    document.getElementById('react-root')
+    document.getElementById('react-root'),
   );
 });
