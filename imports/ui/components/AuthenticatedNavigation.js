@@ -7,7 +7,7 @@ import { Meteor } from 'meteor/meteor';
 
 const userName = () => {
   const user = Meteor.user();
-  const name = user && user.profile ? user.profile.name : '';
+  const name = user ? user.name : '';
   return user ? `${name.first} ${name.last}` : '';
 };
 
