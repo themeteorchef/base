@@ -28,5 +28,8 @@ AppNavigation.propTypes = {
 };
 
 export default container((props, onData) => {
-  onData(null, { hasUser: Meteor.user() });
+  const subscription = Meteor.subscribe('users.info');
+  if (subscription.ready()) {
+    onData(null, { hasUser: Meteor.user() });
+  }
 }, AppNavigation);
