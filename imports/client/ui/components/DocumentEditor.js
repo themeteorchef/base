@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import documentEditor from '../../modules/document-editor.js';
+import documentEditor from '../../../modules/document-editor.js';
 
 class DocumentEditor extends Component {
   componentDidMount() {

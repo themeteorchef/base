@@ -3,8 +3,8 @@ import React from 'react';
 import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import Documents from '../../api/documents/documents';
-import container from '../../modules/container';
+import Documents from '../../../api/documents/documents';
+import container from '../../../modules/container';
 import Loading from '../components/Loading';
 
 const DocumentsList = ({ documents, history }) => (

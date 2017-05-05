@@ -2,10 +2,10 @@ import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
-import Documents from '../../api/documents/documents';
+import Documents from '../../../api/documents/documents';
 import DocumentEditor from '../components/DocumentEditor';
 import NotFound from './NotFound';
-import container from '../../modules/container';
+import container from '../../../modules/container';
 import Loading from '../components/Loading';
 
 const EditDocument = ({ doc }) => (doc ? (

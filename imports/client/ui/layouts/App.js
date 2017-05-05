@@ -3,7 +3,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
-import PrivateRoute from '../../modules/private-route';
+import PrivateRoute from '../../../modules/private-route';
 import AppNavigation from '../components/AppNavigation';
 import EditDocument from '../pages/EditDocument';
 import ViewDocument from '../pages/ViewDocument';

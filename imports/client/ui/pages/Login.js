@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import handleLogin from '../../modules/login';
+import handleLogin from '../../../modules/login';
 
 class Login extends Component {
   componentDidMount() {

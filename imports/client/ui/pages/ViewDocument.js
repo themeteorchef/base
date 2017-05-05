@@ -4,10 +4,10 @@ import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { Bert } from 'meteor/themeteorchef:bert';
-import Documents from '../../api/documents/documents';
-import { removeDocument } from '../../api/documents/methods';
+import Documents from '../../../api/documents/documents';
+import { removeDocument } from '../../../api/documents/methods';
 import NotFound from './NotFound';
-import container from '../../modules/container';
+import container from '../../../modules/container';
 import Loading from '../components/Loading';
 
 const handleRemove = (history, _id) => {

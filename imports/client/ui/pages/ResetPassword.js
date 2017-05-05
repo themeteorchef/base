@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { Row, Col, Alert, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
-import handleResetPassword from '../../modules/reset-password';
+import handleResetPassword from '../../../modules/reset-password';
 
 class ResetPassword extends Component {
   componentDidMount() {

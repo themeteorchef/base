@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import PublicNavigation from './PublicNavigation.js';
 import AuthenticatedNavigation from './AuthenticatedNavigation.js';
-import container from '../../modules/container';
+import container from '../../../modules/container';
 
 const renderNavigation = hasUser => (hasUser ? <AuthenticatedNavigation /> : <PublicNavigation />);
 
