@@ -1,19 +1,43 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
-import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
+import {
+  browserHistory
+} from 'react-router';
+import {
+  Alert
+} from 'react-bootstrap';
+import {
+  Link
+} from 'react-router';
+import Paper from 'material-ui/Paper';
+import FlatButton from 'material-ui/FlatButton';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from 'material-ui/Card';
 
-const handleNav = (_id) => {
-  browserHistory.push(`/documents/${_id}`);
-}
-
-const DocumentsList = ({ documents }) => (
-  documents.length > 0 ? <ListGroup className="DocumentsList">
-    {documents.map(({ _id, title }) => (
-      <ListGroupItem key={ _id } onClick={ () => handleNav(_id) }>
-        { title }
-      </ListGroupItem>
+const DocumentsList = ({
+  documents
+}) => (
+  documents.length > 0 ? <div className="row">
+    {documents.map(({ _id, title, body }) => (
+      <div className="col-xs-6 col-sm-4 col-lg-3">
+        <Link to={"/documents/" + _id}>
+          <Paper key={ _id } zDepth={1}>
+            <Card>
+              <CardMedia>
+                <img src="card-blue.png"/>
+              </CardMedia>
+              <CardTitle title={ title } subtitle={body}/>
+            </Card>
+          </Paper>
+        </Link>
+      </div>
     ))}
-  </ListGroup> :
+  </div> :
   <Alert bsStyle="warning">No documents yet.</Alert>
 );
 

@@ -1,24 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { Row, Col, Button } from 'react-bootstrap';
+import {
+  Link
+} from 'react-router';
+import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton';
 import DocumentsList from '../containers/DocumentsList.js';
 
+const buttonStyle = {
+  margin: 12,
+  width: '100%',
+  textAlign: 'right'
+};
+
 const Documents = () => (
-  <div className="Documents">
-    <Row>
-      <Col xs={ 12 }>
-        <div className="page-header clearfix">
-          <h4 className="pull-left">Documents</h4>
-          <Link to="/documents/new">
-            <Button
-              bsStyle="success"
-              className="pull-right"
-            >New Document</Button>
-          </Link>
-        </div>
-        <DocumentsList />
-      </Col>
-    </Row>
+  <div>
+    <span style={{fontSize: 22}}>Documents</span>
+    <Link to="/documents/new">
+      <RaisedButton label="New Document" primary={true} style={buttonStyle} />
+    </Link>
+    <Divider />
+    <br/>
+    <DocumentsList />
   </div>
 );
 

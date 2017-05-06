@@ -21,8 +21,10 @@ class App extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.info(nextProps.width + ' ' + this.props.width);
     this.setState({
-      isMobile: nextProps.width <= SMALL
+      isMobile: nextProps.width <= SMALL,
+      isDrawerOpen: false
     });
   }
 

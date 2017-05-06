@@ -31,7 +31,16 @@ const Menu = ({
   return (
     //TODO: add containerStyle to the theme-defaults
     <Drawer containerStyle={{top: 64}} docked={true} open={!isMobile || isDrawerOpen}>
-      {menus.map((menu, index) => <MenuItem onTouchTap={handleDrawerToggle} key={index} style={styles.menuItem} primaryText={menu.text} leftIcon={menu.icon} containerElement={<Link to={menu.link}/>}/>)}
+      {menus.map((menu, index) =>
+        <MenuItem
+          onTouchTap={handleDrawerToggle}
+          key={index}
+          style={styles.menuItem}
+          primaryText={menu.text}
+          leftIcon={menu.icon}
+          containerElement={<Link to={menu.link}/>}
+        />)
+      }
     </Drawer>
   );
 };

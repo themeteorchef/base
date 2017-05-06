@@ -19,12 +19,7 @@ const handleLogout = () => Meteor.logout(() => browserHistory.push('/login'));
 class Logged extends React.Component {
   render() {
     return (
-      <IconMenu
-        iconButtonElement={
-          <Avatar src="uxceo-128.jpg" />
-        }
-        targetOrigin={{horizontal: 'right', vertical: 'top'}}
-        anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
+      <IconMenu iconButtonElement={<Avatar src="uxceo-128.jpg" />}>
         <MenuItem primaryText="Log Out" leftIcon={<FontIcon className="fa fa-sign-out" />} onClick={ handleLogout }/>
       </IconMenu>
     );
@@ -53,7 +48,8 @@ class Header extends React.Component {
         title="Application Name"
         showMenuIconButton={isMobile}
         onLeftIconButtonTouchTap={handleDrawerToggle}
-        iconElementRight={Meteor.user() ? <Logged /> : <Login />}/>);
+        iconElementRight={Meteor.user() ? <Logged /> : <Login />}
+      />);
   }
 }
 
