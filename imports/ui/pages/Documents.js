@@ -4,7 +4,7 @@ import {
 } from 'react-router';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
-import DocumentsList from '../containers/DocumentsList.js';
+import DocumentsList from '../components/DocumentsList.js';
 
 const buttonStyle = {
   margin: 12,

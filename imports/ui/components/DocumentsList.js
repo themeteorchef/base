@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   browserHistory
 } from 'react-router';
@@ -18,6 +19,7 @@ import {
   CardTitle,
   CardText
 } from 'material-ui/Card';
+import container from '../../modules/container';
 
 const DocumentsList = ({
   documents
