@@ -2,6 +2,7 @@
   "name": "application-name",
   "version": "1.0.0",
   "description": "Application description.",
+  "license": "MIT",
   "scripts": {
     "start": "meteor --settings settings-development.json",
     "test": "meteor test --driver-package practicalmeteor:mocha --port 5000",
@@ -62,20 +63,22 @@
     }
   },
   "dependencies": {
-    "babel-runtime": "^6.18.0",
-    "bcrypt": "^0.8.7",
+    "babel-runtime": "^6.23.0",
+    "bcrypt": "^1.0.2",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "jquery": "^2.2.4",
     "jquery-validation": "^1.15.1",
     "material-ui": "^0.17.1",
-    "react": "^15.3.2",
-    "react-addons-pure-render-mixin": "^15.3.2",
-    "react-bootstrap": "^0.30.5",
-    "react-dom": "^15.3.2",
-    "react-komposer": "^1.13.1",
+    "meteor-node-stubs": "^0.2.6",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-addons-pure-render-mixin": "^15.5.2",
+    "react-bootstrap": "^0.30.9",
+    "react-dom": "^15.5.4",
+    "react-komposer": "^2.0.0",
     "react-router": "^3.0.0",
-    "react-router-bootstrap": "^0.23.1",
-    "react-tap-event-plugin": "^2.0.1"
+    "react-router-bootstrap": "^0.23.2",
+    "simpl-schema": "^0.2.3"
   }
 }

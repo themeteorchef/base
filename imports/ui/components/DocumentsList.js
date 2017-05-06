@@ -42,7 +42,15 @@ const DocumentsList = ({
 );
 
 DocumentsList.propTypes = {
-  documents: React.PropTypes.array,
+  documents: PropTypes.array,
 };
 
-export default DocumentsList;
+export default container((props, onData) => {
+  const subscription = Meteor.subscribe('documents.list');
+  if (subscription.ready()) {
+    const documents = Documents.find().fetch();
+    onData(null, {
+      documents
+    });
+  }
+}, DocumentsList);
