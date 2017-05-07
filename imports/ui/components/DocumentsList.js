@@ -1,14 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  browserHistory
-} from 'react-router';
-import {
-  Alert
-} from 'react-bootstrap';
-import {
-  Link
-} from 'react-router';
+import {browserHistory} from 'react-router';
+import {Alert} from 'react-bootstrap';
+import {Link} from 'react-router';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
 import {
@@ -22,39 +16,34 @@ import {
 import Documents from '../../api/documents/documents';
 import container from '../../modules/container';
 
-const DocumentsList = ({
-  documents
-}) => (
-  documents.length > 0 ? <div className="row">
-    {documents.map(({ _id, title, body }) => (
-      // TODO: consider a GridList to view these items
-      <div key={_id} className="col-xs-6 col-sm-4 col-lg-3">
-        <Link to={"/documents/" + _id}>
-          <Paper key={ _id } zDepth={1}>
-            <Card>
-              <CardMedia>
-                <img src="card-blue.png"/>
-              </CardMedia>
-              <CardTitle title={ title } subtitle={body}/>
-            </Card>
-          </Paper>
-        </Link>
-      </div>
-    ))}
-  </div> :
-  <Alert bsStyle="warning">No documents yet.</Alert>
-);
+// TODO: consider a GridList to view these items
+const DocumentsList = ({documents}) => (documents.length > 0
+  ? <div className="row">
+      {documents.map(({_id, title, body}) => (
+        <div key={_id} className="col-xs-6 col-sm-4 col-lg-3">
+          <Link to={"/documents/" + _id}>
+            <Paper key={_id} zDepth={1}>
+              <Card>
+                <CardMedia>
+                  <img src="card-blue.png"/>
+                </CardMedia>
+                <CardTitle title={title} subtitle={body}/>
+              </Card>
+            </Paper>
+          </Link>
+        </div>
+      ))}
+    </div>
+  : <Alert bsStyle="warning">No documents yet.</Alert>);
 
 DocumentsList.propTypes = {
-  documents: PropTypes.array,
+  documents: PropTypes.array
 };
 
 export default container((props, onData) => {
   const subscription = Meteor.subscribe('documents.list');
   if (subscription.ready()) {
     const documents = Documents.find().fetch();
-    onData(null, {
-      documents
-    });
+    onData(null, {documents});
   }
 }, DocumentsList);

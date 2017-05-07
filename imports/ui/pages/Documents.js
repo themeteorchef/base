@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Link
-} from 'react-router';
+import {Link} from 'react-router';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
@@ -14,19 +12,15 @@ const style = {
 
 const Documents = () => (
   <div>
-    <span style={{fontSize: 22}}>Documents</span>
+    <span style={{
+      fontSize: 22
+    }}>Documents</span>
     <Link to="/documents/new">
-    <RaisedButton
-      label="New Document"
-      labelPosition="before"
-      primary={true}
-      icon={<FontIcon className="fa fa-plus-square-o" />}
-      style={style}
-    />
+      <RaisedButton label="New Document" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-plus-square-o" />} style={style}/>
     </Link>
-    <Divider />
+    <Divider/>
     <br/>
-    <DocumentsList />
+    <DocumentsList/>
   </div>
 );
 

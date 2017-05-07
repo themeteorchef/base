@@ -1,13 +1,9 @@
-import React, {
-  PropTypes
-} from 'react';
+import React, {PropTypes} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
 //TODO: what exactly is this withWidth
-import withWidth, {
-  SMALL
-} from 'material-ui/utils/withWidth';
+import withWidth, {SMALL} from 'material-ui/utils/withWidth';
 import ThemeDefault from '../theme-default';
 import Data from '../data';
 
@@ -35,16 +31,14 @@ class App extends React.Component {
   }
 
   render() {
-    let {
-      isMobile,
-      isDrawerOpen
-    } = this.state;
+    let {isMobile, isDrawerOpen} = this.state;
 
     const styles = {
       container: {
         margin: '20px 20px 20px 20px',
-        paddingLeft: isMobile ?
-          0 : 230
+        paddingLeft: isMobile
+          ? 0
+          : 230
       }
     };
 
@@ -52,7 +46,9 @@ class App extends React.Component {
       <MuiThemeProvider muiTheme={ThemeDefault}>
         <div>
           <Header isMobile={isMobile} styles={styles.header} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
-          <Menu isMobile={isMobile} isDrawerOpen={isDrawerOpen} menus={Meteor.user() ? Data.authenticated_menus : Data.public_menus} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
+          <Menu isMobile={isMobile} isDrawerOpen={isDrawerOpen} menus={Meteor.user()
+            ? Data.authenticated_menus
+            : Data.public_menus} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
 
           <div style={styles.container}>
             {this.props.children}
