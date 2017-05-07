@@ -19,6 +19,7 @@ import {
   CardTitle,
   CardText
 } from 'material-ui/Card';
+import Documents from '../../api/documents/documents';
 import container from '../../modules/container';
 
 const DocumentsList = ({
@@ -26,7 +27,8 @@ const DocumentsList = ({
 }) => (
   documents.length > 0 ? <div className="row">
     {documents.map(({ _id, title, body }) => (
-      <div className="col-xs-6 col-sm-4 col-lg-3">
+      // TODO: consider a GridList to view these items
+      <div key={_id} className="col-xs-6 col-sm-4 col-lg-3">
         <Link to={"/documents/" + _id}>
           <Paper key={ _id } zDepth={1}>
             <Card>

@@ -57,6 +57,8 @@ class App extends React.Component {
           <div style={styles.container}>
             {this.props.children}
           </div>
+
+          {/* TODO: consider bottom navigation for mobile apps */}
         </div>
       </MuiThemeProvider>
     );
