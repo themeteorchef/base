@@ -2,46 +2,34 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
 import documentEditor from '../../modules/document-editor.js';
 
 export default class DocumentEditor extends React.Component {
   componentDidMount() {
-    documentEditor({ component: this });
-    setTimeout(() => { document.querySelector('[name="title"]').focus(); }, 0);
+    documentEditor({component: this});
+    setTimeout(() => {
+      document.querySelector('[name="title"]').focus();
+    }, 0);
   }
 
   render() {
-    const { doc } = this.props;
-    return (<form
-      ref={ form => (this.documentEditorForm = form) }
-      onSubmit={ event => event.preventDefault() }
-    >
-      <FormGroup>
-        <ControlLabel>Title</ControlLabel>
-        <FormControl
-          type="text"
-          name="title"
-          defaultValue={ doc && doc.title }
-          placeholder="Oh, The Places You'll Go!"
-        />
-      </FormGroup>
-      <FormGroup>
-        <ControlLabel>Body</ControlLabel>
-        <FormControl
-          componentClass="textarea"
-          name="body"
-          defaultValue={ doc && doc.body }
-          placeholder="Congratulations! Today is your day. You're off to Great Places! You're off and away!"
-        />
-      </FormGroup>
-      <Button type="submit" bsStyle="success">
-        { doc && doc._id ? 'Save Changes' : 'Add Document' }
-      </Button>
-    </form>);
+    const {doc} = this.props;
+    return (
+      <form ref={form => (this.documentEditorForm = form)} onSubmit={event => event.preventDefault()}>
+        <TextField name="title" defaultValue={doc && doc.title} hintText="Oh, The Places You'll Go!" floatingLabelText="Title" fullWidth={true}/>
+        <TextField name="body" defaultValue={doc && doc.body} hintText="Congratulations! Today is your day. You're off to Great Places! You're off and away!" floatingLabelText="Body" fullWidth={true} multiLine={true}/>
+
+        <RaisedButton label={doc && doc._id
+          ? 'Save Changes'
+          : 'Add Document'} type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-floppy-o" />}/>
+      </form>
+    );
   }
 }
 
 DocumentEditor.propTypes = {
-  doc: PropTypes.object,
+  doc: PropTypes.object
 };
