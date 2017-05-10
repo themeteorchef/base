@@ -35,7 +35,10 @@ class Header extends React.Component {
     return (
       <AppBar title="Application Name" showMenuIconButton={isMobile} onLeftIconButtonTouchTap={handleDrawerToggle} iconElementRight={Meteor.user()
         ? <Logged/>
-        : <Login/>}/>
+        : <Login/>} style={{
+        position: "fixed",
+        top: 0
+      }}/>
     );
   }
 }

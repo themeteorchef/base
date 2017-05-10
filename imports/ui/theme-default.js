@@ -3,9 +3,6 @@ import {blue600, grey900} from 'material-ui/styles/colors';
 
 const themeDefault = getMuiTheme({
   palette: {},
-  appBar: {
-    color: blue600
-  },
   drawer: {
     width: 230,
     color: grey900

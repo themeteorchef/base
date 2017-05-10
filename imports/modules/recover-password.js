@@ -1,14 +1,13 @@
 /* eslint-disable no-undef */
 
-import { Accounts } from 'meteor/accounts-base';
-import { Bert } from 'meteor/themeteorchef:bert';
+import {Accounts} from 'meteor/accounts-base';
 import './validation.js';
 
 let component;
 
 const handleRecovery = () => {
   Accounts.forgotPassword({
-    email: document.querySelector('[name="emailAddress"]').value,
+    email: document.querySelector('[name="emailAddress"]').value
   }, (error) => {
     if (error) {
       Bert.alert(error.reason, 'warning');
@@ -23,16 +22,18 @@ const validate = () => {
     rules: {
       emailAddress: {
         required: true,
-        email: true,
-      },
+        email: true
+      }
     },
     messages: {
       emailAddress: {
         required: 'Need an email address here.',
-        email: 'Is this email address legit?',
-      },
+        email: 'Is this email address legit?'
+      }
     },
-    submitHandler() { handleRecovery(); },
+    submitHandler() {
+      handleRecovery();
+    }
   });
 };
 

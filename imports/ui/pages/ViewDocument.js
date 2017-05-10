@@ -7,7 +7,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
 
 import {Meteor} from 'meteor/meteor';
-import {Bert} from 'meteor/themeteorchef:bert';
 import Documents from '../../api/documents/documents';
 import {removeDocument} from '../../api/documents/methods';
 import NotFound from './NotFound';

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {browserHistory} from 'react-router';
-import {Alert} from 'react-bootstrap';
 import {Link} from 'react-router';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
@@ -34,7 +33,7 @@ const DocumentsList = ({documents}) => (documents.length > 0
         </div>
       ))}
     </div>
-  : <Alert bsStyle="warning">No documents yet.</Alert>);
+  : <div>No documents yet.</div>);
 
 DocumentsList.propTypes = {
   documents: PropTypes.array

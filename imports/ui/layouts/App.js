@@ -17,7 +17,6 @@ class App extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.info(nextProps.width + ' ' + this.props.width);
     this.setState({
       isMobile: nextProps.width <= SMALL,
       isDrawerOpen: false
@@ -38,7 +37,8 @@ class App extends React.Component {
         margin: '20px 20px 20px 20px',
         paddingLeft: isMobile
           ? 0
-          : 230
+          : 230,
+        paddingTop: 64
       }
     };
 
