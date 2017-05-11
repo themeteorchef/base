@@ -12,28 +12,37 @@ import {
   CardTitle,
   CardText
 } from 'material-ui/Card';
+import {GridList, GridTile} from 'material-ui/GridList';
 import Documents from '../../api/documents/documents';
 import container from '../../modules/container';
 
-// TODO: consider a GridList to view these items
-const DocumentsList = ({documents}) => (documents.length > 0
-  ? <div className="row">
-      {documents.map(({_id, title, body}) => (
-        <div key={_id} className="col-xs-6 col-sm-4 col-lg-3">
-          <Link to={"/documents/" + _id}>
-            <Paper key={_id} zDepth={1}>
-              <Card>
-                <CardMedia>
-                  <img src="card-blue.png"/>
-                </CardMedia>
-                <CardTitle title={title} subtitle={body}/>
-              </Card>
-            </Paper>
-          </Link>
+class DocumentsList extends React.Component {
+  render() {
+    const {documents} = this.props;
+
+    if (documents.length > 0) {
+      return (
+        <div>
+          <GridList cols={2} cellHeight={200} padding={10} style={{
+            overflowY: 'auto'
+          }}>
+            {documents.map(({_id, title, body}) => (
+              <Link to={"/documents/" + _id}>
+                <GridTile key={_id} title={title} titlePosition="bottom" cols={1} rows={1}>
+                  <img src={"card-blue.png"}/>
+                </GridTile>
+              </Link>
+            ))}
+          </GridList>
         </div>
-      ))}
-    </div>
-  : <div>No documents yet.</div>);
+      );
+    } else {
+      return (
+        <div>No documents yet.</div>
+      );
+    }
+  }
+}
 
 DocumentsList.propTypes = {
   documents: PropTypes.array
