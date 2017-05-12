@@ -31,10 +31,10 @@ class Login extends React.Component {
 
 export default class Header extends React.Component {
   render() {
-    const {user, isMobile, handleDrawerToggle} = this.props;
+    const {currentUser, isMobile, handleDrawerToggle} = this.props;
 
     return (
-      <AppBar title="Application Name" showMenuIconButton={isMobile} onLeftIconButtonTouchTap={handleDrawerToggle} iconElementRight={Meteor.user()
+      <AppBar title="Application Name" showMenuIconButton={isMobile} onLeftIconButtonTouchTap={handleDrawerToggle} iconElementRight={currentUser
         ? <Logged/>
         : <Login/>} style={{
         position: "fixed",
@@ -45,7 +45,7 @@ export default class Header extends React.Component {
 }
 
 Header.propTypes = {
-  user: PropTypes.object,
+  currentUser: PropTypes.object,
   isMobile: PropTypes.bool,
   styles: PropTypes.object,
   handleDrawerToggle: PropTypes.func

@@ -5,8 +5,9 @@ import Header from '../components/Header';
 import Menu from '../components/Menu';
 import ThemeDefault from '../theme-default';
 import Data from '../data';
+import container from '../../modules/container';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -46,7 +47,7 @@ export default class App extends React.Component {
 
   render() {
     const {isMobile, columnSize, isDrawerOpen} = this.state;
-    const {children} = this.props;
+    const {children, currentUser} = this.props;
     const childrenWithProps = React.cloneElement(children, {columnSize: columnSize});
 
     const styles = {
@@ -62,8 +63,8 @@ export default class App extends React.Component {
     return (
       <MuiThemeProvider muiTheme={ThemeDefault}>
         <div>
-          <Header isMobile={isMobile} styles={styles.header} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
-          <Menu isMobile={isMobile} isDrawerOpen={isDrawerOpen} menus={Meteor.user()
+          <Header isMobile={isMobile} currentUser={currentUser} styles={styles.header} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
+          <Menu isMobile={isMobile} isDrawerOpen={isDrawerOpen} menus={currentUser
             ? Data.authenticated_menus
             : Data.public_menus} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
 
@@ -79,5 +80,11 @@ export default class App extends React.Component {
 }
 
 App.propTypes = {
+  currentUser: PropTypes.object,
   children: PropTypes.element
 };
+
+export default container((props, onData) => {
+  const currentUser = Meteor.user();
+  onData(null, {currentUser});
+}, App);
