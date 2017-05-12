@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 import Divider from 'material-ui/Divider';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -10,18 +11,26 @@ const style = {
   float: "right"
 };
 
-const Documents = () => (
-  <div>
-    <span style={{
-      fontSize: 22
-    }}>Documents</span>
-    <Link to="/documents/new">
-      <RaisedButton label="New Document" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-plus-square-o" />} style={style}/>
-    </Link>
-    <Divider/>
-    <br/>
-    <DocumentsList/>
-  </div>
-);
+export default class Documents extends React.Component {
+  render() {
+    const {columnSize} = this.props;
 
-export default Documents;
+    return (
+      <div>
+        <span style={{
+          fontSize: 22
+        }}>Documents</span>
+        <Link to="/documents/new">
+          <RaisedButton label="New Document" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-plus-square-o" />} style={style}/>
+        </Link>
+        <Divider/>
+        <br/>
+        <DocumentsList columnSize={columnSize}/>
+      </div>
+    )
+  }
+}
+
+Documents.propTypes = {
+  columnSize: PropTypes.number
+};

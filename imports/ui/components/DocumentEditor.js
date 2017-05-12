@@ -17,6 +17,7 @@ export default class DocumentEditor extends React.Component {
 
   render() {
     const {doc} = this.props;
+
     return (
       <form ref={form => (this.documentEditorForm = form)} onSubmit={event => event.preventDefault()}>
         <TextField name="title" defaultValue={doc && doc.title} hintText="Oh, The Places You'll Go!" floatingLabelText="Title" fullWidth={true}/>

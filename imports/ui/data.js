@@ -27,7 +27,9 @@ const data = {
       icon: <FontIcon className="fa fa-key"/>,
       link: '/recover-password'
     }
-  ]
+  ],
+  DRAWER_WIDTH: 230,
+  APPBAR_HEIGHT: 64
 };
 
 export default data;

@@ -13,22 +13,22 @@ import {
   CardText
 } from 'material-ui/Card';
 import {GridList, GridTile} from 'material-ui/GridList';
+import withWidth from 'material-ui/utils/withWidth';
 import Documents from '../../api/documents/documents';
 import container from '../../modules/container';
 
 class DocumentsList extends React.Component {
   render() {
-    const {documents} = this.props;
+    const {documents, columnSize} = this.props;
+    console.info(columnSize);
 
     if (documents.length > 0) {
       return (
         <div>
-          <GridList cols={2} cellHeight={200} padding={10} style={{
-            overflowY: 'auto'
-          }}>
+          <GridList cols={columnSize} cellHeight={200} padding={10}>
             {documents.map(({_id, title, body}) => (
-              <Link to={"/documents/" + _id}>
-                <GridTile key={_id} title={title} titlePosition="bottom" cols={1} rows={1}>
+              <Link key={_id} to={"/documents/" + _id}>
+                <GridTile title={title} titlePosition="bottom" cols={1} rows={1}>
                   <img src={"card-blue.png"}/>
                 </GridTile>
               </Link>
@@ -45,7 +45,8 @@ class DocumentsList extends React.Component {
 }
 
 DocumentsList.propTypes = {
-  documents: PropTypes.array
+  documents: PropTypes.array,
+  columnSize: PropTypes.number
 };
 
 export default container((props, onData) => {

@@ -5,26 +5,29 @@ import {white, blue600} from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
 import {Link} from 'react-router';
 
-const Menu = ({isMobile, isDrawerOpen, menus, handleDrawerToggle}) => {
-  //TODO: add this to the theme-defaults
-  const styles = {
-    menuItem: {
-      color: white
-    }
-  };
+export default class Menu extends React.Component {
+  render() {
+    const {isMobile, isDrawerOpen, menus, handleDrawerToggle} = this.props;
 
-  //TODO: add containerStyle to the theme-defaults
-  return (
-    <Drawer containerStyle={{
-      top: 64
-    }} docked={true} open={!isMobile || isDrawerOpen}>
-      {menus.map((menu, index) => <MenuItem onTouchTap={handleDrawerToggle} key={index} style={styles.menuItem} primaryText={menu.text} leftIcon={menu.icon} containerElement={< Link to = {
-        menu.link
-      } />}/>)
+    //TODO: add this to the theme-defaults
+    const styles = {
+      menuItem: {
+        color: white
+      }
+    };
+
+    //TODO: add containerStyle to the theme-defaults
+    return (
+      <Drawer containerStyle={{
+        top: 64
+      }} docked={true} open={!isMobile || isDrawerOpen}>
+        {menus.map((menu, index) => <MenuItem onTouchTap={handleDrawerToggle} key={index} style={styles.menuItem} primaryText={menu.text} leftIcon={menu.icon} containerElement={< Link to = {
+          menu.link
+        } />}/>)}
+      </Drawer>
+    );
+  }
 }
-    </Drawer>
-  );
-};
 
 Menu.propTypes = {
   isMobile: PropTypes.bool,
@@ -32,5 +35,3 @@ Menu.propTypes = {
   menus: PropTypes.array,
   handleDrawerToggle: PropTypes.func
 };
-
-export default Menu;

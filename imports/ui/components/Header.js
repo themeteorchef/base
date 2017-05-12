@@ -28,7 +28,7 @@ class Login extends React.Component {
   }
 }
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   render() {
     const {user, isMobile, styles, handleDrawerToggle} = this.props;
 
@@ -49,5 +49,3 @@ Header.propTypes = {
   styles: PropTypes.object,
   handleDrawerToggle: PropTypes.func
 };
-
-export default Header;

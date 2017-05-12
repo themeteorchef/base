@@ -2,25 +2,39 @@ import React, {PropTypes} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
-//TODO: what exactly is this withWidth
-import withWidth, {SMALL} from 'material-ui/utils/withWidth';
 import ThemeDefault from '../theme-default';
 import Data from '../data';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isMobile: props.width <= SMALL,
-      isDrawerOpen: false
-    };
+
+    this.handleDimensionChange = this.handleDimensionChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  handleDimensionChange() {
+    const width = $(window).width();
+    const height = $(window).height();
+    const isMobile = width <= 700;
     this.setState({
-      isMobile: nextProps.width <= SMALL,
+      isMobile: isMobile,
+      columnSize: isMobile
+        ? Math.ceil(width / 500)
+        : Math.ceil((width - Data.DRAWER_WIDTH) / 500),
       isDrawerOpen: false
     });
+  }
+
+  componentWillMount() {
+    this.handleDimensionChange();
+  }
+
+  componentDidMount() {
+    window.addEventListener("resize", this.handleDimensionChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleDimensionChange);
   }
 
   handleDrawerToggle() {
@@ -30,15 +44,17 @@ class App extends React.Component {
   }
 
   render() {
-    let {isMobile, isDrawerOpen} = this.state;
+    const {isMobile, columnSize, isDrawerOpen} = this.state;
+    const {children} = this.props;
+    const childrenWithProps = React.cloneElement(children, {columnSize: columnSize});
 
     const styles = {
       container: {
         margin: '20px 20px 20px 20px',
         paddingLeft: isMobile
           ? 0
-          : 230,
-        paddingTop: 64
+          : Data.DRAWER_WIDTH,
+        paddingTop: Data.APPBAR_HEIGHT
       }
     };
 
@@ -51,7 +67,7 @@ class App extends React.Component {
             : Data.public_menus} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
 
           <div style={styles.container}>
-            {this.props.children}
+            {childrenWithProps}
           </div>
 
           {/* TODO: consider bottom navigation for mobile apps */}
@@ -62,8 +78,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  children: PropTypes.element,
-  width: PropTypes.number
+  children: PropTypes.element
 };
 
-export default withWidth()(App);
+export default App;
