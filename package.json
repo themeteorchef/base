@@ -70,7 +70,7 @@
     "jquery-validation": "^1.15.1",
     "material-ui": "^0.17.1",
     "meteor-node-stubs": "^0.2.6",
-    "prop-types": "^15.5.8",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-addons-pure-render-mixin": "^15.5.2",
     "react-dom": "^15.5.4",

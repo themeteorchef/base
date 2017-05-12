@@ -28,8 +28,8 @@ const data = {
       link: '/recover-password'
     }
   ],
-  DRAWER_WIDTH: 225,
-  APPBAR_HEIGHT: 55
+  DRAWER_WIDTH: 230,
+  APPBAR_HEIGHT: 64
 };
 
 export default data;
