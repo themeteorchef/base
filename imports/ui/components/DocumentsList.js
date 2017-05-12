@@ -20,7 +20,6 @@ import container from '../../modules/container';
 class DocumentsList extends React.Component {
   render() {
     const {documents, columnSize} = this.props;
-    console.info(columnSize);
 
     if (documents.length > 0) {
       return (

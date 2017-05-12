@@ -4,6 +4,9 @@ import Data from './data';
 
 const themeDefault = getMuiTheme({
   palette: {},
+  appBar: {
+    height: Data.APPBAR_HEIGHT
+  },
   drawer: {
     width: Data.DRAWER_WIDTH,
     color: grey900

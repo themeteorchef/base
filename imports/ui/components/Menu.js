@@ -4,6 +4,7 @@ import {spacing, typography} from 'material-ui/styles';
 import {white, blue600} from 'material-ui/styles/colors';
 import MenuItem from 'material-ui/MenuItem';
 import {Link} from 'react-router';
+import Data from '../data';
 
 export default class Menu extends React.Component {
   render() {
@@ -19,7 +20,7 @@ export default class Menu extends React.Component {
     //TODO: add containerStyle to the theme-defaults
     return (
       <Drawer containerStyle={{
-        top: 64
+        top: Data.APPBAR_HEIGHT
       }} docked={true} open={!isMobile || isDrawerOpen}>
         {menus.map((menu, index) => <MenuItem onTouchTap={handleDrawerToggle} key={index} style={styles.menuItem} primaryText={menu.text} leftIcon={menu.icon} containerElement={< Link to = {
           menu.link

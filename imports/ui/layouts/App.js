@@ -5,7 +5,7 @@ import Menu from '../components/Menu';
 import ThemeDefault from '../theme-default';
 import Data from '../data';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -80,5 +80,3 @@ class App extends React.Component {
 App.propTypes = {
   children: PropTypes.element
 };
-
-export default App;
