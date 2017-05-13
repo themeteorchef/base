@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Divider from 'material-ui/Divider';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -33,3 +34,7 @@ export default class RecoverPassword extends React.Component {
     );
   }
 }
+
+RecoverPassword.propTypes = {
+  handleSnackbarOpen: PropTypes.func
+};

@@ -16,21 +16,24 @@ export default class DocumentEditor extends React.Component {
   }
 
   render() {
-    const {doc} = this.props;
+    const {doc, handleSnackbarOpen} = this.props;
 
     return (
-      <form ref={form => (this.documentEditorForm = form)} onSubmit={event => event.preventDefault()}>
-        <TextField name="title" defaultValue={doc && doc.title} hintText="Oh, The Places You'll Go!" floatingLabelText="Title" fullWidth={true}/>
-        <TextField name="body" defaultValue={doc && doc.body} hintText="Congratulations! Today is your day. You're off to Great Places! You're off and away!" floatingLabelText="Body" fullWidth={true} multiLine={true}/>
+      <div>
+        <form ref={form => (this.documentEditorForm = form)} onSubmit={event => event.preventDefault()}>
+          <TextField name="title" defaultValue={doc && doc.title} hintText="Oh, The Places You'll Go!" floatingLabelText="Title" fullWidth={true}/>
+          <TextField name="body" defaultValue={doc && doc.body} hintText="Congratulations! Today is your day. You're off to Great Places! You're off and away!" floatingLabelText="Body" fullWidth={true} multiLine={true}/>
 
-        <RaisedButton label={doc && doc._id
-          ? 'Save Changes'
-          : 'Add Document'} type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-floppy-o" />}/>
-      </form>
+          <RaisedButton label={doc && doc._id
+            ? 'Save Changes'
+            : 'Add Document'} type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-floppy-o" />}/>
+        </form>
+      </div>
     );
   }
 }
 
 DocumentEditor.propTypes = {
-  doc: PropTypes.object
+  doc: PropTypes.object,
+  handleSnackbarOpen: PropTypes.func
 };

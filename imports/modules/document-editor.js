@@ -7,7 +7,7 @@ import './validation.js';
 let component;
 
 const handleUpsert = () => {
-  const {doc} = component.props;
+  const {doc, handleSnackbarOpen} = component.props;
   const confirmation = doc && doc._id
     ? 'Document updated!'
     : 'Document added!';
@@ -21,10 +21,10 @@ const handleUpsert = () => {
 
   upsertDocument.call(upsert, (error, response) => {
     if (error) {
-      Bert.alert(error.reason, 'danger');
+      handleSnackbarOpen(error.reason);
     } else {
       component.documentEditorForm.reset();
-      Bert.alert(confirmation, 'success');
+      handleSnackbarOpen(confirmation);
       browserHistory.push(`/documents/${response.insertedId || doc._id}`);
     }
   });

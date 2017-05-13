@@ -9,12 +9,14 @@ let token;
 
 const handleReset = () => {
   const password = document.querySelector('[name="newPassword"]').value;
+  const {handleSnackbarOpen} = component.props;
+
   Accounts.resetPassword(token, password, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'danger');
+      handleSnackbarOpen(error.reason);
     } else {
       browserHistory.push('/');
-      Bert.alert('Password reset!', 'success');
+      handleSnackbarOpen('Password reset!');
     }
   });
 };

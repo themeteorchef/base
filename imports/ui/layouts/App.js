@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
+import Snackbar from 'material-ui/Snackbar';
 import ThemeDefault from '../theme-default';
 import Data from '../data';
 import container from '../../modules/container';
@@ -29,6 +30,7 @@ class App extends React.Component {
 
   componentWillMount() {
     this.handleDimensionChange();
+    this.handleSnackbarOpen("Welcome to Application Name!");
   }
 
   componentDidMount() {
@@ -45,10 +47,21 @@ class App extends React.Component {
     });
   }
 
+  handleSnackbarOpen(message) {
+    this.setState({isSnackbarOpen: true, snackbarMessage: message});
+  }
+
+  handleSnackbarClose() {
+    this.setState({isSnackbarOpen: false});
+  }
+
   render() {
-    const {isMobile, columnSize, isDrawerOpen} = this.state;
+    const {isMobile, columnSize, isDrawerOpen, isSnackbarOpen, snackbarMessage} = this.state;
     const {children, currentUser} = this.props;
-    const childrenWithProps = React.cloneElement(children, {columnSize: columnSize});
+    const childrenWithProps = React.cloneElement(children, {
+      columnSize: columnSize,
+      handleSnackbarOpen: this.handleSnackbarOpen.bind(this)
+    });
 
     const styles = {
       container: {
@@ -73,6 +86,7 @@ class App extends React.Component {
           </div>
 
           {/* TODO: consider bottom navigation for mobile apps */}
+          <Snackbar open={isSnackbarOpen} message={snackbarMessage} autoHideDuration={4000} onRequestClose={this.handleSnackbarClose.bind(this)}/>
         </div>
       </MuiThemeProvider>
     );
@@ -85,6 +99,7 @@ App.propTypes = {
 };
 
 export default container((props, onData) => {
+  //TODO: wait for user subscription first
   const currentUser = Meteor.user();
   onData(null, {currentUser});
 }, App);

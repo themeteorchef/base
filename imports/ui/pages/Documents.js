@@ -13,7 +13,7 @@ const style = {
 
 export default class Documents extends React.Component {
   render() {
-    const {columnSize} = this.props;
+    const {columnSize, handleSnackbarOpen} = this.props;
 
     return (
       <div>
@@ -25,12 +25,13 @@ export default class Documents extends React.Component {
         </Link>
         <Divider/>
         <br/>
-        <DocumentsList columnSize={columnSize}/>
+        <DocumentsList columnSize={columnSize} handleSnackbarOpen={handleSnackbarOpen}/>
       </div>
     )
   }
 }
 
 Documents.propTypes = {
-  columnSize: PropTypes.number
+  columnSize: PropTypes.number,
+  handleSnackbarOpen: PropTypes.func
 };

@@ -12,49 +12,56 @@ import {removeDocument} from '../../api/documents/methods';
 import NotFound from './NotFound';
 import container from '../../modules/container';
 
-const handleRemove = (_id) => {
+const handleRemove = (_id, handleSnackbarOpen) => {
   if (confirm('Are you sure? This is permanent!')) {
     removeDocument.call({
       _id
     }, (error) => {
       if (error) {
-        Bert.alert(error.reason, 'danger');
+        handleSnackbarOpen(error.reason);
       } else {
-        Bert.alert('Document deleted!', 'success');
+        handleSnackbarOpen('Document deleted!');
         browserHistory.push('/documents');
       }
     });
   }
 };
 
-const ViewDocument = ({doc}) => {
-  const style = {
-    marginLeft: 6,
-    float: "right"
-  };
+class ViewDocument extends React.Component {
+  render() {
+    const {doc, handleSnackbarOpen} = this.props;
 
-  return doc
-    ? (
-      <div>
-        <span style={{
-          fontSize: 22
-        }}>{doc && doc.title}</span>
+    const style = {
+      marginLeft: 6,
+      float: "right"
+    };
 
-        <RaisedButton label="Remove" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-trash-o" />} style={style} onClick={() => handleRemove(doc._id)}/>
+    if (doc) {
+      return (
+        <div>
+          <span style={{
+            fontSize: 22
+          }}>{doc && doc.title}</span>
 
-        <Link to={"/documents/" + doc._id + "/edit"}>
-          <RaisedButton label="Edit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-pencil-square-o" />} style={style}/>
-        </Link>
+          <RaisedButton label="Remove" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-trash-o" />} style={style} onClick={() => handleRemove(doc._id, handleSnackbarOpen)}/>
 
-        <Divider/>
-        <br/> {doc && doc.body}
-      </div>
-    )
-    : <NotFound/>;
-};
+          <Link to={"/documents/" + doc._id + "/edit"}>
+            <RaisedButton label="Edit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-pencil-square-o" />} style={style}/>
+          </Link>
+
+          <Divider/>
+          <br/> {doc && doc.body}
+        </div>
+      )
+    } else {
+      return (<NotFound/>)
+    }
+  }
+}
 
 ViewDocument.propTypes = {
-  doc: PropTypes.object
+  doc: PropTypes.object,
+  handleSnackbarOpen: PropTypes.func
 };
 
 export default container((props, onData) => {

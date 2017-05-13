@@ -29,7 +29,7 @@ const data = {
     }
   ],
   DRAWER_WIDTH: 230,
-  APPBAR_HEIGHT: 64
+  APPBAR_HEIGHT: 50
 };
 
 export default data;

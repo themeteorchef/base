@@ -6,13 +6,15 @@ import './validation.js';
 let component;
 
 const handleRecovery = () => {
+  const {handleSnackbarOpen} = component.props;
+
   Accounts.forgotPassword({
     email: document.querySelector('[name="emailAddress"]').value
   }, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'warning');
+      handleSnackbarOpen(error.reason);
     } else {
-      Bert.alert('Check your inbox for a reset link!', 'success');
+      handleSnackbarOpen('Check your inbox for a reset link!');
     }
   });
 };

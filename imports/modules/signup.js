@@ -19,13 +19,14 @@ const getUserData = () => ({
 
 const signup = () => {
   const user = getUserData();
+  const {handleSnackbarOpen} = component.props;
 
   Accounts.createUser(user, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'danger');
+      handleSnackbarOpen(error.reason);
     } else {
       browserHistory.push('/');
-      Bert.alert('Welcome!', 'success');
+      handleSnackbarOpen('Welcome!');
     }
   });
 };
