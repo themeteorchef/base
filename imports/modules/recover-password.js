@@ -1,7 +1,6 @@
-/* eslint-disable no-undef */
-
 import {Accounts} from 'meteor/accounts-base';
-import './validation.js';
+import $ from 'jquery';
+import 'jquery-validation';
 
 let component;
 

@@ -1,8 +1,7 @@
-/* eslint-disable no-undef */
-
 import {browserHistory} from 'react-router';
 import {Meteor} from 'meteor/meteor';
-import './validation.js';
+import $ from 'jquery';
+import 'jquery-validation';
 
 let component;
 

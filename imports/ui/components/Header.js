@@ -2,24 +2,55 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {browserHistory} from 'react-router';
 import AppBar from 'material-ui/AppBar';
-import MenuItem from 'material-ui/MenuItem';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import Popover from 'material-ui/Popover';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
 import FontIcon from 'material-ui/FontIcon';
 import {Link} from 'react-router';
 
-const handleLogout = () => Meteor.logout(() => browserHistory.push('/login'));
-
 class Logged extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false
+    };
+  }
+
+  handleLogout() {
+    Meteor.logout(() => browserHistory.push('/login'));
+  }
+
+  handleTouchTap(event) {
+    event.preventDefault();
+    this.setState({open: true, anchorEl: event.currentTarget});
+  }
+
+  handleRequestClose() {
+    this.setState({open: false});
+  }
+
   render() {
+    const {currentUser} = this.props;
+
     return (
-      <IconMenu iconButtonElement={< IconButton > < FontIcon className = "fa fa-user-circle" />< /IconButton >}>
-        <MenuItem primaryText="Log Out" leftIcon={< FontIcon className = "fa fa-sign-out" />} onClick={handleLogout}/>
-      </IconMenu>
+      <div>
+        <FlatButton label={currentUser.profile.name.first} icon={< FontIcon className = "fa fa-user-circle" />} labelPosition="before" onTouchTap={this.handleTouchTap.bind(this)}/>
+        <Popover open={this.state.open} onRequestClose={this.handleRequestClose.bind(this)} anchorEl={this.state.anchorEl}>
+          <Menu>
+            <MenuItem primaryText="Log Out" leftIcon={< FontIcon className = "fa fa-sign-out" />} onClick={this.handleLogout.bind(this)}/>
+          </Menu>
+        </Popover>
+      </div>
     );
   }
 }
+
+Logged.propTypes = {
+  currentUser: PropTypes.object
+};
 
 class Login extends React.Component {
   render() {
@@ -35,7 +66,7 @@ export default class Header extends React.Component {
 
     return (
       <AppBar title="Application Name" showMenuIconButton={isMobile} onLeftIconButtonTouchTap={handleDrawerToggle} iconElementRight={currentUser
-        ? <Logged/>
+        ? <Logged currentUser={currentUser}/>
         : <Login/>} style={{
         position: "fixed",
         top: 0

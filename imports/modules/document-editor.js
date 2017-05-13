@@ -1,8 +1,7 @@
-/* eslint-disable no-undef */
-
 import {browserHistory} from 'react-router';
 import {upsertDocument} from '../api/documents/methods.js';
-import './validation.js';
+import $ from 'jquery';
+import 'jquery-validation';
 
 let component;
 
