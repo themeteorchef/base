@@ -8,6 +8,7 @@ import Snackbar from 'material-ui/Snackbar';
 import ThemeDefault from '../theme-default';
 import Data from '../data';
 import container from '../../modules/container';
+import {red600, green600, blue600} from 'material-ui/styles/colors';
 
 class App extends React.Component {
   constructor(props) {
@@ -48,8 +49,18 @@ class App extends React.Component {
     });
   }
 
-  handleSnackbarOpen(message) {
-    this.setState({isSnackbarOpen: true, snackbarMessage: message});
+  handleSnackbarOpen(message, type = 'info') {
+    let snackbarColor = blue600;
+    switch (type.toLowerCase()) {
+      case 'success':
+        snackbarColor = green600;
+        break;
+      case 'error':
+        snackbarColor = red600;
+        break;
+    }
+
+    this.setState({isSnackbarOpen: true, snackbarMessage: message, snackbarColor: snackbarColor});
   }
 
   handleSnackbarClose() {
@@ -57,7 +68,14 @@ class App extends React.Component {
   }
 
   render() {
-    const {isMobile, columnSize, isDrawerOpen, isSnackbarOpen, snackbarMessage} = this.state;
+    const {
+      isMobile,
+      columnSize,
+      isDrawerOpen,
+      isSnackbarOpen,
+      snackbarMessage,
+      snackbarColor
+    } = this.state;
     const {children, currentUser} = this.props;
     const childrenWithProps = React.cloneElement(children, {
       columnSize: columnSize,
@@ -87,7 +105,9 @@ class App extends React.Component {
           </div>
 
           {/* TODO: consider bottom navigation for mobile apps */}
-          <Snackbar open={isSnackbarOpen} message={snackbarMessage} autoHideDuration={4000} onRequestClose={this.handleSnackbarClose.bind(this)}/>
+          <Snackbar open={isSnackbarOpen} message={snackbarMessage} bodyStyle={{
+            backgroundColor: snackbarColor
+          }} autoHideDuration={4000} onRequestClose={this.handleSnackbarClose.bind(this)}/>
         </div>
       </MuiThemeProvider>
     );

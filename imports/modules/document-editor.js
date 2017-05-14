@@ -20,10 +20,10 @@ const handleUpsert = () => {
 
   upsertDocument.call(upsert, (error, response) => {
     if (error) {
-      handleSnackbarOpen(error.reason);
+      handleSnackbarOpen(error.reason, 'error');
     } else {
       component.documentEditorForm.reset();
-      handleSnackbarOpen(confirmation);
+      handleSnackbarOpen(confirmation, 'success');
       browserHistory.push(`/documents/${response.insertedId || doc._id}`);
     }
   });

@@ -12,10 +12,10 @@ const handleReset = () => {
 
   Accounts.resetPassword(token, password, (error) => {
     if (error) {
-      handleSnackbarOpen(error.reason);
+      handleSnackbarOpen(error.reason, 'error');
     } else {
       browserHistory.push('/');
-      handleSnackbarOpen('Password reset!');
+      handleSnackbarOpen('Password reset!', 'success');
     }
   });
 };

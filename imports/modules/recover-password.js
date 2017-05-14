@@ -11,9 +11,9 @@ const handleRecovery = () => {
     email: document.querySelector('[name="emailAddress"]').value
   }, (error) => {
     if (error) {
-      handleSnackbarOpen(error.reason);
+      handleSnackbarOpen(error.reason, 'error');
     } else {
-      handleSnackbarOpen('Check your inbox for a reset link!');
+      handleSnackbarOpen('Check your inbox for a reset link!', 'success');
     }
   });
 };

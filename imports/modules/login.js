@@ -12,9 +12,9 @@ const login = () => {
 
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
-      handleSnackbarOpen(error.reason);
+      handleSnackbarOpen(error.reason, 'error');
     } else {
-      handleSnackbarOpen('Logged in!');
+      handleSnackbarOpen('Logged in!', 'success');
 
       const {location} = component.props;
       if (location.state && location.state.nextPathname) {

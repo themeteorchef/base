@@ -22,10 +22,10 @@ const signup = () => {
 
   Accounts.createUser(user, (error) => {
     if (error) {
-      handleSnackbarOpen(error.reason);
+      handleSnackbarOpen(error.reason, 'error');
     } else {
       browserHistory.push('/');
-      handleSnackbarOpen('Welcome!');
+      handleSnackbarOpen('Welcome!', 'success');
     }
   });
 };

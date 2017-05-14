@@ -18,9 +18,9 @@ const handleRemove = (_id, handleSnackbarOpen) => {
       _id
     }, (error) => {
       if (error) {
-        handleSnackbarOpen(error.reason);
+        handleSnackbarOpen(error.reason, 'error');
       } else {
-        handleSnackbarOpen('Document deleted!');
+        handleSnackbarOpen('Document deleted!', 'success');
         browserHistory.push('/documents');
       }
     });
