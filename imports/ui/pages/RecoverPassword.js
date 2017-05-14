@@ -17,19 +17,17 @@ export default class RecoverPassword extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-8 col-lg-6">
-          <h2>Recover Password</h2>
-          <Divider/>
-          <br/>
-          Enter your email address below to receive a link to reset your password.
-          <form ref={form => (this.recoverPasswordForm = form)} className="recover-password" onSubmit={this.handleSubmit}>
-            <TextField name="emailAddress" hintText="user@example.com" floatingLabelText="Email Address" fullWidth={true}/>
-            <div>
-              <RaisedButton label="Recover Password" type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-key" />}/>
-            </div>
-          </form>
-        </div>
+      <div>
+        <h2>Recover Password</h2>
+        <Divider/>
+        <br/>
+        Enter your email address below to receive a link to reset your password.
+        <form ref={form => (this.recoverPasswordForm = form)} className="recover-password" onSubmit={this.handleSubmit}>
+          <TextField name="emailAddress" hintText="user@example.com" floatingLabelText="Email Address" fullWidth={true}/>
+          <div>
+            <RaisedButton label="Recover Password" type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-key" />}/>
+          </div>
+        </form>
       </div>
     );
   }

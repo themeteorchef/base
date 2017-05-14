@@ -15,10 +15,6 @@ const data = {
   ],
   public_menus: [
     {
-      text: 'Log In',
-      icon: <FontIcon className="fa fa-sign-in"/>,
-      link: '/login'
-    }, {
       text: 'Sign Up',
       icon: <FontIcon className="fa fa-user-plus"/>,
       link: '/signup'

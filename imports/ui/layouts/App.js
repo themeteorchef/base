@@ -15,6 +15,9 @@ class App extends React.Component {
     super(props);
 
     this.handleDimensionChange = this.handleDimensionChange.bind(this);
+    this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
+    this.handleSnackbarClose = this.handleSnackbarClose.bind(this);
+    this.handleSnackbarOpen = this.handleSnackbarOpen.bind(this);
   }
 
   handleDimensionChange() {
@@ -79,7 +82,7 @@ class App extends React.Component {
     const {children, currentUser} = this.props;
     const childrenWithProps = React.cloneElement(children, {
       columnSize: columnSize,
-      handleSnackbarOpen: this.handleSnackbarOpen.bind(this)
+      handleSnackbarOpen: this.handleSnackbarOpen
     });
 
     const styles = {
@@ -95,10 +98,10 @@ class App extends React.Component {
     return (
       <MuiThemeProvider muiTheme={ThemeDefault}>
         <div>
-          <Header isMobile={isMobile} currentUser={currentUser} styles={styles.header} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
+          <Header isMobile={isMobile} currentUser={currentUser} styles={styles.header} handleDrawerToggle={this.handleDrawerToggle}/>
           <Menu isMobile={isMobile} isDrawerOpen={isDrawerOpen} menus={currentUser
             ? Data.authenticated_menus
-            : Data.public_menus} handleDrawerToggle={this.handleDrawerToggle.bind(this)}/>
+            : Data.public_menus} handleDrawerToggle={this.handleDrawerToggle}/>
 
           <div style={styles.container}>
             {childrenWithProps}
@@ -107,7 +110,7 @@ class App extends React.Component {
           {/* TODO: consider bottom navigation for mobile apps */}
           <Snackbar open={isSnackbarOpen} message={snackbarMessage} bodyStyle={{
             backgroundColor: snackbarColor
-          }} autoHideDuration={4000} onRequestClose={this.handleSnackbarClose.bind(this)}/>
+          }} autoHideDuration={4000} onRequestClose={this.handleSnackbarClose}/>
         </div>
       </MuiThemeProvider>
     );

@@ -17,17 +17,15 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-8 col-lg-6">
-          <h2>Login</h2>
-          <Divider/>
-          <form ref={form => (this.loginForm = form)} className="login" onSubmit={this.handleSubmit}>
-            <TextField name="emailAddress" type="email" hintText="user@example.com" floatingLabelText="Email Address" fullWidth={true}/>
-            <TextField name="password" type="password" floatingLabelText="Password" fullWidth={true}/>
-            <RaisedButton label="Login" type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa fa-sign-in" />}/> {/* <Button type="submit" bsStyle="success">Recover Password</Button> */}
-            <Link className="pull-right" to="/recover-password">Forgot Password?</Link>
-          </form>
-        </div>
+      <div>
+        <h2>Login</h2>
+        <Divider/>
+        <form ref={form => (this.loginForm = form)} className="login" onSubmit={this.handleSubmit}>
+          <TextField name="emailAddress" type="email" hintText="user@example.com" floatingLabelText="Email Address" fullWidth={true}/>
+          <TextField name="password" type="password" floatingLabelText="Password" fullWidth={true}/>
+          <RaisedButton label="Login" type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-sign-in" />}/> {/* <Button type="submit" bsStyle="success">Recover Password</Button> */}
+          <Link className="pull-right" to="/recover-password">Forgot Password?</Link>
+        </form>
       </div>
     );
   }

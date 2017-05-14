@@ -8,7 +8,7 @@ import DocumentsList from '../components/DocumentsList.js';
 
 const style = {
   marginLeft: 6,
-  float: "right"
+  float: 'right'
 };
 
 export default class Documents extends React.Component {

@@ -18,25 +18,23 @@ export default class Signup extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-xs-12 col-sm-8 col-lg-6">
-          <h2>Sign Up</h2>
-          <Divider/>
-          <form ref={form => (this.signupForm = form)} onSubmit={this.handleSubmit}>
-            <div className="row">
-              <div className="col-xs-6">
-                <TextField name="firstName" hintText="John" floatingLabelText="First Name" fullWidth={true}/>
-              </div>
-              <div className="col-xs-6">
-                <TextField name="lastName" hintText="Smith" floatingLabelText="Last Name" fullWidth={true}/>
-              </div>
+      <div>
+        <h2>Sign Up</h2>
+        <Divider/>
+        <form ref={form => (this.signupForm = form)} onSubmit={this.handleSubmit}>
+          <div className="row">
+            <div className="col-xs-6">
+              <TextField name="firstName" hintText="John" floatingLabelText="First Name" fullWidth={true}/>
             </div>
-            <TextField name="emailAddress" type="email" hintText="user@example.com" floatingLabelText="Email Address" fullWidth={true}/>
-            <TextField name="password" type="password" floatingLabelText="Password" fullWidth={true}/>
-            <RaisedButton label="Sign Up" type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-user-plus" />}/> {/* <Button type="submit" bsStyle="success">Recover Password</Button> */}
-            <Link className="pull-right" to="/login">Already have an account?</Link>
-          </form>
-        </div>
+            <div className="col-xs-6">
+              <TextField name="lastName" hintText="Smith" floatingLabelText="Last Name" fullWidth={true}/>
+            </div>
+          </div>
+          <TextField name="emailAddress" type="email" hintText="user@example.com" floatingLabelText="Email Address" fullWidth={true}/>
+          <TextField name="password" type="password" floatingLabelText="Password" fullWidth={true}/>
+          <RaisedButton label="Sign Up" type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-user-plus" />}/> {/* <Button type="submit" bsStyle="success">Recover Password</Button> */}
+          <Link className="pull-right" to="/login">Already have an account?</Link>
+        </form>
       </div>
     );
   }

@@ -7,7 +7,8 @@ import {
   CardTitle,
   CardText
 } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import FontIcon from 'material-ui/FontIcon';
+import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
 
 const Index = () => (
@@ -16,9 +17,9 @@ const Index = () => (
       <CardMedia>
         <img src="card-blue.png"/>
       </CardMedia>
-      <CardTitle title="Base" subtitle="A starting point for Meteor applications. Currently at v4.13.0."/>
+      <CardTitle title="Base" subtitle="A starting point for Meteor applications."/>
       <CardActions>
-        <FlatButton label="Documentation" href="https://themeteorchef.com/base"/>
+        <RaisedButton label="Documentation" primary={true} icon={< FontIcon className = "fa fa-info-circle" />} href="https://themeteorchef.com/base"/>
       </CardActions>
     </Card>
   </Paper>

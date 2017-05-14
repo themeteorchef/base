@@ -20,9 +20,9 @@ export default class Menu extends React.Component {
 
     //TODO: add containerStyle to the theme-defaults
     return (
-      <Drawer containerStyle={{
+      <Drawer onRequestChange={handleDrawerToggle} containerStyle={{
         top: Data.APPBAR_HEIGHT
-      }} docked={true} open={!isMobile || isDrawerOpen}>
+      }} docked={!isMobile} open={!isMobile || isDrawerOpen}>
         {menus.map((menu, index) => <MenuItem onTouchTap={handleDrawerToggle} key={index} style={styles.menuItem} primaryText={menu.text} leftIcon={menu.icon} containerElement={< Link to = {
           menu.link
         } />}/>)}
