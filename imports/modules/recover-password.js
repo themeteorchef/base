@@ -1,19 +1,19 @@
-/* eslint-disable no-undef */
-
-import { Accounts } from 'meteor/accounts-base';
-import { Bert } from 'meteor/themeteorchef:bert';
-import './validation.js';
+import {Accounts} from 'meteor/accounts-base';
+import $ from 'jquery';
+import 'jquery-validation';
 
 let component;
 
 const handleRecovery = () => {
+  const {handleSnackbarOpen} = component.props;
+
   Accounts.forgotPassword({
-    email: document.querySelector('[name="emailAddress"]').value,
+    email: document.querySelector('[name="emailAddress"]').value
   }, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'warning');
+      handleSnackbarOpen(error.reason, 'error');
     } else {
-      Bert.alert('Check your inbox for a reset link!', 'success');
+      handleSnackbarOpen('Check your inbox for a reset link!', 'success');
     }
   });
 };
@@ -23,16 +23,18 @@ const validate = () => {
     rules: {
       emailAddress: {
         required: true,
-        email: true,
-      },
+        email: true
+      }
     },
     messages: {
       emailAddress: {
         required: 'Need an email address here.',
-        email: 'Is this email address legit?',
-      },
+        email: 'Is this email address legit?'
+      }
     },
-    submitHandler() { handleRecovery(); },
+    submitHandler() {
+      handleRecovery();
+    }
   });
 };
 

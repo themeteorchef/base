@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { Row, Col, FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import {Link} from 'react-router';
+import Divider from 'material-ui/Divider';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
 import handleLogin from '../../modules/login';
 
 export default class Login extends React.Component {
   componentDidMount() {
-    handleLogin({ component: this });
+    handleLogin({component: this});
   }
 
   handleSubmit(event) {
@@ -14,40 +17,15 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div className="Login">
-        <Row>
-          <Col xs={ 12 } sm={ 6 } md={ 4 }>
-            <h4 className="page-header">Login</h4>
-            <form
-              ref={ form => (this.loginForm = form) }
-              className="login"
-              onSubmit={ this.handleSubmit }
-            >
-              <FormGroup>
-                <ControlLabel>Email Address</ControlLabel>
-                <FormControl
-                  type="email"
-                  ref="emailAddress"
-                  name="emailAddress"
-                  placeholder="Email Address"
-                />
-              </FormGroup>
-              <FormGroup>
-                <ControlLabel>
-                  <span className="pull-left">Password</span>
-                  <Link className="pull-right" to="/recover-password">Forgot Password?</Link>
-                </ControlLabel>
-                <FormControl
-                  type="password"
-                  ref="password"
-                  name="password"
-                  placeholder="Password"
-                />
-              </FormGroup>
-              <Button type="submit" bsStyle="success">Login</Button>
-            </form>
-          </Col>
-        </Row>
+      <div>
+        <h2>Login</h2>
+        <Divider/>
+        <form ref={form => (this.loginForm = form)} className="login" onSubmit={this.handleSubmit}>
+          <TextField name="emailAddress" type="email" hintText="user@example.com" floatingLabelText="Email Address" fullWidth={true}/>
+          <TextField name="password" type="password" floatingLabelText="Password" fullWidth={true}/>
+          <RaisedButton label="Login" type="submit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-sign-in" />}/> {/* <Button type="submit" bsStyle="success">Recover Password</Button> */}
+          <Link className="pull-right" to="/recover-password">Forgot Password?</Link>
+        </form>
       </div>
     );
   }

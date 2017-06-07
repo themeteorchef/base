@@ -1,25 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { Row, Col, Button } from 'react-bootstrap';
-import DocumentsList from '../components/DocumentsList';
+import PropTypes from 'prop-types';
+import {Link} from 'react-router';
+import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
+import DocumentsList from '../components/DocumentsList.js';
 
-const Documents = () => (
-  <div className="Documents">
-    <Row>
-      <Col xs={ 12 }>
-        <div className="page-header clearfix">
-          <h4 className="pull-left">Documents</h4>
-          <Link to="/documents/new">
-            <Button
-              bsStyle="success"
-              className="pull-right"
-            >New Document</Button>
-          </Link>
-        </div>
-        <DocumentsList />
-      </Col>
-    </Row>
-  </div>
-);
+const style = {
+  marginLeft: 6,
+  float: 'right'
+};
 
-export default Documents;
+export default class Documents extends React.Component {
+  render() {
+    const {columnSize, handleSnackbarOpen} = this.props;
+
+    return (
+      <div>
+        <span style={{
+          fontSize: 22
+        }}>Documents</span>
+        <Link to="/documents/new">
+          <RaisedButton label="New Document" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-plus-square-o" />} style={style}/>
+        </Link>
+        <Divider/>
+        <br/>
+        <DocumentsList columnSize={columnSize} handleSnackbarOpen={handleSnackbarOpen}/>
+      </div>
+    )
+  }
+}
+
+Documents.propTypes = {
+  columnSize: PropTypes.number,
+  handleSnackbarOpen: PropTypes.func
+};

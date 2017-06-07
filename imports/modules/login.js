@@ -1,23 +1,22 @@
-/* eslint-disable no-undef */
-
-import { browserHistory } from 'react-router';
-import { Meteor } from 'meteor/meteor';
-import { Bert } from 'meteor/themeteorchef:bert';
-import './validation.js';
+import {browserHistory} from 'react-router';
+import {Meteor} from 'meteor/meteor';
+import $ from 'jquery';
+import 'jquery-validation';
 
 let component;
 
 const login = () => {
   const email = document.querySelector('[name="emailAddress"]').value;
   const password = document.querySelector('[name="password"]').value;
+  const {handleSnackbarOpen} = component.props;
 
   Meteor.loginWithPassword(email, password, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'warning');
+      handleSnackbarOpen(error.reason, 'error');
     } else {
-      Bert.alert('Logged in!', 'success');
+      handleSnackbarOpen('Logged in!', 'success');
 
-      const { location } = component.props;
+      const {location} = component.props;
       if (location.state && location.state.nextPathname) {
         browserHistory.push(location.state.nextPathname);
       } else {
@@ -32,22 +31,24 @@ const validate = () => {
     rules: {
       emailAddress: {
         required: true,
-        email: true,
+        email: true
       },
       password: {
-        required: true,
-      },
+        required: true
+      }
     },
     messages: {
       emailAddress: {
         required: 'Need an email address here.',
-        email: 'Is this email address legit?',
+        email: 'Is this email address legit?'
       },
       password: {
-        required: 'Need a password here.',
-      },
+        required: 'Need a password here.'
+      }
     },
-    submitHandler() { login(); },
+    submitHandler() {
+      login();
+    }
   });
 };
 

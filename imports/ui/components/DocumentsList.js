@@ -1,32 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { browserHistory } from 'react-router';
-import { ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
-import { Meteor } from 'meteor/meteor';
+import {browserHistory} from 'react-router';
+import {Link} from 'react-router';
+import Paper from 'material-ui/Paper';
+import FlatButton from 'material-ui/FlatButton';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardMedia,
+  CardTitle,
+  CardText
+} from 'material-ui/Card';
+import {GridList, GridTile} from 'material-ui/GridList';
+import withWidth from 'material-ui/utils/withWidth';
 import Documents from '../../api/documents/documents';
 import container from '../../modules/container';
 
-const handleNav = _id => browserHistory.push(`/documents/${_id}`);
+class DocumentsList extends React.Component {
+  render() {
+    const {documents, columnSize} = this.props;
 
-const DocumentsList = ({ documents }) => (
-  documents.length > 0 ? <ListGroup className="DocumentsList">
-    {documents.map(({ _id, title }) => (
-      <ListGroupItem key={ _id } onClick={ () => handleNav(_id) }>
-        { title }
-      </ListGroupItem>
-    ))}
-  </ListGroup> :
-  <Alert bsStyle="warning">No documents yet.</Alert>
-);
+    if (documents.length > 0) {
+      return (
+        <div>
+          <GridList cols={columnSize} cellHeight={200} padding={10}>
+            {documents.map(({_id, title, body}) => (
+              <Link key={_id} to={"/documents/" + _id}>
+                <GridTile title={title} titlePosition="bottom" cols={1} rows={1}>
+                  <img src={"card-blue.png"}/>
+                </GridTile>
+              </Link>
+            ))}
+          </GridList>
+        </div>
+      );
+    } else {
+      return (
+        <div>No documents yet.</div>
+      );
+    }
+  }
+}
 
 DocumentsList.propTypes = {
   documents: PropTypes.array,
+  columnSize: PropTypes.number
 };
 
 export default container((props, onData) => {
   const subscription = Meteor.subscribe('documents.list');
   if (subscription.ready()) {
     const documents = Documents.find().fetch();
-    onData(null, { documents });
+    onData(null, {documents});
   }
 }, DocumentsList);

@@ -1,21 +1,21 @@
-/* eslint-disable no-undef */
-
-import { browserHistory } from 'react-router';
-import { Accounts } from 'meteor/accounts-base';
-import { Bert } from 'meteor/themeteorchef:bert';
-import './validation.js';
+import {browserHistory} from 'react-router';
+import {Accounts} from 'meteor/accounts-base';
+import $ from 'jquery';
+import 'jquery-validation';
 
 let component;
 let token;
 
 const handleReset = () => {
   const password = document.querySelector('[name="newPassword"]').value;
+  const {handleSnackbarOpen} = component.props;
+
   Accounts.resetPassword(token, password, (error) => {
     if (error) {
-      Bert.alert(error.reason, 'danger');
+      handleSnackbarOpen(error.reason, 'error');
     } else {
       browserHistory.push('/');
-      Bert.alert('Password reset!', 'success');
+      handleSnackbarOpen('Password reset!', 'success');
     }
   });
 };
@@ -25,25 +25,27 @@ const validate = () => {
     rules: {
       newPassword: {
         required: true,
-        minlength: 6,
+        minlength: 6
       },
       repeatNewPassword: {
         required: true,
         minlength: 6,
-        equalTo: '[name="newPassword"]',
-      },
+        equalTo: '[name="newPassword"]'
+      }
     },
     messages: {
       newPassword: {
         required: 'Enter a new password, please.',
-        minlength: 'Use at least six characters, please.',
+        minlength: 'Use at least six characters, please.'
       },
       repeatNewPassword: {
         required: 'Repeat your new password, please.',
-        equalTo: 'Hmm, your passwords don\'t match. Try again?',
-      },
+        equalTo: 'Hmm, your passwords don\'t match. Try again?'
+      }
     },
-    submitHandler() { handleReset(); },
+    submitHandler() {
+      handleReset();
+    }
   });
 };
 

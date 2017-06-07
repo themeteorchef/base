@@ -1,50 +1,67 @@
 import React from 'react';
+import {Link} from 'react-router';
 import PropTypes from 'prop-types';
-import { ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
-import { browserHistory } from 'react-router';
-import { Meteor } from 'meteor/meteor';
-import { Bert } from 'meteor/themeteorchef:bert';
+import {browserHistory} from 'react-router';
+import Divider from 'material-ui/Divider';
+import RaisedButton from 'material-ui/RaisedButton';
+import FontIcon from 'material-ui/FontIcon';
+
+import {Meteor} from 'meteor/meteor';
 import Documents from '../../api/documents/documents';
-import { removeDocument } from '../../api/documents/methods';
+import {removeDocument} from '../../api/documents/methods';
 import NotFound from './NotFound';
 import container from '../../modules/container';
 
-const handleEdit = (_id) => {
-  browserHistory.push(`/documents/${_id}/edit`);
-};
-
-const handleRemove = (_id) => {
+const handleRemove = (_id, handleSnackbarOpen) => {
   if (confirm('Are you sure? This is permanent!')) {
-    removeDocument.call({ _id }, (error) => {
+    removeDocument.call({
+      _id
+    }, (error) => {
       if (error) {
-        Bert.alert(error.reason, 'danger');
+        handleSnackbarOpen(error.reason, 'error');
       } else {
-        Bert.alert('Document deleted!', 'success');
+        handleSnackbarOpen('Document deleted!', 'success');
         browserHistory.push('/documents');
       }
     });
   }
 };
 
-const ViewDocument = ({ doc }) => {
-  return doc ? (
-    <div className="ViewDocument">
-      <div className="page-header clearfix">
-        <h4 className="pull-left">{ doc && doc.title }</h4>
-        <ButtonToolbar className="pull-right">
-          <ButtonGroup bsSize="small">
-            <Button onClick={ () => handleEdit(doc._id) }>Edit</Button>
-            <Button onClick={ () => handleRemove(doc._id) } className="text-danger">Delete</Button>
-          </ButtonGroup>
-        </ButtonToolbar>
-      </div>
-      { doc && doc.body }
-    </div>
-  ) : <NotFound />;
-};
+class ViewDocument extends React.Component {
+  render() {
+    const {doc, handleSnackbarOpen} = this.props;
+
+    const style = {
+      marginLeft: 6,
+      float: "right"
+    };
+
+    if (doc) {
+      return (
+        <div>
+          <span style={{
+            fontSize: 22
+          }}>{doc && doc.title}</span>
+
+          <RaisedButton label="Remove" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-trash-o" />} style={style} onClick={() => handleRemove(doc._id, handleSnackbarOpen)}/>
+
+          <Link to={"/documents/" + doc._id + "/edit"}>
+            <RaisedButton label="Edit" labelPosition="before" primary={true} icon={< FontIcon className = "fa fa-pencil-square-o" />} style={style}/>
+          </Link>
+
+          <Divider/>
+          <br/> {doc && doc.body}
+        </div>
+      )
+    } else {
+      return (<NotFound/>)
+    }
+  }
+}
 
 ViewDocument.propTypes = {
   doc: PropTypes.object,
+  handleSnackbarOpen: PropTypes.func
 };
 
 export default container((props, onData) => {
@@ -53,6 +70,6 @@ export default container((props, onData) => {
 
   if (subscription.ready()) {
     const doc = Documents.findOne(documentId);
-    onData(null, { doc });
+    onData(null, {doc});
   }
 }, ViewDocument);
